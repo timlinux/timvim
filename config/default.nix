@@ -1,92 +1,57 @@
 { pkgs, ... }:
 {
-  # Import all your configuration modules here
-  imports = [
-    #    ./core
-    #    ./themes
-    #    ./plugins
-  ];
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  clipboard = {
-  #    register = "unnamedplus";
-  #    providers = {
-  #      wl-copy.enable = true;
-  #      xclip.enable = true;
-  #    };
-  #  };
-  #  globals.mapleader = " ";
-  #
-  #  # Misc plugins
-  #  plugins = {
-  #    persistence.enable = true;
-  #    direnv.enable = true;
-  #    web-devicons.enable = true;
-  #    lastplace.enable = true;
-  #    nvim-autopairs.enable = true;
-  #    markdown-preview.enable = true;
-  #    tmux-navigator.enable = true;
-  #    zellij = {
-  #      enable = true;
-  #      settings = {
-  #        vimTmuxNavigatorKeybinds = true;
-  #      };
-  #    };
-  #    better-escape = {
-  #      enable = true;
-  #      settings.timeout = 200;
-  #    };
-  #    which-key = {
-  #      enable = false; # If you want to enable then change timeoutLen to 10 in core/options.nix for better performance
-  #      settings.show_keys = true;
-  #    };
-  #  };
-  #  extraPlugins = with pkgs.vimPlugins; [
-  #    vim-be-good
-  #    nui-nvim
-  #  ];
-  #  extraPackages = with pkgs; [
-  #    # ripgrep
-  #    tmux-sessionizer
-  #    # Formatters
-  #    alejandra
-  #    asmfmt
-  #    astyle
-  #    black
-  #    cmake-format
-  #    gofumpt
-  #    golines
-  #    gotools
-  #    isort
-  #    nodePackages.prettier
-  #    prettierd
-  #    rustfmt
-  #    shfmt
-  #    stylua
-  #    # Debuggers / misc deps
-  #    asm-lsp
-  #    bashdb
-  #    # clang-tools
-  #    delve
-  #    fd
-  #    gdb
-  #    go
-  #    # lldb_17
-  #    llvmPackages_17.bintools-unwrapped
-  #    marksman
-  #    # Linters
-  #    commitlint
-  #    # eslint_d
-  #    golangci-lint
-  #    hadolint
-  #    # html-tidy
-  #    luajitPackages.luacheck
-  #    markdownlint-cli
-  #    nodePackages.jsonlint
-  #    pylint
-  #    ruff
-  #    # shellcheck
-  #    vale
-  #    yamllint
-  #  ];
+  config.vim = {
+    viAlias = true;
+    vimAlias = true;
+    debugMode = {
+      enable = false;
+      level = 16;
+      logFile = "tmp/nvim.log";
+    };
+
+    spellcheck = {
+      enable = true;
+    };
+
+    visuals = {
+      nvim-scrollbar.enable = true;
+      nvim-web-devicons.enable = true;
+      nvim-cursorline.enable = true;
+      cinnamon-nvim.enable = true;
+      fidget-nvim.enable = true;
+
+      highlight-undo.enable = true;
+      indent-blankline.enable = true;
+
+      # This drops all the letters into a pile of letter heap, just for fun
+      cellular-automaton.enable = true;
+    };
+
+    # Status line at the bottom of the nvim editor
+    statusline = {
+      lualine = {
+        enable = true;
+      };
+    };
+
+    # Auto Pairing of Brackets and Braces
+    autopairs.nvim-autopairs.enable = true;
+
+    # Auto complete
+    autocomplete = {
+      nvim-cmp.enable = true;
+      blink-cmp.enable = true;
+    };
+
+    # Enable adds code snippets as you type your code along
+    snippets.luasnip.enable = true;
+
+    # Allow tree like structure for browsing your directory
+    filetree = {
+      neo-tree = {
+        enable = true;
+      };
+    };
+
+  };
 }
