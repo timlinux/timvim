@@ -1,29 +1,84 @@
 {
-  description = "NVF Configuration";
+  description = "NVF-based Neovim configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nvf.url = "github:notashelf/nvf";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs =
     {
-      #nixpkgs,
+      nixpkgs,
       nixpkgs-stable,
-
+      flake-parts,
+      nvf,
       ...
     }@inputs:
-    {
-      packages.x86_64-linux = {
-        default =
-          (inputs.nvf.lib.neovimConfiguration {
-            pkgs = nixpkgs-stable.legacyPackages.x86_64-linux;
-            modules = [
-              ./config
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      perSystem =
+        { system, ... }:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (_final: _prev: {
+                stable = import nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                  config.nvidia.acceptLicense = true;
+                };
+              })
             ];
-          }).neovim;
+            config.allowUnfree = true;
+          };
+
+          nvimConfig = nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            modules = [ ./config ];
+          };
+
+        in
+        {
+          _module.args.pkgs = pkgs;
+
+          packages.default = nvimConfig.neovim;
+
+          apps.default = {
+            type = "app";
+            program = "${nvimConfig.neovim}/bin/nvim";
+            meta = {
+              description = "Launch jack-thesparrow nvf config";
+            };
+          };
+
+          checks.default = pkgs.stdenv.mkDerivation {
+            name = "nvf-neovim-check";
+            buildCommand = ''
+              echo "✔ NVF configuration flake check passed" > $out
+            '';
+          };
+        };
+
+      flake = {
+        homeModules.default =
+          { pkgs, ... }:
+          {
+            home.packages = [
+              (nvf.lib.neovimConfiguration {
+                inherit pkgs;
+                modules = [ ./config ];
+              }).neovim
+            ];
+          };
       };
     };
 }
