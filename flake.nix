@@ -75,10 +75,7 @@
             home.packages = [
               (nvf.lib.neovimConfiguration {
                 inherit pkgs;
-                modules = [
-                  ./config
-                  inputs.nvf.modules.default
-                ];
+                modules = [ ./config ];
               }).neovim
             ];
           };

@@ -3,7 +3,7 @@
   vim.keymaps = [
     # Find Files witih File Names
     {
-      key = "<leader>ff";
+      key = "<C-p>";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope find_files<CR>";
@@ -17,7 +17,7 @@
     }
     # Open File Explorer
     {
-      key = "<leader>n";
+      key = "<C-n>";
       mode = "n";
       silent = true;
       action = "<cmd>Neotree filesystem reveal left<CR>";
