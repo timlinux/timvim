@@ -1,21 +1,26 @@
 { pkgs, ... }:
 {
-  vim.options = {
-    # Numbering
-    number = true;
-    relativenumber = true;
+  vim = {
+    globals = {
+      mapleader = " ";
+    };
+    options = {
+      # Numbering
+      number = true;
+      relativenumber = true;
 
-    # Tab Settings
-    tabstop = 2;
-    softtabstop = 2;
-    showtabline = 2;
-    expandtab = true;
+      # Tab Settings
+      tabstop = 2;
+      softtabstop = 2;
+      showtabline = 2;
+      expandtab = true;
 
-    # Indentation
-    smartindent = true;
-    shiftwidth = 2;
-    breakindent = true;
+      # Indentation
+      smartindent = true;
+      shiftwidth = 2;
+      breakindent = true;
 
-    wrap = false;
+      wrap = false;
+    };
   };
 }

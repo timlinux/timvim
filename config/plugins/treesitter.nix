@@ -2,14 +2,13 @@
 let
   treesitterLanguages = [
     "bash"
-    "c"
-    "cpp"
+    "clang"
     "css"
     "go"
     "html"
     "java"
-    "javascript"
-    "json"
+    #"js"
+    #"json"
     "kotlin"
     "lua"
     "markdown"
@@ -17,9 +16,9 @@ let
     "python"
     "rust"
     "sql"
-    "toml"
-    "tsx"
-    "typescript"
+    #"toml"
+    #"tsx"
+    #"typescript"
     "yaml"
     "zig"
 
@@ -60,7 +59,11 @@ in
   vim = {
     treesitter = {
       enable = true;
-      highlight = true;
+
+      highlight = {
+        enable = true;
+      };
+
       indent.enable = true;
 
       addDefaultGrammars = true;
@@ -69,7 +72,7 @@ in
 
       context = {
         enable = true;
-        setOpts = { };
+        #setOpts = { };
       };
     };
     languages = {
