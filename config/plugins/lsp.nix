@@ -7,22 +7,26 @@
       lspconfig.enable = true;
 
       servers = {
-        clangd = { };
-        pyright = { };
-        tsserver = { };
+        nixd = {
+          filetypes = [ "nix" ];
+          cmd = [ "${pkgs.nixd}/bin/nixd" ];
+        };
+
+        clangd = {
+          filetypes = [
+            "c"
+            "cpp"
+          ];
+          cmd = [ "${pkgs.clang-tools}/bin/clangd" ];
+        };
       };
     };
 
     languages = {
       bash.lsp.enable = true;
       clang.lsp.enable = true;
-      python.lsp.enable = true;
-
-      nix.lsp = {
-        enable = true;
-
-      };
-      #typescript.lsp.enable = true;
+      python.lsp.enable = false;
+      nix.lsp.enable = true;
     };
   };
 }
