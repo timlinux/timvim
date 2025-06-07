@@ -2,6 +2,7 @@
 {
   imports = [
     ./core
+    ./plugins
     ./themes
   ];
 }
