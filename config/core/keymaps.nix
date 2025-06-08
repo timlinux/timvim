@@ -57,13 +57,6 @@
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       desc = "LSP Code Action (Visual)";
     }
-    {
-      key = "<leader>lf";
-      mode = "n";
-      silent = true;
-      action = "function() require('conform').format() end";
-      desc = "Format Using conform";
-    }
 
   ];
 }
