@@ -45,7 +45,6 @@
             inherit pkgs;
             modules = [ ./config ];
           };
-
         in
         {
           _module.args.pkgs = pkgs;
