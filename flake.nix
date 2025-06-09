@@ -6,7 +6,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nvf.url = "github:notashelf/nvf";
-    #telescope-ui-select-nvim.url = "github:nvim-telescope/telescope-ui-select.nvim";
   };
 
   outputs =
@@ -15,7 +14,6 @@
       nixpkgs-stable,
       flake-parts,
       nvf,
-      #telescope-ui-select-nvim,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
