@@ -3,7 +3,7 @@
   vim = {
     languages = {
       enableFormat = true;
-      #enableDAP = true;
+      enableDAP = true;
       enableExtraDiagnostics = true;
       enableTreesitter = true;
 
