@@ -46,6 +46,23 @@
 
       # Buttons
       {
+        type = "button";
+        val = "  New file";
+        on_press.__raw = "function() vim.cmd('ene') end";
+        opts = {
+          shortcut = "n";
+          keymap = [
+            "n"
+            "n"
+            ":ene<CR>"
+          ];
+          position = "center";
+          width = 30;
+          align_shortcut = "right";
+          hl_shortcut = "Keyword";
+        };
+      }
+      {
         type = "group";
         val = [
           {
