@@ -5,6 +5,7 @@
     ./extraPlugins.nix
     ./fzf.nix
     ./filetree.nix
+    ./git.nix
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
