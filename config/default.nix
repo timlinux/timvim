@@ -4,5 +4,6 @@
     ./core
     ./plugins
     ./themes
+    ./ui
   ];
 }
