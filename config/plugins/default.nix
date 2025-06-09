@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./alpha.nix
     ./extraPlugins.nix
     ./fzf.nix
     ./filetree.nix
