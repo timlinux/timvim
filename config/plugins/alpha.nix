@@ -1,5 +1,43 @@
 { pkgs, lib, ... }:
 
+let
+  # mkButton helper to create a button with Lua on_press feeding keys
+  mkButton =
+    {
+      val,
+      shortcut,
+      cmd,
+    }:
+    {
+      type = "button";
+      val = val;
+      on_press.__raw = ''
+        function()
+          local keys = vim.api.nvim_replace_termcodes("<leader>' .. shortcut .. '", true, false, true)
+          vim.api.nvim_feedkeys(keys, "m", false)
+        end
+      '';
+      opts = {
+        shortcut = shortcut;
+        keymap = [
+          "n"
+          shortcut
+          cmd
+          # {}
+          {
+            noremap = true;
+            silent = true;
+            nowait = true;
+            desc = val;
+          }
+        ];
+        position = "center";
+        width = 30;
+        align_shortcut = "right";
+        hl_shortcut = "Keyword";
+      };
+    };
+in
 {
   vim.dashboard.alpha = {
     enable = true;
@@ -44,129 +82,45 @@
         val = 1;
       }
 
-      # Buttons
-      {
-        type = "button";
-        val = "  New file";
-        on_press.__raw = "function() vim.cmd('ene') end";
-        opts = {
-          shortcut = "n";
-          keymap = [
-            "n"
-            "n"
-            ":ene<CR>"
-          ];
-          position = "center";
-          width = 30;
-          align_shortcut = "right";
-          hl_shortcut = "Keyword";
-        };
-      }
+      # Buttons group using mkButton helper
       {
         type = "group";
         val = [
-          {
-            type = "button";
+          (mkButton {
+            val = "  New file";
+            shortcut = "fn";
+            cmd = ":ene <CR>";
+          })
+          (mkButton {
             val = "  Find file";
-            on_press = ":Telescope find_files<CR>";
-            opts = {
-              shortcut = "f";
-              keymap = [
-                "n"
-                "f"
-                ":Telescope find_files<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          {
-            type = "button";
-            val = "  Live grep";
-            on_press = ":Telescope live_grep<CR>";
-            opts = {
-              shortcut = "g";
-              keymap = [
-                "n"
-                "g"
-                ":Telescope live_grep<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          {
-            type = "button";
+            shortcut = "ff";
+            cmd = ":Telescope find_files<CR>";
+          })
+          (mkButton {
             val = "  Recent files";
-            on_press = ":Telescope oldfiles<CR>";
-            opts = {
-              shortcut = "r";
-              keymap = [
-                "n"
-                "r"
-                ":Telescope oldfiles<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          {
-            type = "button";
+            shortcut = "fr";
+            cmd = ":Telescope oldfiles<CR>";
+          })
+          (mkButton {
+            val = "  Live grep";
+            shortcut = "fg";
+            cmd = ":Telescope live_grep<CR>";
+          })
+          (mkButton {
             val = "  Bookmarks";
-            on_press = ":Telescope marks<CR>";
-            opts = {
-              shortcut = "m";
-              keymap = [
-                "n"
-                "m"
-                ":Telescope marks<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          {
-            type = "button";
+            shortcut = "fm";
+            cmd = ":Telescope marks<CR>";
+          })
+          (mkButton {
             val = "  Config";
-            on_press = ":edit ~/.config/nvim/init.lua<CR>";
-            opts = {
-              shortcut = "c";
-              keymap = [
-                "n"
-                "c"
-                ":edit ~/.config/nvim/init.lua<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          {
-            type = "button";
+            shortcut = "fc";
+            cmd = ":edit ~/.config/nvim/init.lua<CR>";
+          })
+          (mkButton {
             val = "  Quit";
-            on_press = ":qa<CR>";
-            opts = {
-              shortcut = "q";
-              keymap = [
-                "n"
-                "q"
-                ":qa<CR>"
-              ];
-              position = "center";
-              width = 30;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
+            shortcut = "fq";
+            cmd = ":qa<CR>";
+          })
         ];
       }
 
