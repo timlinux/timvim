@@ -8,6 +8,7 @@
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
+    ./luasnip.nix
     ./telescope.nix
     ./treesitter.nix
   ];
