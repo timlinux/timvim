@@ -2,6 +2,7 @@
 {
   imports = [
     ./alpha.nix
+    ./debugger.nix
     ./extraPlugins.nix
     ./fzf.nix
     ./filetree.nix
@@ -10,7 +11,9 @@
     ./lsp.nix
     ./lualine.nix
     ./luasnip.nix
+    ./notify.nix
     ./telescope.nix
+    #./terminal.nix
     ./treesitter.nix
     ./yanky.nix
   ];
