@@ -10,6 +10,8 @@
       lspkind.enable = true;
       lspsaga.enable = true;
       inlayHints.enable = true;
+
+      null-ls.enable = true;
     };
   };
 
