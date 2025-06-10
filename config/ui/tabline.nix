@@ -9,6 +9,7 @@
         show_buffer_close_icons = true;
         show_close_icon = false;
         show_filename_only = true;
+        numbers = "none";
         modified_icon = "●";
         show_modified_icon = {
           __raw = ''
@@ -23,6 +24,16 @@
           style = "none";
         };
       };
+    };
+    # Buffer Navigation
+    mappings = {
+      cycleNext = "<leader>bl";
+      cyclePrevious = "<leader>bh";
+      closeCurrent = "<leader>bx";
+      pick = "<leader>bp";
+      # ReOrder the tabs
+      moveNext = "<leader>me";
+      movePrevious = "<leader>mq";
     };
   };
 }
