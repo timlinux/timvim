@@ -59,6 +59,7 @@ in
   vim = {
     treesitter = {
       enable = true;
+      fold = true;
 
       highlight = {
         enable = true;
@@ -70,10 +71,6 @@ in
 
       autotagHtml = true;
 
-      context = {
-        enable = true;
-        #setOpts = { };
-      };
     };
     languages = {
       enableFormat = true;

@@ -44,6 +44,7 @@
       python = {
         enable = true;
         format.type = "black";
+
       };
 
     };
