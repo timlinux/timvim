@@ -12,5 +12,6 @@
     ./luasnip.nix
     ./telescope.nix
     ./treesitter.nix
+    ./yanky.nix
   ];
 }
