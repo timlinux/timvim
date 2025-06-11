@@ -134,6 +134,4 @@ Encountered an issue or have a question? Visit the [Issue Tracker](https://githu
 
 - [GitHub - elythh/nixvim: ❄️ my neovim config using nixvim](https://github.com/elythh/nixvim) - For features to include.
 
-- 
-
-- [zethra]([git.sr.ht](https://git.sr.ht/~zethra/)) - For your term2alpha tool, with which i configured my alpha-dashboard.
+- [zethra](https://git.sr.ht/~zethra/) - For your term2alpha tool, with which i configured my alpha-dashboard.
