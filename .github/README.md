@@ -31,6 +31,14 @@
 
 Schrovimger is a custom NeoVim configuration, to smoothen out your development workflow providing an unparalled coding experience.
 
+<img src = "assets/code.png" alt="nvim">
+
+<details>
+    <summary>More!</summary>
+    <img src = "assets/alpha.png">
+    <img src = "assets/telescope.png">
+</details>
+
 ## Features
 
 - **Text-Editor/IDE**:  Schrovimger aims to provide a non-bloated, minimal and distraction-free code writing experience.
