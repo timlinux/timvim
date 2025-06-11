@@ -6,5 +6,6 @@
     ./clipboard.nix
     ./options.nix
     ./keymaps.nix
+    ./utility.nix
   ];
 }

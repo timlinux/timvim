@@ -29,7 +29,8 @@
 
 ## Whats This All About ?
 
-Schrovimger is a custom NeoVim configuration, to smoothen out your development workflow providing an unparalled coding experience.
+Schrovimger is a custom NeoVim configuration, to smoothen out your development
+workflow providing an unparalled coding experience.
 
 <img src = "assets/code.png" alt="nvim">
 
@@ -41,17 +42,25 @@ Schrovimger is a custom NeoVim configuration, to smoothen out your development w
 
 ## Features
 
-- **Text-Editor/IDE**:  Schrovimger aims to provide a non-bloated, minimal and distraction-free code writing experience.
+- **Text-Editor/IDE**: Schrovimger aims to provide a non-bloated, minimal and
+  distraction-free code writing experience.
 
-- **NVF Integration:** Build upon the [NVF](https://github.com/NotAShelf/nvf.git) Framework which gives it a solid base for your personal configuration.
+- **NVF Integration:** Build upon the
+  [NVF](https://github.com/NotAShelf/nvf.git) Framework which gives it a solid
+  base for your personal configuration.
 
-- **Customization:** The [NVF](https://github.com/NotAShelf/nvf.git) Framework provides customization options that are unrestricted, allowing it to be tailored according to your preferences.
+- **Customization:** The [NVF](https://github.com/NotAShelf/nvf.git) Framework
+  provides customization options that are unrestricted, allowing it to be
+  tailored according to your preferences.
 
-- **Plugin Supports:** [NVF](https://github.com/NotAShelf/nvf.git) has various plugins also allowing to add your custom plugins.
+- **Plugin Supports:** [NVF](https://github.com/NotAShelf/nvf.git) has various
+  plugins also allowing to add your custom plugins.
 
 ## Installation
 
-Getting Schrovimger installed and running on your system is a **easy AF**. Simply follow the installation guide below and Schrovimger will get running in no time.
+Getting Schrovimger installed and running on your system is a **easy AF**.
+Simply follow the installation guide below and Schrovimger will get running in
+no time.
 
 ### InCase you'd like to test run:
 
@@ -61,7 +70,8 @@ nix run github:jack-thesparrow/schrovimger
 
 ### How to install Schrovimger in your system
 
-To include the configuration as a replacement of Vanilla Neovim, you must first add it as input in your main `flake.nix` of your NixOS system:
+To include the configuration as a replacement of Vanilla Neovim, you must first
+add it as input in your main `flake.nix` of your NixOS system:
 
 ```nix
 inputs.nvf = {
@@ -80,26 +90,30 @@ outputs = {
 }@inputs:
 ```
 
-This allows you to install Schrovimger as both: NixOS package and as a Home-Manager Module. I recommend you to install this configuration as a Home-Manager module. 
+This allows you to install Schrovimger as both: NixOS package and as a
+Home-Manager Module. I recommend you to install this configuration as a
+Home-Manager module.
 
-Now add `inputs` into your `extraSpecialArgs` of your Home-Manager Configuration:
+Now add `inputs` into your `extraSpecialArgs` of your Home-Manager
+Configuration:
 
 ```nix
-      homeConfigurations = {
-        rahul = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home/home.nix
-          ];
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-        };
+  homeConfigurations = {
+    rahul = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home/home.nix
+      ];
+      extraSpecialArgs = {
+        inherit inputs;
       };
     };
+  };
+};
 ```
 
-Here is a sample `neovim.nix` module which you can import into your Home-Manager Configuration and then rebuild your system.
+Here is a sample `neovim.nix` module which you can import into your Home-Manager
+Configuration and then rebuild your system.
 
 ```nix
 {
@@ -114,7 +128,8 @@ Here is a sample `neovim.nix` module which you can import into your Home-Manager
 }
 ```
 
-<I>And now you have successfully installed Schrovimger NVF NeoVim Configuration!</I>
+<I>And now you have successfully installed Schrovimger NVF NeoVim
+Configuration!</I>
 
 ## Quick Start Guide
 
@@ -128,18 +143,26 @@ Here is a sample `neovim.nix` module which you can import into your Home-Manager
 
 ## Contribution
 
-Contributions are welome! Feel Free to [open an issue](https://github.com/jack-thesparrow/schrovimger/issues) to report problems, suggest improvements, or submit pull requests to add new features to Schrovimger.
+Contributions are welome! Feel Free to
+[open an issue](https://github.com/jack-thesparrow/schrovimger/issues) to report
+problems, suggest improvements, or submit pull requests to add new features to
+Schrovimger.
 
 ## Support
 
-Encountered an issue or have a question? Visit the [Issue Tracker](https://github.com/jack-thesparrow/schrovimger/issues) 
+Encountered an issue or have a question? Visit the
+[Issue Tracker](https://github.com/jack-thesparrow/schrovimger/issues)
 
 ## Acknowledgements
 
-- [GitHub - NotAShelf/nvf](https://github.com/NotAShelf/nvf.git)  - For the excellent framework.
+- [GitHub - NotAShelf/nvf](https://github.com/NotAShelf/nvf.git) - For the
+  excellent framework.
 
-- [Sly-Harvey · GitHub](https://github.com/Sly-Harvey) - For your clean and readable nixvim config which i used for reference.
+- [Sly-Harvey · GitHub](https://github.com/Sly-Harvey) - For your clean and
+  readable nixvim config which i used for reference.
 
-- [GitHub - elythh/nixvim: ❄️ my neovim config using nixvim](https://github.com/elythh/nixvim) - For features to include.
+- [GitHub - elythh/nixvim: ❄️ my neovim config using nixvim](https://github.com/elythh/nixvim) -
+  For features to include.
 
-- [zethra](https://git.sr.ht/~zethra/) - For your term2alpha tool, with which i configured my alpha-dashboard.
+- [zethra](https://git.sr.ht/~zethra/) - For your term2alpha tool, with which i
+  configured my alpha-dashboard.

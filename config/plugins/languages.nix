@@ -20,6 +20,11 @@
         lsp.enable = true;
       };
 
+      html = {
+        enable = true;
+        treesitter.autotagHtml = true;
+      };
+
       java = {
         enable = true;
         lsp.enable = true;
@@ -38,6 +43,16 @@
               expr = "import <nixpkgs> { }";
             };
           };
+        };
+      };
+
+      markdown = {
+        enable = true;
+        format.enable = true;
+        lsp.enable = true;
+        extensions = {
+          markview-nvim.enable = true;
+          render-markdown-nvim.enable = true;
         };
       };
 
