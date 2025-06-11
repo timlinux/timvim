@@ -3,7 +3,6 @@
   imports = [
     ./alpha.nix
     ./debugger.nix
-    ./extraPlugins.nix
     ./fzf.nix
     ./filetree.nix
     ./git.nix
@@ -13,7 +12,7 @@
     ./luasnip.nix
     ./notify.nix
     ./telescope.nix
-    #./terminal.nix
+    ./telescope-ui-select.nix
     ./treesitter.nix
     ./yanky.nix
   ];
