@@ -1499,7 +1499,7 @@
       dashboard.config.layout = {
         {type = "padding", val = 0},
         dashboard.section.header,
-        {type = "padding", val = 1},
+        {type = "padding", val = 0},
         {
           type = "group",
           val = dashboard.section.buttons.val,
@@ -1508,7 +1508,7 @@
             spacing = 0
           }
         },
-        { type = "padding", val = 1},
+        { type = "padding", val = 0},
         dashboard.section.footer,
       }
 
