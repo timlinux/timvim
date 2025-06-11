@@ -11,6 +11,7 @@
     ./lualine.nix
     ./luasnip.nix
     ./notify.nix
+    ./notes.nix
     ./telescope.nix
     ./telescope-ui-select.nix
     ./treesitter.nix
