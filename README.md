@@ -22,16 +22,16 @@
     <br>
     </p>
     </div>
-<h1 align = "center"> Schrovimger: A Standalone NVF NeoVim Configuration</h1>
+<h1 align = "center">Schrovimger: A Standalone NVF NeoVim Configuration</h1>
 <h3 align = "center"></h3>
 
 </h1>
 
-### Whats This All About ?
+## Whats This All About ?
 
 Schrovimger is a custom NeoVim configuration, to smoothen out your development workflow providing an unparalled coding experience.
 
-### Features
+## Features
 
 - **Text-Editor/IDE**:  Schrovimger aims to provide a non-bloated, minimal and distraction-free code writing experience.
 
@@ -41,11 +41,11 @@ Schrovimger is a custom NeoVim configuration, to smoothen out your development w
 
 - **Plugin Supports:** [NVF](https://github.com/NotAShelf/nvf.git) has various plugins also allowing to add your custom plugins.
 
-### Installation
+## Installation
 
 Getting Schrovimger installed and running on your system is a **easy AF**. Simply follow the installation guide below and Schrovimger will get running in no time.
 
-##### InCase you'd like to test run:
+### InCase you'd like to test run:
 
 ```shell
 nix run github:jack-thesparrow/schrovimger
@@ -108,7 +108,7 @@ Here is a sample `neovim.nix` module which you can import into your Home-Manager
 
 <I>And now you have successfully installed Schrovimger NVF NeoVim Configuration!</I>
 
-#### Quick Start Guide
+## Quick Start Guide
 
 - `config/core` - contains all the core Vim Settings.
 
@@ -118,14 +118,22 @@ Here is a sample `neovim.nix` module which you can import into your Home-Manager
 
 - `config/ui` - contains UI and Visual Options.
 
-#### Contribution
+## Contribution
 
 Contributions are welome! Feel Free to [open an issue](https://github.com/jack-thesparrow/schrovimger/issues) to report problems, suggest improvements, or submit pull requests to add new features to Schrovimger.
 
-#### Licence
-
-This project is licenced under the [MIT Licence](LICENCE). See the LICENCE file for more details.
-
-#### Support
+## Support
 
 Encountered an issue or have a question? Visit the [Issue Tracker](https://github.com/jack-thesparrow/schrovimger/issues) 
+
+## Acknowledgements
+
+- [GitHub - NotAShelf/nvf](https://github.com/NotAShelf/nvf.git)  - For the excellent framework.
+
+- [Sly-Harvey · GitHub](https://github.com/Sly-Harvey) - For your clean and readable nixvim config which i used for reference.
+
+- [GitHub - elythh/nixvim: ❄️ my neovim config using nixvim](https://github.com/elythh/nixvim) - For features to include.
+
+- 
+
+- [zethra]([git.sr.ht](https://git.sr.ht/~zethra/)) - For your term2alpha tool, with which i configured my alpha-dashboard.
