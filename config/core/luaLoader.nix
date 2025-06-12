@@ -1,0 +1,4 @@
+{ pkgs, ... }:
+{
+  vim.enableLuaLoader = true;
+}

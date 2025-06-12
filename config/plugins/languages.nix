@@ -30,6 +30,12 @@
         lsp.enable = true;
       };
 
+      lua = {
+        enable = true;
+        format.enable = true;
+        lsp.enable = true;
+      };
+
       nix = {
         enable = true;
         format.enable = true;

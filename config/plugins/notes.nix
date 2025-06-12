@@ -2,7 +2,7 @@
 {
   vim.notes = {
     obsidian = {
-      enable = true;
+      enable = false;
 
       setupOpts = {
         completion.nvim_cmp = true;
