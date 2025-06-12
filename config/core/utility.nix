@@ -11,5 +11,6 @@
         autoStart = true;
       };
     };
+    snacks-nvim.enable = true;
   };
 }

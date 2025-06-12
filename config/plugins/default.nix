@@ -12,7 +12,9 @@
     ./luasnip.nix
     ./notify.nix
     ./notes.nix
+    ./snacks
     ./telescope.nix
+    ./terminal.nix
     ./telescope-ui-select.nix
     ./treesitter.nix
     ./yanky.nix
