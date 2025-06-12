@@ -68,6 +68,17 @@
 
       };
 
+      rust = {
+        enable = true;
+        crates = {
+          enable = true;
+          codeActions = true;
+        };
+        format.enable = true;
+        format.type = "rustfmt";
+        lsp.enable = true;
+      };
+
     };
   };
 }
