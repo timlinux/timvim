@@ -8,7 +8,7 @@
       gitsigns = {
         enable = true;
         codeActions.enable = true; # Was too intrusive
-        mappings.blameLine = "<leader>hb";
+        mappings.blameLine = "<leader>gb";
 
       };
     };
