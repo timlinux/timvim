@@ -153,6 +153,10 @@ Schrovimger.
 Encountered an issue or have a question? Visit the
 [Issue Tracker](https://github.com/jack-thesparrow/schrovimger/issues)
 
+## License
+
+This project is licensed under the [MIT License](LICENCE). See the LICENSE file for more details.
+
 ## Acknowledgements
 
 - [GitHub - NotAShelf/nvf](https://github.com/NotAShelf/nvf.git) - For the
