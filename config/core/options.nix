@@ -20,6 +20,8 @@
       shiftwidth = 2;
       breakindent = true;
 
+      shada.enable = true;
+
       wrap = false;
     };
   };
