@@ -4,6 +4,7 @@
     enable = true;
 
     setupOpts = {
+      ring.storage = "shada";
       highlight = {
         on_yank = {
           enable = true;
