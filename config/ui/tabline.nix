@@ -26,14 +26,14 @@
       };
     };
     # Buffer Navigation
-    #mappings = {
-    #  #cycleNext = "<leader>bl";
-    #  cyclePrevious = "<leader>bh";
-    #  closeCurrent = "<leader>bx";
-    #  pick = "<leader>bp";
-    #  # ReOrder the tabs
-    #  moveNext = "<leader>me";
-    #  movePrevious = "<leader>mq";
-    #};
+    mappings = {
+      #cycleNext = "<leader>bl";
+      cyclePrevious = "<leader>bh";
+      closeCurrent = "<leader>bx";
+      pick = "<leader>bp";
+      # ReOrder the tabs
+      moveNext = "<leader>me";
+      movePrevious = "<leader>mq";
+    };
   };
 }

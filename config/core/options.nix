@@ -20,7 +20,8 @@
       shiftwidth = 2;
       breakindent = true;
 
-      shada.enable = true;
+      shada = "!,'100,<50,s10,h";
+      #shadafile = "NONE";
 
       wrap = false;
     };
