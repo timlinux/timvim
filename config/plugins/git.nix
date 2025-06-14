@@ -9,7 +9,7 @@
         enable = true;
         codeActions.enable = true; # Was too intrusive
         mappings = {
-          blameLine = "<leader>bl";
+          blameLine = "<leader>gl";
           toggleBlame = "<leader>tb";
         };
       };
