@@ -5,7 +5,7 @@
     ./debugger.nix
     ./fzf.nix
     ./filetree.nix
-    ./git.nix
+    #./git.nix
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
