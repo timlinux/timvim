@@ -1,0 +1,35 @@
+# Build final output & push to Cachix on main
+name: 🚀 Build & Push to Cachix
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 🏗️ Build & Upload
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        system: [x86_64-linux, aarch64-linux]
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🧊 Install Nix
+        uses: cachix/install-nix-action@v25
+
+      - name: 🏷️ Setup Cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: schrovimger
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: 🔨 Build .#default
+        run: nix build .#default --system ${{ matrix.system }}
+
+      - name: 📤 Push to Cachix
+        run: cachix push schrovimger ./result
+
