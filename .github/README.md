@@ -3,7 +3,7 @@
   <br><br>
   <div align="center">
     <p>
-      <!-- ✅ NEW: CI, Build & Cachix badges -->
+      <!--- ✅ NEW: CI, Build & Cachix badges -->
       <a href="https://github.com/jack-thesparrow/schrovimger/actions/workflows/ci.yml">
         <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/jack-thesparrow/schrovimger/ci.yml?label=CI&style=for-the-badge&color=8aadf4&labelColor=303446"/>
       </a>
