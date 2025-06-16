@@ -20,4 +20,4 @@ jobs:
         uses: cachix/install-nix-action@v25
 
       - name: 🔍 Run nix flake check
-        run: nix flake check --system x86_64-linux
+        run: nix flake check --all-systems
