@@ -79,6 +79,11 @@
         lsp.enable = true;
       };
 
+      yaml = {
+        enable = true;
+        lsp.enable = true;
+      };
+
     };
   };
 }
