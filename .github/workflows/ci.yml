@@ -1,4 +1,4 @@
-# For fast checks & tests on every push and PR
+# Fast checks & test on every push and PR
 name: 🧪 CI
 
 on:
