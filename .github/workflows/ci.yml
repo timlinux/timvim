@@ -1,6 +1,3 @@
-
-# .github/workflows/ci.yml
-
 name: 🧪 Nix Flake CI
 
 on:
@@ -22,6 +19,16 @@ jobs:
         uses: cachix/install-nix-action@v25
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: 🏗️ Setup Cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: schrovimger
+          # For write access (optional, needed if you want to push new builds)
+          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          # Or, if you use API tokens for private cache or write access
+          # authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          # Only one of signingKey or authToken is needed
 
       - name: 🔍 Run `nix flake check`
         run: nix flake check
