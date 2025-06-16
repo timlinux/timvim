@@ -20,20 +20,11 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-unstable
 
-      # ✅ If secret exists → push-enabled cache
-      - name: 🏗️ Setup Cachix (push-enabled)
-        if: ${{ secrets.CACHIX_SIGNING_KEY }}
+      - name: 🏗️ Setup Cachix with Auth Token
         uses: cachix/cachix-action@v14
         with:
           name: schrovimger
-          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-
-      # ✅ If secret does NOT exist → pull-only cache
-      - name: 🏗️ Setup Cachix (pull-only)
-        if: ${{ !secrets.CACHIX_SIGNING_KEY }}
-        uses: cachix/cachix-action@v14
-        with:
-          name: schrovimger
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: 🔍 Run `nix flake check`
         run: nix flake check
