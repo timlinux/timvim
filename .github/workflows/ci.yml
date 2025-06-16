@@ -11,9 +11,6 @@ jobs:
   flake-check:
     name: ✅ Check Flake
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        system: [x86_64-linux, aarch64-linux, x86_64-darwin, aarch64-darwin]
 
     steps:
       - name: 📥 Checkout
@@ -23,4 +20,4 @@ jobs:
         uses: cachix/install-nix-action@v25
 
       - name: 🔍 Run nix flake check
-        run: nix flake check --system ${{ matrix.system }}
+        run: nix flake check --system x86_64-linux

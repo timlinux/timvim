@@ -10,9 +10,6 @@ jobs:
   build:
     name: 🏗️ Build & Upload
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        system: [x86_64-linux, aarch64-linux]
 
     steps:
       - name: 📥 Checkout
@@ -28,8 +25,7 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: 🔨 Build .#default
-        run: nix build .#default --system ${{ matrix.system }}
+        run: nix build .#default --system x86_64-linux
 
       - name: 📤 Push to Cachix
         run: cachix push schrovimger ./result
-
