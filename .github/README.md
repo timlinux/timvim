@@ -80,6 +80,14 @@ no time.
 nix run github:jack-thesparrow/schrovimger
 ```
 
+or use the Cachix Binary Cache **(Recommended)**
+
+```shell
+nix run github:jack-thesparrow/schrovimger \
+--option extra-substituters https://schrovimger.cachix.org \
+--option extra-trusted-public-keys "schrovimger.cachix.org-1:schrovimger.cachix.org-1:wUDg44FWjTBa3CutgbINFRAEb8N5P2yTWze45jcGvMY="
+```
+
 ### How to install Schrovimger in your system
 
 To include the configuration as a replacement of Vanilla Neovim, you must first
@@ -167,7 +175,8 @@ Encountered an issue or have a question? Visit the
 
 ## License
 
-This project is licensed under the [MIT License](LICENCE). See the LICENSE file for more details.
+This project is licensed under the [MIT License](LICENCE). See the LICENSE file
+for more details.
 
 ## Acknowledgements
 
