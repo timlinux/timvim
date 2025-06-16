@@ -1,27 +1,39 @@
-<h1 align = "center">
-<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
-<br>
-<br>
-<div align = "center">
+<h1 align="center">
+  <a href="#"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
+  <br><br>
+  <div align="center">
     <p>
-    <a href="https://github.com/jack-thesparrow/schrovimger/issues">
-        <img src="https://img.shields.io/github/issues/jack-thesparrow/schrovimger?color=fab387&labelColor=303446&style=for-the-badge">
-    </a>
-    <a href="https://github.com/jack-thesparrow/schrovimger/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/jack-thesparrow/schrovimger?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
-    </a>
-    <a href="https://github.com/jack-thesparrow/schrovimger/stargazers">
-        <img src="https://img.shields.io/github/stars/jack-thesparrow/schrovimger?color=ca9ee6&labelColor=303446&style=for-the-badge">
-    </a>
-    <a href="https://github.com/jack-thesparrow/schrovimger">
-        <img src="https://img.shields.io/github/repo-size/jack-thesparrow/schrovimger?color=ea999c&labelColor=303446&style=for-the-badge">
-    </a>
-    <a href="https://github.com/jack-thesparrow/schrovimger/blob/main/LICENCE">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
-    </a>
-    <br>
+      <!-- ✅ NEW: CI, Build & Cachix badges -->
+      <a href="https://github.com/jack-thesparrow/schrovimger/actions/workflows/ci.yml">
+        <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/jack-thesparrow/schrovimger/ci.yml?label=CI&style=for-the-badge&color=8aadf4&labelColor=303446"/>
+      </a>
+      <a href="https://github.com/jack-thesparrow/schrovimger/actions/workflows/build.yml">
+        <img alt="Build" src="https://img.shields.io/github/actions/workflow/status/jack-thesparrow/schrovimger/build.yml?label=Build&style=for-the-badge&color=f5a97f&labelColor=303446"/>
+      </a>
+      <a href="https://cachix.org/cache/schrovimger">
+        <img alt="Cachix" src="https://img.shields.io/badge/cachix-schrovimger-94e2d5?style=for-the-badge&logo=nixos&logoColor=white&labelColor=303446"/>
+      </a>
     </p>
-    </div>
+    <p>
+      <!-- ✅ Your existing badges -->
+      <a href="https://github.com/jack-thesparrow/schrovimger/issues">
+        <img src="https://img.shields.io/github/issues/jack-thesparrow/schrovimger?color=fab387&labelColor=303446&style=for-the-badge">
+      </a>
+      <a href="https://github.com/jack-thesparrow/schrovimger/pulse">
+        <img alt="Last commit" src="https://img.shields.io/github/last-commit/jack-thesparrow/schrovimger?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+      </a>
+      <a href="https://github.com/jack-thesparrow/schrovimger/stargazers">
+        <img src="https://img.shields.io/github/stars/jack-thesparrow/schrovimger?color=ca9ee6&labelColor=303446&style=for-the-badge">
+      </a>
+      <a href="https://github.com/jack-thesparrow/schrovimger">
+        <img src="https://img.shields.io/github/repo-size/jack-thesparrow/schrovimger?color=ea999c&labelColor=303446&style=for-the-badge">
+      </a>
+      <a href="https://github.com/jack-thesparrow/schrovimger/blob/main/LICENCE">
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
+      </a>
+    </p>
+  </div>
+</h1>
 <h1 align = "center">Schrovimger: A Standalone NVF NeoVim Configuration</h1>
 <h3 align = "center"></h3>
 
