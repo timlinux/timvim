@@ -72,6 +72,7 @@
           { pkgs, ... }:
           {
             home.packages = [
+              pkgs.git
               (nvf.lib.neovimConfiguration {
                 inherit pkgs;
                 modules = [ ./config ];
