@@ -3,18 +3,6 @@
   <br><br>
   <div align="center">
     <p>
-      <!--- ✅ NEW: CI, Build & Cachix badges -->
-      <a href="https://github.com/jack-thesparrow/schrovimger/actions/workflows/ci.yml">
-        <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/jack-thesparrow/schrovimger/ci.yml?label=CI&style=for-the-badge&color=8aadf4&labelColor=303446"/>
-      </a>
-      <a href="https://github.com/jack-thesparrow/schrovimger/actions/workflows/build.yml">
-        <img alt="Build" src="https://img.shields.io/github/actions/workflow/status/jack-thesparrow/schrovimger/build.yml?label=Build&style=for-the-badge&color=f5a97f&labelColor=303446"/>
-      </a>
-      <a href="https://cachix.org/cache/schrovimger">
-        <img alt="Cachix" src="https://img.shields.io/badge/cachix-schrovimger-94e2d5?style=for-the-badge&logo=nixos&logoColor=white&labelColor=303446"/>
-      </a>
-    </p>
-    <p>
       <!-- ✅ Your existing badges -->
       <a href="https://github.com/jack-thesparrow/schrovimger/issues">
         <img src="https://img.shields.io/github/issues/jack-thesparrow/schrovimger?color=fab387&labelColor=303446&style=for-the-badge">
