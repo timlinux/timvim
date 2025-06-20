@@ -43,7 +43,7 @@ workflow providing an unparalled coding experience.
 <br>
 
 > [!WARNING]
-> ⚠️ **hardtime.nvim is configured with maximum strictness!**
+> **hardtime.nvim is configured with maximum strictness!**
 >
 > **Since I want to learn VIM Motions I have enabled hardtime-nvim with
 > precognition!**
