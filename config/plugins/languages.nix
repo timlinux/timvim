@@ -1,4 +1,3 @@
-{ ... }:
 {
   vim = {
     languages = {
@@ -49,6 +48,13 @@
               expr = "import <nixpkgs> { }";
             };
           };
+        };
+        extraDiagnostics = {
+          enable = true;
+          types = [
+            "statix"
+            "deadnix"
+          ];
         };
       };
 
