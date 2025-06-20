@@ -47,21 +47,19 @@ let
   ];
 
   treeSitterEnables = builtins.listToAttrs (
-    builtins.map
-      (lang: {
-        name = lang;
-        value = {
-          treesitter.enable = true;
-        };
-      })
-      treesitterLanguages
+    builtins.map (lang: {
+      name = lang;
+      value = {
+        treesitter.enable = true;
+      };
+    }) treesitterLanguages
   );
 in
 {
   vim = {
     treesitter = {
       enable = true;
-      fold = false;
+      fold = true;
 
       highlight = {
         enable = true;
@@ -72,6 +70,20 @@ in
       addDefaultGrammars = true;
 
       autotagHtml = true;
+
+      context = {
+        enable = true;
+        setupOpts = {
+          line_numbers = true; # show line numbers in the sticky header
+          max_lines = 3; # show at most 3 lines for the header
+          min_window_height = 0; # no min limit — always on
+          mode = "cursor"; # calculate context from the cursor position
+          multiline_threshold = 20; # default is fine
+          separator = "-"; # shows a line between header and content
+          trim_scope = "outer"; # trim outer context if too long
+          zindex = 20; # default, fine
+        };
+      };
 
     };
     languages = {

@@ -1,12 +1,11 @@
-{ ... }:
 {
   vim.keymaps = [
     {
-      key = "<C-p>";
+      key = "<leader>ff";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope find_files<CR>";
-      desc = "Find files wiht names";
+      desc = "Find files with names";
     }
     {
       key = "<leader>fp";
@@ -37,18 +36,11 @@
       desc = "Find files with Contents FZF";
     }
     {
-      key = "<C-n>";
+      key = "<leader>nn";
       mode = "n";
       silent = true;
-      action = "<cmd>Neotree filesystem reveal left<CR>";
-      desc = "Show filesystem";
-    }
-    {
-      key = "<C-m>";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Neotree close<CR>";
-      desc = "Close filesystem";
+      action = "<cmd>Neotree toggle<CR>";
+      desc = "Toggle Neotree filesystem show";
     }
     {
       key = "<K>";
@@ -106,6 +98,20 @@
       silent = true;
       action = "<cmd>q<CR>";
       desc = "Close Split";
+    }
+    {
+      key = "<leader>ht";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Hardtime toggle<CR>";
+      desc = "Toggle HardTime";
+    }
+    {
+      key = "<leader>tc";
+      mode = "n";
+      silent = true;
+      action = "<cmd>TSContext toggle<CR>";
+      desc = "Toggle the Treesitter context";
     }
 
   ];
