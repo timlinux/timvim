@@ -8,7 +8,6 @@
     ./keymaps.nix
     ./luaLoader.nix
     ./session.nix
-    ./utility.nix
     ./whichKey.nix
   ];
 }

@@ -5,5 +5,6 @@
     ./plugins
     ./themes
     ./ui
+    ./utility
   ];
 }
