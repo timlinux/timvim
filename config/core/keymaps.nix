@@ -1,6 +1,5 @@
 {
   vim.keymaps = [
-    # Navigation
     {
       key = "H";
       action = "^";

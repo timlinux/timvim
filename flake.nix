@@ -1,9 +1,9 @@
 {
-  description = "SchroVimger: An NVF-based Neovim configuration";
+  description = "timvim: An NVF-based Neovim configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nvf.url = "github:notashelf/nvf";
   };
@@ -55,7 +55,7 @@
             type = "app";
             program = "${nvimConfig.neovim}/bin/nvim";
             meta = {
-              description = "Launch jack-thesparrow NVF config";
+              description = "Launch timvim NVF config";
             };
           };
 

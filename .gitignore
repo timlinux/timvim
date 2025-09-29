@@ -44,3 +44,5 @@ result-*
 temp/
 temp.*
 test.*
+.vscode
+.vscode-extensions

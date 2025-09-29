@@ -24,5 +24,7 @@
     ./treesitter.nix
     ./undoTree.nix
     ./yanky.nix
+    ./colorizer.nix
+    ./mini-nvim.nix
   ];
 }

@@ -1,9 +1,12 @@
+{ pkgs, ... }:
 {
   vim = {
+
     statusline = {
       lualine = {
         enable = true;
-        theme = "dracula";
+        theme = "horizon";
+        icons.enable = true;
         disabledFiletypes = [
           "alpha"
         ];
