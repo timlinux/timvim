@@ -4,34 +4,35 @@
   <div align="center">
     <p>
       <!-- ✅ Your existing badges -->
-      <a href="https://github.com/jack-thesparrow/schrovimger/issues">
-        <img src="https://img.shields.io/github/issues/jack-thesparrow/schrovimger?color=fab387&labelColor=303446&style=for-the-badge">
+      <a href="https://github.com/timlinux/timvim/issues">
+        <img src="https://img.shields.io/github/issues/timlinux/timvim?color=fab387&labelColor=303446&style=for-the-badge">
       </a>
-      <a href="https://github.com/jack-thesparrow/schrovimger/pulse">
-        <img alt="Last commit" src="https://img.shields.io/github/last-commit/jack-thesparrow/schrovimger?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+      <a href="https://github.com/timlinux/timvim/pulse">
+        <img alt="Last commit" src="https://img.shields.io/github/last-commit/timlinux/timvim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
       </a>
-      <a href="https://github.com/jack-thesparrow/schrovimger/stargazers">
-        <img src="https://img.shields.io/github/stars/jack-thesparrow/schrovimger?color=ca9ee6&labelColor=303446&style=for-the-badge">
+      <a href="https://github.com/timlinux/timvim/stargazers">
+        <img src="https://img.shields.io/github/stars/timlinux/timvim?color=ca9ee6&labelColor=303446&style=for-the-badge">
       </a>
-      <a href="https://github.com/jack-thesparrow/schrovimger">
-        <img src="https://img.shields.io/github/repo-size/jack-thesparrow/schrovimger?color=ea999c&labelColor=303446&style=for-the-badge">
+      <a href="https://github.com/timlinux/timvim">
+        <img src="https://img.shields.io/github/repo-size/timlinux/timvim?color=ea999c&labelColor=303446&style=for-the-badge">
       </a>
-      <a href="https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE">
+      <a href="https://github.com/timlinux/timvim/blob/main/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
       </a>
     </p>
   </div>
 </h1>
-<h1 align = "center">Schrovimger: A Standalone NVF NeoVim Configuration</h1>
+<h1 align = "center">TimVim: A Standalone NVF NeoVim Configuration forked from Schrovimger</h1>
 <h3 align = "center"></h3>
 
 </h1>
 
 ## Whats This All About ?
 
-Schrovimger is a custom NeoVim configuration, to smoothen out your development
-workflow providing an unparalled coding experience.
-
+TimVim is a custom NeoVim configuration, based on the excellent
+[Schrovimger](https://github.com/jack-thesparrow/schrovimger) project, to
+smoothen out your development workflow providing an unparalled coding
+experience.
 <img src = "assets/code.png" alt="nvim">
 
 <details>
@@ -60,7 +61,7 @@ workflow providing an unparalled coding experience.
 
 ## Features
 
-- **Text-Editor/IDE**: Schrovimger aims to provide a non-bloated, minimal and
+- **Text-Editor/IDE**: TimVim aims to provide a non-bloated, minimal and
   distraction-free code writing experience.
 
 - **NVF Integration:** Build upon the
@@ -76,34 +77,33 @@ workflow providing an unparalled coding experience.
 
 ## Installation
 
-Getting Schrovimger installed and running on your system is a **easy AF**.
-Simply follow the installation guide below and Schrovimger will get running in
-no time.
+Getting TimVim installed and running on your system is a **easy AF**. Simply
+follow the installation guide below and TimVim will get running in no time.
 
 ### InCase you'd like to test run:
 
 ```shell
-nix run github:jack-thesparrow/schrovimger
+nix run github:timlinux/timvim
 ```
 
 Or if your have `cachix` installed and configured properly, you can skip the
 compilation time by using the cachix binary cache, that way you will only have
-to download the binaries.
+to duownload the binaries.
 
 ```shell
-nix run github:jack-thesparrow/schrovimger \
---option extra-substituters https://schrovimger.cachix.org \
---option extra-trusted-public-keys "schrovimger.cachix.org-1:wUDg44FWjTBa3CutgbINFRAEb8N5P2yTWze45jcGvMY="
+nix run github:timlinux/timvim \
+--option extra-substituters https://timvim.cachix.org \
+--option extra-trusted-public-keys "timvim.cachix.org-1:wUDg44FWjTBa3CutgbINFRAEb8N5P2yTWze45jcGvMY="
 ```
 
-### How to install Schrovimger in your system
+### How to install TimVim in your system
 
 To include the configuration as a replacement of Vanilla Neovim, you must first
 add it as input in your main `flake.nix` of your NixOS system:
 
 ```nix
 inputs.nvf = {
-    url = "github:jack-thesparrow/schrovimger";
+    url = "github:timlinux/timvim";
     inputs.nixpkgs.follows = "nixpkgs";
 }
 ```
@@ -118,9 +118,8 @@ outputs = {
 }@inputs:
 ```
 
-This allows you to install Schrovimger as both: NixOS package and as a
-Home-Manager Module. I recommend you to install this configuration as a
-Home-Manager module.
+This allows you to install TimVim as both: NixOS package and as a Home-Manager
+Module. I recommend you to install this configuration as a Home-Manager module.
 
 Now add `inputs` into your `extraSpecialArgs` of your Home-Manager
 Configuration:
@@ -156,8 +155,7 @@ Configuration and then rebuild your system.
 }
 ```
 
-<I>And now you have successfully installed Schrovimger NVF NeoVim
-Configuration!</I>
+<I>And now you have successfully installed TimVim NVF NeoVim Configuration!</I>
 
 ## Quick Start Guide
 
@@ -172,27 +170,28 @@ Configuration!</I>
 ## Contribution
 
 Contributions are welome! Feel Free to
-[open an issue](https://github.com/jack-thesparrow/schrovimger/issues) to report
-problems, suggest improvements, or submit pull requests to add new features to
-Schrovimger.
+[open an issue](https://github.com/timlinux/timvim/issues) to report problems,
+suggest improvements, or submit pull requests to add new features to TimVim.
 
 ## Support
 
 Encountered an issue or have a question? Visit the
-[Issue Tracker](https://github.com/jack-thesparrow/schrovimger/issues)
+[Issue Tracker](https://github.com/timlinux/timvim/issues)
 
 ## License
 
 This project is licensed under the
-[MIT License](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE).
-See the
-[LICENSE](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE) file
-for more details.
+[MIT License](https://github.com/timlinux/timvim/blob/main/LICENSE). See the
+[LICENSE](https://github.com/timlinux/timvim/blob/main/LICENSE) file for more
+details.
 
 ## Acknowledgements
 
 - [GitHub - NotAShelf/nvf](https://github.com/NotAShelf/nvf.git) - For the
   excellent framework.
+
+- [Schrovimger · GitHub](https://github.com/jack-thesparrow/timvim) - For the
+  base project which provides 99% of the source in this repo.
 
 - [Sly-Harvey · GitHub](https://github.com/Sly-Harvey) - For your clean and
   readable nixvim config which i used for reference.
