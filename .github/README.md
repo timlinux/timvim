@@ -86,16 +86,13 @@ follow the installation guide below and TimVim will get running in no time.
 nix run github:timlinux/timvim
 ```
 
-Or if your have `cachix` installed and configured properly, you can skip the
-compilation time by using the cachix binary cache, that way you will only have
-to duownload the binaries.
+Or if you have a local checkout:
 
-```shell
-nix run github:timlinux/timvim \
---option extra-substituters https://timvim.cachix.org \
---option extra-trusted-public-keys "timvim.cachix.org-1:wUDg44FWjTBa3CutgbINFRAEb8N5P2yTWze45jcGvMY="
+```
+nix run .#
 ```
 
+````
 ### How to install TimVim in your system
 
 To include the configuration as a replacement of Vanilla Neovim, you must first
@@ -106,7 +103,7 @@ inputs.nvf = {
     url = "github:timlinux/timvim";
     inputs.nixpkgs.follows = "nixpkgs";
 }
-```
+````
 
 Then expose the input into your outputs as:
 
@@ -118,39 +115,18 @@ outputs = {
 }@inputs:
 ```
 
-This allows you to install TimVim as both: NixOS package and as a Home-Manager
-Module. I recommend you to install this configuration as a Home-Manager module.
-
-Now add `inputs` into your `extraSpecialArgs` of your Home-Manager
 Configuration:
 
 ```nix
-  homeConfigurations = {
-    rahul = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        ./home/home.nix
-      ];
-      extraSpecialArgs = {
-        inherit inputs;
-      };
-    };
-  };
-};
-```
-
-Here is a sample `neovim.nix` module which you can import into your Home-Manager
-Configuration and then rebuild your system.
-
-```nix
+# Modern nvf configuration with comprehensive features enabled
 {
   pkgs,
   inputs,
   ...
-}@args:
+}:
 {
-  home.packages = [
-    inputs.nvf.packages.${pkgs."x86_64-linux"}.default
+  environment.systemPackages = with pkgs; [
+    inputs.nvf.packages.${pkgs.system}.default
   ];
 }
 ```
