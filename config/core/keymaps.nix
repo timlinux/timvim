@@ -1,5 +1,26 @@
 {
   vim.keymaps = [
+    # Navigation
+    {
+      key = "H";
+      action = "^";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      desc = "Go to start of line";
+    }
+    {
+      key = "L";
+      action = "$";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      desc = "Go to end of line";
+    }
     {
       key = "<leader>ff";
       mode = "n";

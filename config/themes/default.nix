@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./theme.nix
+    #./theme.nix
+    ./kartoza-theme.nix
   ];
 }
