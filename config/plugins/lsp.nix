@@ -25,5 +25,9 @@
       enable = true; # optional: enables pretty borders for saga
       style = "rounded"; # optional: pick your border style
     };
+    # Source custom Lua for lspsaga CursorHold diagnostics popup
+    luaConfigRC.lspsaga_cursorhold = ''
+      require("config.plugins.lspsaga-cursorhold")
+    '';
   };
 }
