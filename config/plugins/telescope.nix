@@ -5,6 +5,12 @@
     telescope = {
       enable = true;
 
+      setupOpts = {
+        defaults = {
+          file_ignore_patterns = [ "__pycache__" ];
+        };
+      };
+
       extensions = [
         {
           name = "ui-select";
