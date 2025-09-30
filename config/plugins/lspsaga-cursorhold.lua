@@ -1,4 +1,3 @@
--- Show lspsaga diagnostics popup on CursorHold in normal mode
 vim.api.nvim_create_autocmd("CursorHold", {
   pattern = "*",
   callback = function()
