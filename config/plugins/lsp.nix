@@ -31,7 +31,14 @@
         pattern = "*",
         callback = function()
           if vim.fn.mode() == "n" then
-            vim.diagnostic.open_float(nil, { focus = false, scope = "line" })
+            vim.diagnostic.open_float(nil, { 
+              focus = false, 
+              scope = "line",
+              border = "rounded",
+              max_width = 80,
+              max_height = 20,
+              close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre" }
+            })
           end
         end,
       })
