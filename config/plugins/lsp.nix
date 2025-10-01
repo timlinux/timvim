@@ -31,12 +31,16 @@
         pattern = "*",
         callback = function()
           if vim.fn.mode() == "n" then
+            local winwidth = vim.api.nvim_get_option("columns")
             vim.diagnostic.open_float(nil, { 
               focus = false, 
               scope = "line",
               border = "rounded",
-              max_width = 80,
-              max_height = 20,
+              max_width = 60,
+              max_height = 60,
+              anchor = "NE",
+              row = 1,
+              col = winwidth - 1,
               close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre" }
             })
           end
