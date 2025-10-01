@@ -21,6 +21,20 @@
       desc = "Go to end of line";
     }
     {
+      key = "<C-l>";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+      desc = "Go to Definition";
+    }
+    {
+      key = "<C-h>";
+      mode = "n";
+      silent = true;
+      action = "<C-o>";
+      desc = "Return from Definition";
+    }
+    {
       key = "<leader>ff";
       mode = "n";
       silent = true;
@@ -68,13 +82,6 @@
       silent = true;
       action = "<cmd>vim.lsp.buf.hover<CR>";
       desc = "Hover Documentation";
-    }
-    {
-      key = "gd";
-      mode = "n";
-      silent = true;
-      action = "<cmd>lua vim.lsp.buf.definition()<CR>";
-      desc = "Go to Definition";
     }
     {
       key = "<leader>ca";

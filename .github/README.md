@@ -133,6 +133,16 @@ Configuration:
 
 <I>And now you have successfully installed TimVim NVF NeoVim Configuration!</I>
 
+## Using in python projects
+
+If you are using timvim for developing python projects you should add pyright
+and python3 as packages to your project's flake for example in the dev shell.
+Here is an exhuastive example:
+
+```
+:
+```
+
 ## Quick Start Guide
 
 - `config/core` - contains all the core Vim Settings.
