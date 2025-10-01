@@ -26,7 +26,6 @@
           ignore_whitespace = false,
         },
         current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-        code_actions = { enable = true },
         on_attach = function(bufnr)
           local map = vim.keymap.set
           map('n', '<leader>hb', gs.blame_line, { buffer = bufnr, desc = "Toggle Git blame line" })

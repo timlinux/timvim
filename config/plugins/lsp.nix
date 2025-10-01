@@ -31,7 +31,7 @@
         pattern = "*",
         callback = function()
           if vim.fn.mode() == "n" then
-            vim.cmd("Lspsaga show_line_diagnostics ++unfocus")
+            vim.diagnostic.open_float(nil, { focus = false, scope = "line" })
           end
         end,
       })
