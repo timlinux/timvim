@@ -71,8 +71,15 @@
 
       python = {
         enable = true;
-        format.type = "black";
-
+        format = {
+          enable = true;
+          type = "black";
+        };
+        lsp = {
+          enable = true;
+          server = "pyright";
+        };
+        dap.enable = true;
       };
 
       rust = {

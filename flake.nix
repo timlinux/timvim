@@ -131,6 +131,11 @@
                 ripgrep
                 deadnix
                 statix
+                # Python development essentials
+                python3
+                pyright
+                python3Packages.debugpy
+                python3Packages.black
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
@@ -154,6 +159,11 @@
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
+              # Python development essentials
+              pkgs.python3
+              pkgs.pyright
+              pkgs.python3Packages.debugpy
+              pkgs.python3Packages.black
 
               (nvf.lib.neovimConfiguration {
                 inherit pkgs;
