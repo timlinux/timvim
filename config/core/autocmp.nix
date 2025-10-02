@@ -5,7 +5,7 @@
 
       mappings = {
         close = "<C-e>";
-        complete = "<C-Space>";
+        complete = "<C-y>";
         confirm = "<CR>";
         next = "<Tab>";
         previous = "<S-Tab>";
