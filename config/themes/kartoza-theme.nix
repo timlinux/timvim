@@ -35,7 +35,8 @@
         base0 = "#00c8ad",     -- base0
         violet = "#56f341",    -- violet
         base1 = "#f23abb",     -- base1
-        base3 = "#c8856e"      -- light background
+        base3 = "#c8856e",      -- light background
+        darktext = "#282b2b"  -- for line numbers
       }
 
       -- Apply highlights using proper Lua syntax
@@ -56,10 +57,10 @@
         Error = { fg = colors.red, bg = colors.base03, bold = true },
         Search = { fg = colors.base03, bg = colors.yellow },
         CursorLine = { bg = colors.base02 },
-        LineNr = { fg = colors.base01, bg = colors.base03 },
+        LineNr = { fg = colors.darktext, bg = colors.base03 },
         CursorLineNr = { fg = colors.yellow, bg = colors.base02, bold = true },
         StatusLine = { fg = colors.base2, bg = colors.base02 },
-        Visual = { bg = colors.base02, bg = colors.base03  }
+        Visual = { fg = colors.orange, bg = colors.base03  }
       }
 
       -- Set all highlights
