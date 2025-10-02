@@ -14,7 +14,7 @@
         };
 
         # Optional: whether hints show immediately
-        startVisible = true;
+        startVisible = false; # Start toggled off by default
 
         # Optional: hide empty lines if no hint
         showBlankVirtLine = true;

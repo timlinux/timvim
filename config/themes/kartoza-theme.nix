@@ -4,6 +4,7 @@
   };
   vim.luaConfigRC = {
     kartoza = ''
+      transparent_background = true
       -- Kartoza Custom Theme
       vim.cmd([[ 
         highlight clear

@@ -1,9 +1,10 @@
 {
   vim.visuals = {
     indent-blankline = {
-      enable = true;
+      enable = true; # Enable the plugin so toggle works
 
       setupOpts = {
+        enabled = false; # Start disabled by default
         exclude = {
           buftypes = [ "terminal" ];
           filetypes = [

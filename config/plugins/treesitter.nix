@@ -72,8 +72,9 @@ in
       autotagHtml = true;
 
       context = {
-        enable = true;
+        enable = true; # Enable the plugin so toggle works
         setupOpts = {
+          enable = false; # Start disabled by default
           line_numbers = true; # show line numbers in the sticky header
           max_lines = 3; # show at most 3 lines for the header
           min_window_height = 0; # no min limit — always on
@@ -90,6 +91,7 @@ in
       enableFormat = true;
       enableTreesitter = true;
       enableExtraDiagnostics = true;
-    } // treeSitterEnables;
+    }
+    // treeSitterEnables;
   };
 }

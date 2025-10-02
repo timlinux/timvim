@@ -53,7 +53,7 @@ experience.
 > - You may see popups or be blocked for inefficient navigation.
 > - This is intentional — to help you master efficient Vim motions.
 >
-> **Toggle it:** Press `<leader>ht` to turn Hardtime ON or OFF at any time.
+> **Toggle it:** Press `<leader>th` to turn Hardtime ON or OFF at any time.
 >
 > **Tip:** Don’t be afraid to disable it when you want a break!
 >

@@ -7,12 +7,12 @@
       "<leader>a" = " Avante"; # Avante
       "<leader>f" = " Files"; # Telescope
       "<leader>s" = " Session"; # Smart-splits + Session Manager
-      "<leader>m" = " Minimap/buffers"; # Minimap + Bufferline move
+      "<leader>m" = " Minimap"; # Minimap + Bufferline move
       "<leader>b" = " Buffers"; # Bufferline nav
       "<leader>d" = " Debug"; # DAP
       "<leader>g" = " Git"; # Git actions
       "<leader>c" = " Code"; # LSP code actions
-      "<leader>t" = " Telescope"; # Telescope actions
+      "<leader>t" = " Toggles"; # Telescope actions
       "gz" = " Surround"; # Surround
     };
 
