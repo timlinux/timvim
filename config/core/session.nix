@@ -5,12 +5,13 @@
     usePicker = true;
     mappings = {
       deleteSession = "<leader>sd";
-      loadLastSession = "<leader>slt";
-      saveCurrentSession = "<leader>sc";
+      loadLastSession = "<leader>sl";
+      saveCurrentSession = "<leader>ss";
+      loadSession = "<leader>so";
 
     };
     setupOpts = {
-      autoload_mode = "Disabled";
+      autoload_mode = "CurrentDir"; # Possible values: Disabled, CurrentDir, LastSession, GitSession
       autosave_last_session = true;
       autosave_ignore_buftypes = [
         "terminal"

@@ -4,14 +4,16 @@
     enable = true;
 
     register = {
-      "<leader>f" = "+files"; # Telescope
-      "<leader>s" = "+splits/session"; # Smart-splits + Session Manager
-      "<leader>m" = "+minimap/buffers"; # Minimap + Bufferline move
-      "<leader>b" = "+buffers"; # Bufferline nav
-      "<leader>d" = "+debug"; # DAP
-      "<leader>g" = "+git"; # Git actions
-      "<leader>c" = "+code"; # LSP code actions
-      "gz" = "+surround"; # Surround
+      "<leader>a" = " Avante"; # Avante
+      "<leader>f" = " Files"; # Telescope
+      "<leader>s" = " Session"; # Smart-splits + Session Manager
+      "<leader>m" = " Minimap/buffers"; # Minimap + Bufferline move
+      "<leader>b" = " Buffers"; # Bufferline nav
+      "<leader>d" = " Debug"; # DAP
+      "<leader>g" = " Git"; # Git actions
+      "<leader>c" = " Code"; # LSP code actions
+      "<leader>t" = " Telescope"; # Telescope actions
+      "gz" = " Surround"; # Surround
     };
 
     setupOpts = {

@@ -105,27 +105,27 @@
       desc = "Open Session Manager";
     }
     # Smart Split Keybinds
-    {
-      key = "<leader>sv";
-      mode = "n";
-      silent = true;
-      action = "<cmd>vsplit<CR>";
-      desc = "Split Vertical";
-    }
-    {
-      key = "<leader>sh";
-      mode = "n";
-      silent = true;
-      action = "<cmd>split<CR>";
-      desc = "Split Horizontal";
-    }
-    {
-      key = "<leader>sq";
-      mode = "n";
-      silent = true;
-      action = "<cmd>q<CR>";
-      desc = "Close Split";
-    }
+    # {
+    #   key = "<leader>sv";
+    #   mode = "n";
+    #   silent = true;
+    #   action = "<cmd>vsplit<CR>";
+    #   desc = "Split Vertical";
+    # }
+    # {
+    #   key = "<leader>sh";
+    #   mode = "n";
+    #   silent = true;
+    #   action = "<cmd>split<CR>";
+    #   desc = "Split Horizontal";
+    # }
+    # {
+    #   key = "<leader>sq";
+    #   mode = "n";
+    #   silent = true;
+    #   action = "<cmd>q<CR>";
+    #   desc = "Close Split";
+    # }
     {
       key = "<leader>ht";
       mode = "n";
