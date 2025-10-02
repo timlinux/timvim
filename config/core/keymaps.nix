@@ -150,5 +150,65 @@
       action = "<cmd>FloatermToggle<CR>";
       desc = "Toggle Floaterm";
     }
+    # GitHub Copilot keymaps
+    {
+      key = "<leader>acp";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot panel<CR>";
+      desc = "Open Copilot Panel";
+    }
+    {
+      key = "<leader>acs";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot status<CR>";
+      desc = "Copilot Status";
+    }
+    {
+      key = "<leader>ace";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot enable<CR>";
+      desc = "Enable Copilot";
+    }
+    {
+      key = "<leader>acd";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot disable<CR>";
+      desc = "Disable Copilot";
+    }
+    # Ctrl+I equivalent for inline editing (using Avante with copilot)
+    {
+      key = "<C-i>";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>AvanteAsk<CR>";
+      desc = "Ask Avante/Copilot to modify code";
+    }
+    {
+      key = "<leader>ai";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>AvanteEdit<CR>";
+      desc = "Edit with Avante/Copilot";
+    }
+    {
+      key = "<leader>ac";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>AvanteChat<CR>";
+      desc = "Copilot";
+    }
   ];
 }

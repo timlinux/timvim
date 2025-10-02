@@ -80,7 +80,7 @@ experience.
 Getting TimVim installed and running on your system is a **easy AF**. Simply
 follow the installation guide below and TimVim will get running in no time.
 
-### InCase you'd like to test run:
+### InCase you'd like to test run
 
 ```shell
 nix run github:timlinux/timvim
@@ -140,6 +140,33 @@ and python3 as packages to your project's flake for example in the dev shell.
 Here is an exhuastive example:
 
 ```
+          devShells.default = pkgs.mkShell {
+            packages =
+              with pkgs;
+              [
+                chafa
+                epub-thumbnailer
+                fd
+                ffmpegthumbnailer
+                git
+                imagemagick
+                pre-commit
+                poppler-utils
+                nixfmt-rfc-style
+                nixd
+                nerd-fonts.jetbrains-mono
+                ripgrep
+                deadnix
+                statix
+                nodejs_20 # Node.js for GitHub Copilot
+                # Python development essentials
+                python3
+                pyright
+                python3Packages.debugpy
+                python3Packages.black
+              ]
+              ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
+          };
 ```
 
 ## Quick Start Guide

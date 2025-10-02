@@ -131,6 +131,7 @@
                 ripgrep
                 deadnix
                 statix
+                nodejs_20 # Node.js for GitHub Copilot
                 # Python development essentials
                 python3
                 pyright
@@ -159,6 +160,8 @@
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
+              # Node.js for GitHub Copilot
+              pkgs.nodejs_20
               # Python development essentials
               pkgs.python3
               pkgs.pyright
