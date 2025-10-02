@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./assistant
@@ -7,5 +7,10 @@
     ./themes
     ./ui
     ./utility
+  ];
+
+  # Extra packages available to Neovim
+  vim.extraPackages = with pkgs; [
+    nodejs_20 # Required for GitHub Copilot
   ];
 }
