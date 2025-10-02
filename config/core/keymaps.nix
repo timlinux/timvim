@@ -181,6 +181,13 @@
       action = "<cmd>lua local ibl = require('ibl'); local config = require('ibl.config'); local enabled = config.get_config(0).enabled; ibl.setup({enabled = not enabled}); print('IBL ' .. (enabled and 'disabled' or 'enabled'))<CR>";
       desc = "Toggle indent guides";
     }
+    {
+      key = "<leader>to";
+      mode = "n";
+      silent = true;
+      action = "<cmd>AerialToggle<CR>";
+      desc = "Toggle Code Outline panel";
+    }
 
   ];
 }
