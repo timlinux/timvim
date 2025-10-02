@@ -56,6 +56,13 @@
       desc = "Find files with Contents FZF";
     }
     {
+      key = "<leader>fp";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope find_files find_command=rg,--files,--glob=*.py<CR>";
+      desc = "Find Python files";
+    }
+    {
       key = "<K>";
       mode = "n";
       silent = true;
