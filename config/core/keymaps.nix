@@ -21,6 +21,13 @@
       desc = "Go to end of line";
     }
     {
+      key = "M";
+      action = "zz";
+      mode = "n";
+      silent = true;
+      desc = "Center current line on screen";
+    }
+    {
       key = "<C-l>";
       mode = "n";
       silent = true;
