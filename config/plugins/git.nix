@@ -10,7 +10,7 @@
         codeActions.enable = true; # Was too intrusive
         mappings = {
           blameLine = "<leader>hl";
-          toggleBlame = "<leader>ht";
+          toggleBlame = "<leader>hx"; # ht is for disabling hard time
         };
       };
     };

@@ -140,7 +140,6 @@ and python3 as packages to your project's flake for example in the dev shell.
 Here is an exhuastive example:
 
 ```
-:
 ```
 
 ## Quick Start Guide
