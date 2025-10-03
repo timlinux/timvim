@@ -70,6 +70,20 @@
       desc = "Find Python files";
     }
     {
+      key = "<leader>fn";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope find_files find_command=rg,--files,--glob=*.nix<CR>";
+      desc = "Find Nix files";
+    }
+    {
+      key = "<leader>fs";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope lsp_document_symbols<CR>";
+      desc = "Find Symbols in current file";
+    }
+    {
       key = "<K>";
       mode = "n";
       silent = true;
