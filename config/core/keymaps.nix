@@ -41,6 +41,14 @@
       action = "<C-o>";
       desc = "Return from Definition";
     }
+
+    {
+      key = "<leader>fb";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope buffers<CR>";
+      desc = "Find buffers";
+    }
     {
       key = "<leader>ff";
       mode = "n";
