@@ -28,6 +28,11 @@
       shada = "!,'100,<50,s10,h";
       #shadafile = "NONE";
 
+      # Autosave settings
+      autowrite = true; # Auto-save when switching buffers
+      autowriteall = true; # Auto-save on more events
+      updatetime = 1000; # Write swap file after 1 second of inactivity
+
       wrap = false;
     };
   };

@@ -21,8 +21,11 @@
       desc = "Go to end of line";
     }
     {
-      key = "M";
-      action = "zz";
+      # Fast press space and m,
+      # if you press space with a pause then m, you
+      # will get the whichkey menu
+      key = "<leader>m";
+      action = "<cmd>normal! zz<CR>";
       mode = "n";
       silent = true;
       desc = "Center current line on screen";
@@ -74,7 +77,7 @@
       key = "<leader>fp";
       mode = "n";
       silent = true;
-      action = "<cmd>Telescope find_files find_command=rg,--files,--glob=*.py<CR>";
+      action = "<cmd>Telescope find_files find_command=rg,--files,--glob=*.py,--glob=!**/__pycache__/**,--glob=!**/build/**<CR>";
       desc = "Find Python files";
     }
     {
@@ -92,7 +95,7 @@
       desc = "Find Symbols in current file";
     }
     {
-      key = "<K>";
+      key = "K";
       mode = "n";
       silent = true;
       action = "<cmd>vim.lsp.buf.hover<CR>";
