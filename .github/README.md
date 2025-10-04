@@ -43,7 +43,7 @@ experience.
 
 <br>
 
-> [!WARNING]
+> [!WARNING 1]
 > **hardtime.nvim is configured with maximum strictness!**
 >
 > **Since I want to learn VIM Motions I have enabled hardtime-nvim with
@@ -58,6 +58,12 @@ experience.
 > **Tip:** Don’t be afraid to disable it when you want a break!
 >
 > **Turn OFF:** You can turn the plugin off in `config/plugins/hardtime.nix`
+
+> [|WARNING 2]
+>
+> This setup autosaves any buffers when they lose focus or you quit!
+> If you don't like this behaviour, see autosave.nix and session.nix.
+>
 
 ## Features
 
