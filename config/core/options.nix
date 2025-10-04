@@ -8,6 +8,10 @@
       number = true;
       relativenumber = true;
 
+      # Cursor line highlighting
+      cursorline = true;
+      cursorlineopt = "both"; # Highlight the line and the number
+
       # Tab Settings
       tabstop = 2;
       softtabstop = 2;
