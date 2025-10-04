@@ -5,10 +5,10 @@
 
       mappings = {
         close = "<C-e>";
-        complete = "<C-y>";
-        confirm = "<CR>";
-        next = "<Tab>";
-        previous = "<S-Tab>";
+        complete = "<C-l>";
+        confirm = "<TAB>";
+        next = "<C-j>";
+        previous = "<C-k>";
         scrollDocsDown = "<C-f>";
         scrollDocsUp = "<C-d>";
       };

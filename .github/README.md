@@ -254,6 +254,18 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 | `<C-g>z` | i    | Insert surround              |
 | `<C-g>Z` | i    | Insert line surround         |
 
+#### Code Completion (Blink-CMP)
+
+| Key     | Mode | Description                              |
+| ------- | ---- | ---------------------------------------- |
+| `<TAB>` | i    | Confirm/Accept selected completion       |
+| `<C-l>` | i    | Trigger completion menu                  |
+| `<C-j>` | i    | Navigate to next completion item         |
+| `<C-k>` | i    | Navigate to previous completion item     |
+| `<C-e>` | i    | Close completion menu                    |
+| `<C-f>` | i    | Scroll completion documentation down     |
+| `<C-d>` | i    | Scroll completion documentation up       |
+
 #### Terminal
 
 | Key     | Mode | Description     |
