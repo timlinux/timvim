@@ -220,6 +220,12 @@
       action = "<cmd>AerialToggle<CR>";
       desc = "Toggle Code Outline panel";
     }
-
+    {
+      key = "<leader>tw";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.toggle_cursorhold_diagnostics()<CR>";
+      desc = "Toggle CursorHold error tooltips";
+    }
   ];
 }

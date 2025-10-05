@@ -10,7 +10,7 @@
 
     pluginRC.nvim-notify = ''
       require("notify").setup({
-        background_colour = "#000000",
+        background_colour = "#292525",
         stages = "fade_in_slide_out"
       })
     '';
@@ -27,7 +27,7 @@
           },
         },
         presets = {
-          bottom_search = true,
+          bottom_search = false,
           command_palette = true,
           long_message_to_split = true,
         },
@@ -40,6 +40,48 @@
             size = {
               width = 60,
               height = "auto",
+            },
+          },
+          cmdline_search = {
+            position = {
+              row = "40%",
+              col = "50%",
+            },
+            size = {
+              width = 60,
+              height = "auto",
+            },
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
+            },
+          },
+          cmdline_search_down = {
+            position = {
+              row = "40%",
+              col = "50%",
+            },
+            size = {
+              width = 60,
+              height = "auto",
+            },
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
+            },
+          },
+          cmdline_search_up = {
+            position = {
+              row = "40%",
+              col = "50%",
+            },
+            size = {
+              width = 60,
+              height = "auto",
+            },
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
             },
           },
           popupmenu = {

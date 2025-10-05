@@ -16,7 +16,7 @@ let
     "python"
     "rust"
     "sql"
-    #"toml"
+    # "toml"
     #"tsx"
     #"typescript"
     "yaml"
