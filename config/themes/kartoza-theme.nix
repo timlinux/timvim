@@ -43,7 +43,7 @@
       local highlights = {
         Normal = { fg = colors.base2, bg = colors.base03 },
         NormalFloat = { fg = colors.base2, bg = colors.base02 },
-        Comment = { fg = colors.base01, italic = true },
+        Comment = { fg = colors.kartozagray, italic = true },
         Constant = { fg = colors.yellow },
         String = { fg = colors.green },
         Character = { fg = colors.green },
