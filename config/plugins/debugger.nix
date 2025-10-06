@@ -51,9 +51,17 @@
       justMyCode = false,
     })
 
-    -- Add a keymap for quick remote attach
-    vim.keymap.set('n', '<leader>da', function()
-      dap.run({
+    -- Add custom debug functions
+    local function attach_remote_debugger()
+      -- Check if DAP is available
+      local ok, dap = pcall(require, 'dap')
+      if not ok then
+        vim.notify('DAP not available', vim.log.levels.ERROR)
+        return
+      end
+
+      -- Try to attach with better error handling
+      local config = {
         type = 'python',
         request = 'attach',
         connect = {
@@ -67,7 +75,40 @@
           }
         },
         justMyCode = false,
-      })
-    end, { desc = 'DAP: Attach to remote Python (port 9000)' })
+      }
+
+      vim.notify('Attempting to attach to debugger on port 9000...', vim.log.levels.INFO)
+      dap.run(config)
+    end
+
+    local function start_local_debugging()
+      local ok, dap = pcall(require, 'dap')
+      if not ok then
+        vim.notify('DAP not available', vim.log.levels.ERROR)
+        return
+      end
+
+      dap.continue()
+    end
+
+    local function show_debug_status()
+      local ok, dap = pcall(require, 'dap')
+      if not ok then
+        vim.notify('DAP not available', vim.log.levels.ERROR)
+        return
+      end
+
+      local session = dap.session()
+      if session then
+        vim.notify('DAP session active', vim.log.levels.INFO)
+      else
+        vim.notify('No active DAP session', vim.log.levels.WARN)
+      end
+    end
+
+    -- Register keymaps with which-key integration
+    vim.keymap.set('n', '<leader>da', attach_remote_debugger, { desc = 'Attach to remote Python (port 9000)' })
+    vim.keymap.set('n', '<leader>dl', start_local_debugging, { desc = 'Start/Continue local debugging' })
+    vim.keymap.set('n', '<leader>ds', show_debug_status, { desc = 'Show debug status' })
   '';
 }
