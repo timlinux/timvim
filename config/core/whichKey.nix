@@ -14,6 +14,7 @@
       "<leader>da" = "󰃤 Attach to remote Python (port 9000)";
       "<leader>dl" = "󰐊 Start/Continue local debugging";
       "<leader>ds" = "󰙵 Show debug status";
+      "<leader>di" = "󰏖 Check debugpy installation";
       # Built-in DAP commands
       "<leader>dc" = "󰐊 Continue";
       "<leader>db" = "󰏃 Toggle Breakpoint";
