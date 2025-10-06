@@ -104,12 +104,12 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 #### Basic Navigation
 
-| Key | Mode | Description                   |
-| --- | ---- | ----------------------------- |
-| `H` | n, v | Go to start of line           |
-| `L` | n, v | Go to end of line             |
-| `M` | n    | Center current line on screen |
-| `K` | n    | Hover Documentation (LSP)     |
+| Key          | Mode | Description                   |
+| ------------ | ---- | ----------------------------- |
+| `H`          | n, v | Go to start of line           |
+| `L`          | n, v | Go to end of line             |
+| `<leader>m`  | n    | Center current line on screen |
+| `K`          | n    | Hover Documentation (LSP)     |
 
 #### LSP & Code Navigation
 
@@ -122,10 +122,13 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 | Key          | Mode | Description                    |
 | ------------ | ---- | ------------------------------ |
+| `<leader>fb` | n    | Find buffers                   |
 | `<leader>ff` | n    | Find files with names          |
 | `<leader>fm` | n    | Find Media Files               |
 | `<leader>fg` | n    | Find files with Contents (FZF) |
 | `<leader>fp` | n    | Find Python files              |
+| `<leader>fn` | n    | Find Nix files                 |
+| `<leader>fs` | n    | Find Symbols in current file   |
 
 #### AI Assistant (Avante/Copilot)
 
@@ -145,9 +148,10 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 | ----------- | ---- | --------------------------- |
 | `<Tab>`     | i    | Accept suggestion           |
 | `<C-Right>` | i    | Accept next word            |
-| `<C-l>`     | i    | Accept current line         |
+| `<Tab>`     | i    | Accept current line         |
 | `<M-]>`     | i    | Next suggestion (Alt+])     |
 | `<M-[>`     | i    | Previous suggestion (Alt+[) |
+| `<C-e>`     | i    | Dismiss suggestion          |
 | `<C-h>`     | i    | Dismiss suggestion          |
 
 #### Copilot Panel
@@ -162,15 +166,16 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 #### Toggles
 
-| Key          | Mode | Description               |
-| ------------ | ---- | ------------------------- |
-| `<leader>tp` | n    | Toggle Precognition       |
-| `<leader>tt` | n, t | Toggle Floaterm           |
-| `<leader>tn` | n    | Toggle Neotree filesystem |
-| `<leader>th` | n    | Toggle HardTime           |
-| `<leader>tc` | n    | Toggle Treesitter context |
-| `<leader>ti` | n    | Toggle indent guides      |
-| `<leader>to` | n    | Toggle Code Outline panel |
+| Key          | Mode | Description                       |
+| ------------ | ---- | --------------------------------- |
+| `<leader>tp` | n    | Toggle Precognition               |
+| `<leader>tt` | n, t | Toggle Floaterm                   |
+| `<leader>tn` | n    | Toggle Neotree filesystem         |
+| `<leader>th` | n    | Toggle HardTime                   |
+| `<leader>tc` | n    | Toggle Treesitter context         |
+| `<leader>ti` | n    | Toggle indent guides              |
+| `<leader>to` | n    | Toggle Code Outline panel         |
+| `<leader>tw` | n    | Toggle CursorHold error tooltips  |
 
 #### Window Management (Smart-Splits)
 
@@ -218,6 +223,7 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 | `<leader>dr`  | n    | Toggle REPL               |
 | `<leader>dvi` | n    | Go down in stack          |
 | `<leader>dvo` | n    | Go up in stack            |
+| `<leader>da`  | n    | Attach to remote Python (port 9000) |
 
 #### Git Operations
 
@@ -302,6 +308,85 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 > **Note**: `<leader>` is typically mapped to the space key. Some keybindings
 > may have conflicts or variations depending on the active mode and context.
+
+## Python Remote Debugging Workflow
+
+TimVim includes comprehensive Python debugging support via DAP (Debug Adapter Protocol) using `debugpy`. Here's how to set up and use remote Python debugging:
+
+### Setup Remote Python Debugging
+
+1. **In your Python code** (the remote process you want to debug):
+
+   ```python
+   import debugpy
+   
+   # Listen on port 9000 for debugger attachment
+   debugpy.listen(9000)
+   print("⏳ Waiting for debugger to attach...")
+   debugpy.wait_for_client()  # Optional: blocks until debugger connects
+   
+   # Your code here - execution will pause here once debugger attaches
+   your_function_to_debug()
+   ```
+
+2. **In Neovim**:
+   - Open the Python file you want to debug
+   - Set breakpoints using `<leader>db` where you want execution to pause
+   - Attach to the remote process using `<leader>da` (Quick attach to port 9000)
+   - Alternatively, use `<leader>dc` (Continue) and select "Remote Attach (9000)" from the picker
+
+### Debug Session Workflow
+
+1. **Start your Python process** with debugpy listening
+2. **In Neovim**:
+   - Press `<leader>da` to attach to the remote debugger
+   - Or press `<leader>dc` and select "Remote Attach (9000)"
+3. **Use debug controls**:
+   - `<leader>dc` - Continue execution
+   - `<leader>dgo` - Step into functions
+   - `<leader>dgj` - Step over lines  
+   - `<leader>dh` - Hover to inspect variables
+   - `<leader>du` - Toggle DAP UI for variables/call stack
+   - `<leader>dr` - Toggle REPL for interactive debugging
+   - `<leader>dq` - Terminate debugging session
+
+### Key Features
+
+- **Port Configuration**: Default remote debugging port is **9000**
+- **Automatic UI**: DAP UI opens automatically showing variables, call stack, and breakpoints
+- **Path Mapping**: Configured for local/remote path synchronization
+- **Language Support**: Full Python debugging with `debugpy` and `pyright` LSP integration
+
+## GitHub Copilot Integration
+
+TimVim includes comprehensive GitHub Copilot support for AI-assisted coding:
+
+### Copilot Setup
+
+- Copilot is enabled by default with auto-trigger suggestions
+- Use `<leader>acs` to check Copilot status
+- Use `<leader>ace` / `<leader>acd` to enable/disable Copilot
+
+### Copilot Usage
+
+- `<Tab>` - Accept suggestion
+- `<C-Right>` - Accept next word only
+- `<M-]>` / `<M-[>` - Navigate between suggestions (Alt + brackets)
+- `<C-e>` - Dismiss current suggestion
+
+### Copilot Panel & Chat
+
+- `<leader>acp` - Open Copilot panel for browsing multiple suggestions
+- `<leader>ac` - Open Copilot chat for conversational AI assistance
+- `<leader>ai` - Ask Avante/Copilot questions (works in visual mode too)
+- `<C-i>` - Inline editing with Avante/Copilot (insert mode)
+
+### Panel Navigation
+
+- `[[` / `]]` - Jump between panel items
+- `<CR>` - Accept selected item
+- `gr` - Refresh panel
+- `<M-CR>` - Open panel (Alt+Enter)
 
 ### How to install TimVim in your system
 
