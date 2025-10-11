@@ -59,10 +59,10 @@
       cmp.enable = true; # Enable copilot suggestions in completion menu
       setupOpts = {
         suggestion = {
-          enabled = true; # Keep suggestions enabled for ghost text
+          enabled = true; # Enable native suggestions for ghost text
           auto_trigger = true;
           keymap = {
-            accept = "<M-l>"; # Alt+l to accept suggestion (avoid Tab conflict)
+            accept = "<Tab>"; # Let Copilot handle Tab for ghost text
             accept_word = "<M-w>"; # Alt+w to accept next word
             accept_line = "<M-e>"; # Alt+e to accept current line
             next = "<M-]>"; # Next suggestion (Alt+])
