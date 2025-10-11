@@ -227,5 +227,19 @@
       action = "<cmd>lua _G.toggle_cursorhold_diagnostics()<CR>";
       desc = "Toggle CursorHold error tooltips";
     }
+    {
+      key = "<leader>lf";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.format_buffer()<CR>";
+      desc = "Format current buffer";
+    }
+    {
+      key = "<leader>lc";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.check_formatters()<CR>";
+      desc = "Check available formatters";
+    }
   ];
 }

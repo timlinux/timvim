@@ -3,7 +3,7 @@
     lsp = {
       enable = true;
       lspconfig.enable = true;
-      formatOnSave = true;
+      formatOnSave = false; # Disabled to avoid conflict with conform
       lspSignature.enable = false;
       lspkind.enable = true;
 

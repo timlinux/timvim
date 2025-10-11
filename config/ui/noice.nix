@@ -107,12 +107,38 @@
           },
         },
         routes = {
+          -- Skip mode change notifications
           {
-            view = "notify",
             filter = {
               event = "msg_showmode"
             },
+            opts = { skip = true },
           },
+          -- Skip search count messages (like "1 of 5 matches")
+          {
+            filter = {
+              event = "msg_show",
+              kind = "search_count",
+            },
+            opts = { skip = true },
+          },
+          -- Skip recording messages
+          {
+            filter = {
+              event = "msg_show",
+              find = "recording",
+            },
+            opts = { skip = true },
+          },
+          -- Skip "written" messages when saving files
+          {
+            filter = {
+              event = "msg_show",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+          -- Skip LSP progress messages from specific clients
           {
             filter = {
               event = "lsp",

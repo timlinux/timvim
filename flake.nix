@@ -137,6 +137,11 @@
                 pyright
                 python3Packages.debugpy
                 python3Packages.black
+                # Additional formatters
+                stylua # Lua formatter
+                shfmt # Shell formatter
+                nodePackages.prettier # Markdown, JS, HTML formatter
+                google-java-format # Java formatter
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
@@ -167,6 +172,11 @@
               pkgs.pyright
               pkgs.python3Packages.debugpy
               pkgs.python3Packages.black
+              # Additional formatters
+              pkgs.stylua # Lua formatter
+              pkgs.shfmt # Shell formatter
+              pkgs.nodePackages.prettier # Markdown, JS, HTML formatter
+              pkgs.google-java-format # Java formatter
 
               (nvf.lib.neovimConfiguration {
                 inherit pkgs;
