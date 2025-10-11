@@ -137,15 +137,16 @@
       action = "<cmd>Copilot disable<CR>";
       desc = "Disable Copilot";
     }
-    # Ctrl+I equivalent for inline editing (using Avante with copilot)
+    # Copilot Chat keymaps
     {
-      key = "<C-i>";
+      key = "<leader>ac";
       mode = [
-        "i"
+        "n"
+        "v"
       ];
       silent = true;
-      action = "<cmd>AvanteEdit<CR>";
-      desc = "Edit with Avante/Copilot";
+      action = "<cmd>CopilotChat<CR>";
+      desc = "Copilot Chat";
     }
     {
       key = "<leader>ai";
@@ -154,19 +155,40 @@
         "v"
       ];
       silent = true;
-      action = "<cmd>AvanteAsk<CR>";
-      desc = "Ask with Avante/Copilot";
+      action = "<cmd>CopilotChatExplain<CR>";
+      desc = "Ask Copilot to explain";
     }
     {
-      key = "<leader>ac";
+      key = "<leader>ar";
       mode = [
         "n"
         "v"
       ];
       silent = true;
-      action = "<cmd>AvanteChat<CR>";
-      desc = "Copilot";
+      action = "<cmd>CopilotChatReview<CR>";
+      desc = "Ask Copilot to review";
     }
+    {
+      key = "<leader>af";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>CopilotChatFix<CR>";
+      desc = "Ask Copilot to fix";
+    }
+    {
+      key = "<leader>ao";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>CopilotChatOptimize<CR>";
+      desc = "Ask Copilot to optimize";
+    }
+
     # Toggles
     {
       key = "<leader>tp";

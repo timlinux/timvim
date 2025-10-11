@@ -4,7 +4,7 @@
     enable = true;
 
     register = {
-      "<leader>a" = " Avante"; # Avante
+      "<leader>a" = " Assistant"; # AI Assistant
       "<leader>f" = " Files"; # Telescope
       "<leader>s" = " Session"; # Smart-splits + Session Manager
       "<leader>m" = " Minimap"; # Minimap + Bufferline move
