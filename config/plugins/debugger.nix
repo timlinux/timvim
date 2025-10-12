@@ -247,5 +247,21 @@
     vim.keymap.set('n', '<leader>ds', show_debug_status, { desc = 'Show debug status' })
     vim.keymap.set('n', '<leader>di', check_debugpy_installation, { desc = 'Check debugpy installation' })
     vim.keymap.set('n', '<leader>dk', kill_debug_processes, { desc = 'Kill hanging debug processes' })
+
+    -- Standard F-key debug shortcuts (single keypress)
+    vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Continue' })
+    vim.keymap.set('n', '<F8>', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
+    vim.keymap.set('n', '<F9>', function() dap.step_over() end, { desc = 'Debug: Step Over' })
+    vim.keymap.set('n', '<F10>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
+    vim.keymap.set('n', '<F11>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
+    vim.keymap.set('n', '<F12>', function() dap.run_to_cursor() end, { desc = 'Debug: Run to Cursor' })
+
+    -- Shift+F-key combinations for additional debug functions
+    vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, { desc = 'Debug: Terminate' })
+    vim.keymap.set('n', '<S-F8>', function() dap.clear_breakpoints() end, { desc = 'Debug: Clear All Breakpoints' })
+    vim.keymap.set('n', '<S-F9>', function() 
+      local dapui = require('dapui')
+      dapui.toggle()
+    end, { desc = 'Debug: Toggle UI' })
   '';
 }

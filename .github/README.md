@@ -70,6 +70,10 @@ experience.
 - **Text-Editor/IDE**: TimVim aims to provide a non-bloated, minimal and
   distraction-free code writing experience.
 
+- **Advanced Debugging**: Full Python remote debugging support with standard F-key shortcuts (F5, F8, F9, F10, F11, F12) and direct server connection for improved reliability.
+
+- **Smart Code Completion**: Blink-CMP with intelligent Tab handling that prioritizes GitHub Copilot suggestions over completion menu items.
+
 - **NVF Integration:** Build upon the
   [NVF](https://github.com/NotAShelf/nvf.git) Framework which gives it a solid
   base for your personal configuration.
@@ -94,7 +98,7 @@ nix run github:timlinux/timvim
 
 Or if you have a local checkout:
 
-```
+```shell
 nix run .#
 ```
 
@@ -208,22 +212,41 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 #### Debug (DAP)
 
-| Key           | Mode | Description               |
-| ------------- | ---- | ------------------------- |
-| `<leader>dc`  | n    | Continue debugging        |
-| `<leader>db`  | n    | Toggle breakpoint         |
-| `<leader>dR`  | n    | Restart debugger          |
-| `<leader>d.`  | n    | Run last                  |
-| `<leader>dgk` | n    | Run to cursor / Step back |
-| `<leader>dgo` | n    | Step into                 |
-| `<leader>dgj` | n    | Step over                 |
-| `<leader>dh`  | n    | Debug hover               |
-| `<leader>dq`  | n    | Terminate debugging       |
-| `<leader>du`  | n    | Toggle DAP UI             |
-| `<leader>dr`  | n    | Toggle REPL               |
-| `<leader>dvi` | n    | Go down in stack          |
-| `<leader>dvo` | n    | Go up in stack            |
-| `<leader>da`  | n    | Attach to remote Python (port 9000) |
+##### F-Key Shortcuts (Standard IDE Style)
+
+| Key      | Mode | Description                      |
+| -------- | ---- | -------------------------------- |
+| `F5`     | n    | **Continue** debugging           |
+| `F8`     | n    | **Toggle Breakpoint**            |
+| `F9`     | n    | **Step Over** (next line)        |
+| `F10`    | n    | **Step Into** (enter functions)  |
+| `F11`    | n    | **Step Out** (exit function)     |
+| `F12`    | n    | **Run to Cursor**                |
+| `Shift+F5` | n  | **Terminate** debug session      |
+| `Shift+F8` | n  | **Clear All Breakpoints**        |
+| `Shift+F9` | n  | **Toggle Debug UI**              |
+
+##### Leader Key Shortcuts (Alternative)
+
+| Key           | Mode | Description                       |
+| ------------- | ---- | --------------------------------- |
+| `<leader>dc`  | n    | Continue debugging                |
+| `<leader>db`  | n    | Toggle breakpoint                 |
+| `<leader>dR`  | n    | Restart debugger                  |
+| `<leader>d.`  | n    | Run last                          |
+| `<leader>dgk` | n    | Run to cursor / Step back         |
+| `<leader>dgo` | n    | Step into                         |
+| `<leader>dgj` | n    | Step over                         |
+| `<leader>dh`  | n    | Debug hover                       |
+| `<leader>dq`  | n    | Terminate debugging               |
+| `<leader>du`  | n    | Toggle DAP UI                     |
+| `<leader>dr`  | n    | Toggle REPL                       |
+| `<leader>dvi` | n    | Go down in stack                  |
+| `<leader>dvo` | n    | Go up in stack                    |
+| `<leader>da`  | n    | **Attach to remote Python** (port 9000) |
+| `<leader>ds`  | n    | Show debug status                 |
+| `<leader>di`  | n    | Check debugpy installation       |
+| `<leader>dk`  | n    | Kill hanging debug processes      |
 
 #### Git Operations
 
@@ -262,15 +285,18 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 #### Code Completion (Blink-CMP)
 
-| Key     | Mode | Description                              |
-| ------- | ---- | ---------------------------------------- |
-| `<TAB>` | i    | Confirm/Accept selected completion       |
-| `<C-l>` | i    | Trigger completion menu                  |
-| `<C-j>` | i    | Navigate to next completion item         |
-| `<C-k>` | i    | Navigate to previous completion item     |
-| `<C-e>` | i    | Close completion menu                    |
-| `<C-f>` | i    | Scroll completion documentation down     |
-| `<C-d>` | i    | Scroll completion documentation up       |
+| Key          | Mode | Description                              |
+| ------------ | ---- | ---------------------------------------- |
+| `<CR>`       | i    | **Confirm/Accept selected completion**   |
+| `<TAB>`      | i    | **Smart Tab** (Copilot → Completion → Indent) |
+| `<C-Space>`  | i    | **Trigger completion menu**              |
+| `<C-j>`      | i    | Navigate to **next** completion item     |
+| `<C-k>`      | i    | Navigate to **previous** completion item |
+| `<C-e>`      | i    | **Close** completion menu                |
+| `<C-f>`      | i    | Scroll completion documentation **down** |
+| `<C-d>`      | i    | Scroll completion documentation **up**   |
+
+> **Note**: `<TAB>` intelligently prioritizes Copilot suggestions over completion menu items.
 
 #### Terminal
 
@@ -340,22 +366,28 @@ TimVim includes comprehensive Python debugging support via DAP (Debug Adapter Pr
 1. **Start your Python process** with debugpy listening
 2. **In Neovim**:
    - Press `<leader>da` to attach to the remote debugger
-   - Or press `<leader>dc` and select "Remote Attach (9000)"
-3. **Use debug controls**:
-   - `<leader>dc` - Continue execution
-   - `<leader>dgo` - Step into functions
-   - `<leader>dgj` - Step over lines  
-   - `<leader>dh` - Hover to inspect variables
-   - `<leader>du` - Toggle DAP UI for variables/call stack
+   - Or press `F5` and select "Direct Server Attach (9000)"
+3. **Use debug controls** (F-keys recommended for speed):
+   - **`F5`** - Continue execution
+   - **`F9`** - Step over lines (most common)
+   - **`F10`** - Step into functions
+   - **`F11`** - Step out of functions
+   - **`F8`** - Toggle breakpoints
+   - **`F12`** - Run to cursor
+   - **`Shift+F9`** - Toggle DAP UI for variables/call stack
    - `<leader>dr` - Toggle REPL for interactive debugging
-   - `<leader>dq` - Terminate debugging session
+   - **`Shift+F5`** - Terminate debugging session
 
 ### Key Features
 
+- **F-Key Support**: Standard IDE-style F-key shortcuts (F5=Continue, F8=Breakpoint, F9=Step Over, etc.)
+- **Direct Server Connection**: Improved adapter that connects directly to debugpy server for better reliability
 - **Port Configuration**: Default remote debugging port is **9000**
 - **Automatic UI**: DAP UI opens automatically showing variables, call stack, and breakpoints
 - **Path Mapping**: Configured for local/remote path synchronization
 - **Language Support**: Full Python debugging with `debugpy` and `pyright` LSP integration
+- **Connection Testing**: Built-in connection verification before attempting to attach
+- **Multiple Configurations**: Both direct server and standard executable adapter modes available
 
 ## GitHub Copilot Integration
 
@@ -426,7 +458,7 @@ Configuration:
 }
 ```
 
-<I>And now you have successfully installed TimVim NVF NeoVim Configuration!</I>
+**And now you have successfully installed TimVim NVF NeoVim Configuration!**
 
 ## Using in python projects
 
@@ -434,7 +466,7 @@ If you are using timvim for developing python projects you should add pyright
 and python3 as packages to your project's flake for example in the dev shell.
 Here is an exhuastive example:
 
-```
+```nix
 devShells.default = pkgs.mkShell {
   packages =
     with pkgs;
