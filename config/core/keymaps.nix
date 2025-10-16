@@ -44,6 +44,27 @@
       action = "<C-o>";
       desc = "Return from Definition";
     }
+    {
+      key = "<leader>fr";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope lsp_references<CR>";
+      desc = "Find References";
+    }
+    {
+      key = "<leader>fi";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope lsp_implementations<CR>";
+      desc = "Find Implementations";
+    }
+    {
+      key = "<leader>ft";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope lsp_type_definitions<CR>";
+      desc = "Find Type Definitions";
+    }
 
     {
       key = "<leader>fb";
@@ -93,6 +114,28 @@
       silent = true;
       action = "<cmd>Telescope lsp_document_symbols<CR>";
       desc = "Find Symbols in current file";
+    }
+    # OIL File Manager keymaps
+    {
+      key = "<leader>fo";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Oil<CR>";
+      desc = "Open Oil file manager";
+    }
+    {
+      key = "<leader>fO";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Oil --float<CR>";
+      desc = "Open Oil file manager in floating window";
+    }
+    {
+      key = "-";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Oil<CR>";
+      desc = "Open Oil file manager (quick access)";
     }
     {
       key = "K";
@@ -213,6 +256,13 @@
       silent = true;
       action = "<cmd>Neotree toggle<CR>";
       desc = "Toggle Neotree filesystem show";
+    }
+    {
+      key = "<leader>tf";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Oil<CR>";
+      desc = "Toggle Oil file manager";
     }
     {
       key = "<leader>th";

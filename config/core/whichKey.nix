@@ -6,6 +6,10 @@
     register = {
       "<leader>a" = " Assistant"; # AI Assistant
       "<leader>f" = " Files"; # Telescope
+      # Telescope LSP keybindings
+      "<leader>fr" = "󰈇 Find References";
+      "<leader>fi" = "󰡱 Find Implementations";
+      "<leader>ft" = "󰊕 Find Type Definitions";
       "<leader>s" = " Session"; # Smart-splits + Session Manager
       "<leader>m" = " Minimap"; # Minimap + Bufferline move
       "<leader>b" = " Buffers"; # Bufferline nav

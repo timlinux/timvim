@@ -61,6 +61,7 @@
         suggestion = {
           enabled = true; # Enable native suggestions for ghost text
           auto_trigger = true;
+          debounce = 1000; # Wait 1 second before showing suggestions
           keymap = {
             accept = "<Tab>"; # Let Copilot handle Tab for ghost text
             accept_word = "<M-w>"; # Alt+w to accept next word

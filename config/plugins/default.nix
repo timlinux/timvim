@@ -17,6 +17,7 @@
     ./notes.nix
     ./nvzone-typr.nix
     ./minimap.nix
+    ./oil.nix
     ./projects.nix
     ./snacks
     ./telescope.nix
