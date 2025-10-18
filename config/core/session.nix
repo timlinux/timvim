@@ -2,7 +2,9 @@
 {
   vim = {
     options = {
-      sessionoptions = "buffers,curdir,tabpages,winsize,help,winpos,winsize";
+      sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos";
+      # Also set viewoptions to ensure cursor position is saved in views
+      viewoptions = "cursor,folds,options,curdir";
     };
 
     session.nvim-session-manager = {
