@@ -41,7 +41,7 @@
     };
 
     # Restore cursor position when opening files
-    extraConfigLua = ''
+    luaConfigRC.restore_cursor = ''
       -- Restore cursor position when opening files
       vim.api.nvim_create_autocmd("BufReadPost", {
         pattern = "*",
