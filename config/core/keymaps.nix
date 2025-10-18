@@ -313,5 +313,12 @@
       action = "<cmd>lua _G.check_formatters()<CR>";
       desc = "Check available formatters";
     }
+    {
+      key = "<leader>rn";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+      desc = "Rename symbol under cursor";
+    }
   ];
 }
