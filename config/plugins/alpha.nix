@@ -33,6 +33,16 @@
 
       -- Setup alpha
       alpha.setup(dashboard.config)
+
+      -- Auto-show alpha on startup
+      vim.api.nvim_create_autocmd("VimEnter", {
+        pattern = "*",
+        callback = function()
+          if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
+            require("alpha").start()
+          end
+        end,
+      })
     '';
   };
 }
