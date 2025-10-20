@@ -4,7 +4,7 @@
       glow = {
         enable = true;
         mappings = {
-          openPreview = "<leader>mg";
+          openPreview = "<leader>pm";
         };
       };
       markdownPreview = {

@@ -5,10 +5,10 @@
     codewindow = {
       enable = true;
       mappings = {
-        open = "<leader>mo";
-        close = "<leader>mc";
-        toggle = "<leader>mm";
-        toggleFocus = "<leader>mf";
+        open = "<leader>cs";
+        close = "<leader>ch";
+        toggle = "<leader>cm";
+        toggleFocus = "<leader>ci";
       };
     };
   };

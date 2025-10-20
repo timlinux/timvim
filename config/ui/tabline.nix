@@ -31,9 +31,6 @@
       cyclePrevious = "<leader>bh";
       closeCurrent = "<leader>bx";
       pick = "<leader>bp";
-      # ReOrder the tabs
-      moveNext = "<leader>me";
-      movePrevious = "<leader>mq";
     };
   };
 }

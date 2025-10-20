@@ -11,15 +11,15 @@
 
       mappings = {
         continue = "<leader>dc";
-        goDown = "<leader>dvi";
-        goUp = "<leader>dvo";
+        goDown = "<leader>dj";
+        goUp = "<leader>dk";
         hover = "<leader>dh";
         restart = "<leader>dR";
         runLast = "<leader>d.";
-        runToCursor = "<leader>dgk";
-        stepBack = "<leader>dgk";
-        stepInto = "<leader>dgo";
-        stepOver = "<leader>dgj";
+        runToCursor = "<leader>dt";
+        stepBack = "<leader>dt";
+        stepInto = "<leader>dn";
+        stepOver = "<leader>dv";
         terminate = "<leader>dq";
         toggleBreakpoint = "<leader>db";
         toggleDapUI = "<leader>du";

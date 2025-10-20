@@ -16,10 +16,10 @@
         resize_right = "<A-l>";
         resize_up = "<A-k>";
 
-        swap_buf_down = "<leader><leader>j";
-        swap_buf_left = "<leader><leader>h";
-        swap_buf_right = "<leader><leader>l";
-        swap_buf_up = "<leader><leader>k";
+        swap_buf_down = "<leader>bj";
+        swap_buf_left = "<leader>bs";
+        swap_buf_right = "<leader>bd";
+        swap_buf_up = "<leader>bk";
       };
 
       # Optional extra options passed to smart-splits.setup()

@@ -104,111 +104,164 @@ nix run .#
 
 ### Keybinds
 
-The following is a comprehensive list of keybinds that are configured in TimVim:
+The following is a comprehensive list of keybinds organised by topic in TimVim:
 
-#### Basic Navigation
+#### Navigation
 
-| Key          | Mode | Description                   |
-| ------------ | ---- | ----------------------------- |
-| `H`          | n, v | Go to start of line           |
-| `L`          | n, v | Go to end of line             |
-| `<leader>m`  | n    | Center current line on screen |
-| `K`          | n    | Hover Documentation (LSP)     |
+| Key     | Mode | Description                        |
+| ------- | ---- | ---------------------------------- |
+| `H`     | n, v | Go to start of line                |
+| `L`     | n, v | Go to end of line                  |
+| `K`     | n    | Hover Documentation                |
+| `<C-l>` | n    | Go to Definition                   |
+| `<C-h>` | n    | Return from Definition             |
+| `-`     | n    | Open Oil File Manager (Quick Access) |
 
-#### LSP & Code Navigation
+#### AI Assistant (`<leader>a`)
 
-| Key     | Mode | Description            |
-| ------- | ---- | ---------------------- |
-| `<C-l>` | n    | Go to Definition       |
-| `<C-h>` | n    | Return from Definition |
+| Key          | Mode | Description                 |
+| ------------ | ---- | --------------------------- |
+| `<leader>ac` | n, v | Copilot Chat                |
+| `<leader>ap` | n    | Copilot Panel               |
+| `<leader>as` | n    | Copilot Status              |
+| `<leader>ae` | n    | Enable Copilot              |
+| `<leader>ad` | n    | Disable Copilot             |
+| `<leader>ai` | n, v | Ask Copilot to Explain      |
+| `<leader>ar` | n, v | Ask Copilot to Review       |
+| `<leader>af` | n, v | Ask Copilot to Fix          |
+| `<leader>ao` | n, v | Ask Copilot to Optimise     |
 
-#### File & Search Operations (Telescope)
+#### Buffers (`<leader>b`)
+
+| Key          | Mode | Description        |
+| ------------ | ---- | ------------------ |
+| `<leader>bb` | n    | Find Buffers       |
+| `<leader>bl` | n    | Next Buffer        |
+| `<leader>bh` | n    | Previous Buffer    |
+| `<leader>bx` | n    | Close Buffer       |
+| `<leader>bp` | n    | Pick Buffer        |
+| `<leader>bj` | n    | Swap Buffer Down   |
+| `<leader>bk` | n    | Swap Buffer Up     |
+| `<leader>bs` | n    | Swap Buffer Left   |
+| `<leader>bd` | n    | Swap Buffer Right  |
+
+#### Code (`<leader>c`)
+
+| Key          | Mode | Description           |
+| ------------ | ---- | --------------------- |
+| `<leader>cp` | n    | Colour Picker              |
+| `<leader>cr` | n    | Rename Symbol              |
+| `<leader>cf` | n    | Format Buffer              |
+| `<leader>cc` | n    | Check Available Formatters |
+| `<leader>cs` | n    | Show Minimap               |
+| `<leader>ch` | n    | Hide Minimap               |
+| `<leader>cm` | n    | Toggle Minimap             |
+| `<leader>ci` | n    | Focus Minimap              |
+| `<leader>co` | n    | Toggle Code Outline        |
+| `<leader>pm` | n    | Preview Markdown           |
+| `<leader>cd` | n    | Go to Definition           |
+| `<leader>cD` | n    | Go to Declaration          |
+| `<leader>cI` | n    | Find Implementations       |
+| `<leader>ct` | n    | Find Type Definitions      |
+| `<leader>cR` | n    | Find References            |
+| `<leader>cn` | n    | Next Diagnostic            |
+| `<leader>cP` | n    | Previous Diagnostic        |
+
+#### Debug (`<leader>d`)
+
+| Key          | Mode | Description                               |
+| ------------ | ---- | ----------------------------------------- |
+| `<leader>da` | n    | Attach to Remote Python (Port 9000)      |
+| `<leader>dl` | n    | Start/Continue Local Debugging            |
+| `<leader>ds` | n    | Show Debug Status                         |
+| `<leader>di` | n    | Check Debugpy Installation                |
+| `<leader>dc` | n    | Continue                                  |
+| `<leader>db` | n    | Toggle Breakpoint                         |
+| `<leader>du` | n    | Toggle DAP UI                             |
+| `<leader>dr` | n    | Toggle REPL                               |
+| `<leader>dh` | n    | Hover                                     |
+| `<leader>dq` | n    | Terminate                                 |
+| `<leader>dR` | n    | Restart                                   |
+| `<leader>d.` | n    | Run Last                                  |
+| `<leader>dn` | n    | Step Into                                 |
+| `<leader>dv` | n    | Step Over                                 |
+| `<leader>dt` | n    | Run to Cursor                             |
+| `<leader>dj` | n    | Go Down Stack                             |
+| `<leader>dk` | n    | Go Up Stack                               |
+
+#### Files (`<leader>f`)
+
+| Key          | Mode | Description                        |
+| ------------ | ---- | ---------------------------------- |
+| `<leader>ff` | n    | Find Files with Names              |
+| `<leader>fg` | n    | Find Files with Contents (FZF)     |
+
+| `<leader>fm` | n    | Find Media Files                   |
+| `<leader>fp` | n    | Find Python Files                  |
+| `<leader>fn` | n    | Find Nix Files                     |
+| `<leader>fs` | n    | Find Symbols in Current File       |
+| `<leader>fo` | n    | Open Oil File Manager              |
+| `<leader>fO` | n    | Open Oil File Manager (Floating)   |
+
+#### Git (`<leader>g`)
 
 | Key          | Mode | Description                    |
 | ------------ | ---- | ------------------------------ |
-| `<leader>fb` | n    | Find buffers                   |
-| `<leader>ff` | n    | Find files with names          |
-| `<leader>fm` | n    | Find Media Files               |
-| `<leader>fg` | n    | Find files with Contents (FZF) |
-| `<leader>fp` | n    | Find Python files              |
-| `<leader>fn` | n    | Find Nix files                 |
-| `<leader>fs` | n    | Find Symbols in current file   |
+| `<leader>gg` | n    | Open Git Terminal              |
+| `<leader>gb` | n    | Git Blame Line                 |
+| `<leader>gx` | n    | Toggle Git Blame               |
+| `<leader>gl` | n    | Git Log (Telescope Git Commits)|
+| `<leader>go` | n    | Toggle Git Outline             |
+| `<leader>gs` | n, v | Stage Hunk                     |
+| `<leader>gr` | n, v | Reset Hunk                     |
+| `<leader>gS` | n    | Stage Buffer                   |
+| `<leader>gR` | n    | Reset Buffer                   |
+| `<leader>gu` | n    | Undo Stage Hunk                |
+| `<leader>gp` | n    | Preview Hunk                   |
+| `<leader>gd` | n    | Diff This                      |
+| `<leader>gD` | n    | Diff Project                   |
+| `<leader>gn` | n    | Git Choose None                |
+| `<leader>gt` | n    | Git Choose Theirs              |
+| `<leader>gc` | n    | Git Choose Ours                |
+| `<leader>ga` | n    | Git Choose Both                |
 
-#### AI Assistant (Avante/Copilot)
+#### Session (`<leader>s`)
 
-| Key           | Mode | Description              |
-| ------------- | ---- | ------------------------ |
-| `<leader>acp` | n    | Open Copilot Panel       |
-| `<leader>acs` | n    | Copilot Status           |
-| `<leader>ace` | n    | Enable Copilot           |
-| `<leader>acd` | n    | Disable Copilot          |
-| `<C-i>`       | i    | Edit with Avante/Copilot |
-| `<leader>ai`  | n, v | Ask with Avante/Copilot  |
-| `<leader>ac`  | n, v | Copilot Chat             |
+| Key          | Mode | Description            |
+| ------------ | ---- | ---------------------- |
+| `<leader>sm` | n    | Open Session Manager   |
+| `<leader>ss` | n    | Save Current Session   |
+| `<leader>sl` | n    | Load Last Session      |
+| `<leader>so` | n    | Load Session           |
+| `<leader>sd` | n    | Delete Session         |
 
-#### Copilot Suggestions
-
-| Key         | Mode | Description                 |
-| ----------- | ---- | --------------------------- |
-| `<Tab>`     | i    | Accept suggestion           |
-| `<C-Right>` | i    | Accept next word            |
-| `<Tab>`     | i    | Accept current line         |
-| `<M-]>`     | i    | Next suggestion (Alt+])     |
-| `<M-[>`     | i    | Previous suggestion (Alt+[) |
-| `<C-e>`     | i    | Dismiss suggestion          |
-| `<C-h>`     | i    | Dismiss suggestion          |
-
-#### Copilot Panel
-
-| Key      | Mode | Description            |
-| -------- | ---- | ---------------------- |
-| `[[`     | n    | Jump to previous item  |
-| `]]`     | n    | Jump to next item      |
-| `<CR>`   | n    | Accept item            |
-| `gr`     | n    | Refresh panel          |
-| `<M-CR>` | n    | Open panel (Alt+Enter) |
-
-#### Toggles
+#### Toggles (`<leader>t`)
 
 | Key          | Mode | Description                       |
 | ------------ | ---- | --------------------------------- |
-| `<leader>tp` | n    | Toggle Precognition               |
 | `<leader>tt` | n, t | Toggle Floaterm                   |
-| `<leader>tn` | n    | Toggle Neotree filesystem         |
+| `<leader>tn` | n    | Toggle Neotree Filesystem         |
+| `<leader>tf` | n    | Toggle Oil File Manager           |
 | `<leader>th` | n    | Toggle HardTime                   |
-| `<leader>tc` | n    | Toggle Treesitter context         |
-| `<leader>ti` | n    | Toggle indent guides              |
-| `<leader>to` | n    | Toggle Code Outline panel         |
-| `<leader>tw` | n    | Toggle CursorHold error tooltips  |
+| `<leader>tc` | n    | Toggle Treesitter Context         |
+| `<leader>ti` | n    | Toggle Indent Guides              |
+| `<leader>to` | n    | Toggle Code Outline Panel         |
+| `<leader>tw` | n    | Toggle CursorHold Error Tooltips  |
+| `<leader>tp` | n    | Toggle Precognition               |
 
-#### Window Management (Smart-Splits)
+#### Window Management (Smart Splits)
 
-| Key                 | Mode | Description             |
-| ------------------- | ---- | ----------------------- |
-| `<C-h>`             | n    | Move cursor left        |
-| `<C-j>`             | n    | Move cursor down        |
-| `<C-k>`             | n    | Move cursor up          |
-| `<C-l>`             | n    | Move cursor right       |
-| `<C-\>`             | n    | Move cursor to previous |
-| `<A-h>`             | n    | Resize window left      |
-| `<A-j>`             | n    | Resize window down      |
-| `<A-k>`             | n    | Resize window up        |
-| `<A-l>`             | n    | Resize window right     |
-| `<leader><leader>h` | n    | Swap buffer left        |
-| `<leader><leader>j` | n    | Swap buffer down        |
-| `<leader><leader>k` | n    | Swap buffer up          |
-| `<leader><leader>l` | n    | Swap buffer right       |
-
-#### Buffer Management (Bufferline)
-
-| Key          | Mode | Description              |
-| ------------ | ---- | ------------------------ |
-| `<leader>bl` | n    | Cycle to next buffer     |
-| `<leader>bh` | n    | Cycle to previous buffer |
-| `<leader>bx` | n    | Close current buffer     |
-| `<leader>bp` | n    | Pick buffer              |
-| `<leader>me` | n    | Move buffer next         |
-| `<leader>mq` | n    | Move buffer previous     |
+| Key     | Mode | Description             |
+| ------- | ---- | ----------------------- |
+| `<C-h>` | n    | Move cursor left        |
+| `<C-j>` | n    | Move cursor down        |
+| `<C-k>` | n    | Move cursor up          |
+| `<C-l>` | n    | Move cursor right       |
+| `<C-\>` | n    | Move cursor to previous |
+| `<A-h>` | n    | Resize window left      |
+| `<A-j>` | n    | Resize window down      |
+| `<A-k>` | n    | Resize window up        |
+| `<A-l>` | n    | Resize window right     |
 
 #### Debug (DAP)
 
@@ -234,28 +287,40 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 | `<leader>db`  | n    | Toggle breakpoint                 |
 | `<leader>dR`  | n    | Restart debugger                  |
 | `<leader>d.`  | n    | Run last                          |
-| `<leader>dgk` | n    | Run to cursor / Step back         |
-| `<leader>dgo` | n    | Step into                         |
-| `<leader>dgj` | n    | Step over                         |
+| `<leader>dt`  | n    | Run to cursor                     |
+| `<leader>dn`  | n    | Step into                         |
+| `<leader>dv`  | n    | Step over                         |
 | `<leader>dh`  | n    | Debug hover                       |
 | `<leader>dq`  | n    | Terminate debugging               |
 | `<leader>du`  | n    | Toggle DAP UI                     |
 | `<leader>dr`  | n    | Toggle REPL                       |
-| `<leader>dvi` | n    | Go down in stack                  |
-| `<leader>dvo` | n    | Go up in stack                    |
+| `<leader>dj`  | n    | Go down in stack                  |
+| `<leader>dk`  | n    | Go up in stack                    |
 | `<leader>da`  | n    | **Attach to remote Python** (port 9000) |
 | `<leader>ds`  | n    | Show debug status                 |
 | `<leader>di`  | n    | Check debugpy installation       |
-| `<leader>dk`  | n    | Kill hanging debug processes      |
 
-#### Git Operations
+#### Copilot Suggestions
 
-| Key          | Mode | Description           |
-| ------------ | ---- | --------------------- |
-| `<leader>gg` | n    | Open Lazygit          |
-| `<leader>hl` | n    | Blame line            |
-| `<leader>hx` | n    | Toggle blame          |
-| `<leader>hb` | n    | Toggle Git blame line |
+| Key         | Mode | Description                 |
+| ----------- | ---- | --------------------------- |
+| `<Tab>`     | i    | Accept suggestion           |
+| `<C-Right>` | i    | Accept next word            |
+| `<Tab>`     | i    | Accept current line         |
+| `<M-]>`     | i    | Next suggestion (Alt+])     |
+| `<M-[>`     | i    | Previous suggestion (Alt+[) |
+| `<C-e>`     | i    | Dismiss suggestion          |
+| `<C-h>`     | i    | Dismiss suggestion          |
+
+#### Copilot Panel
+
+| Key      | Mode | Description            |
+| -------- | ---- | ---------------------- |
+| `[[`     | n    | Jump to previous item  |
+| `]]`     | n    | Jump to next item      |
+| `<CR>`   | n    | Accept item            |
+| `gr`     | n    | Refresh panel          |
+| `<M-CR>` | n    | Open panel (Alt+Enter) |
 
 #### Motion & Text Objects (Flash)
 
@@ -298,39 +363,12 @@ The following is a comprehensive list of keybinds that are configured in TimVim:
 
 > **Note**: `<TAB>` intelligently prioritizes Copilot suggestions over completion menu items.
 
-#### Terminal
+#### Other Keybinds
 
-| Key     | Mode | Description     |
-| ------- | ---- | --------------- |
-| `<C-t>` | n    | Toggle terminal |
-
-#### Minimap & Code Window
-
-| Key          | Mode | Description          |
-| ------------ | ---- | -------------------- |
-| `<leader>mo` | n    | Open minimap         |
-| `<leader>mc` | n    | Close minimap        |
-| `<leader>mm` | n    | Toggle minimap       |
-| `<leader>mf` | n    | Toggle minimap focus |
-
-#### Outline & Preview
-
-| Key          | Mode | Description             |
-| ------------ | ---- | ----------------------- |
-| `<leader>g0` | n    | Toggle outline (Aerial) |
-| `<leader>mg` | n    | Open Glow preview       |
-
-#### Session Management
-
-| Key          | Mode | Description          |
-| ------------ | ---- | -------------------- |
-| `<leader>sm` | n    | Open Session Manager |
-
-#### Utility
-
-| Key          | Mode | Description             |
-| ------------ | ---- | ----------------------- |
-| `<leader>cp` | n    | Pick Color (MiniColors) |
+| Key     | Mode | Description           |
+| ------- | ---- | --------------------- |
+| `gz`    | n    | Surround operations   |
+| `F5`    | n    | Toggle UndoTree       |
 
 > **Note**: `<leader>` is typically mapped to the space key. Some keybindings
 > may have conflicts or variations depending on the active mode and context.
@@ -396,8 +434,8 @@ TimVim includes comprehensive GitHub Copilot support for AI-assisted coding:
 ### Copilot Setup
 
 - Copilot is enabled by default with auto-trigger suggestions
-- Use `<leader>acs` to check Copilot status
-- Use `<leader>ace` / `<leader>acd` to enable/disable Copilot
+- Use `<leader>as` to check Copilot status
+- Use `<leader>ae` / `<leader>ad` to enable/disable Copilot
 
 ### Copilot Usage
 
@@ -408,7 +446,7 @@ TimVim includes comprehensive GitHub Copilot support for AI-assisted coding:
 
 ### Copilot Panel & Chat
 
-- `<leader>acp` - Open Copilot panel for browsing multiple suggestions
+- `<leader>ap` - Open Copilot panel for browsing multiple suggestions
 - `<leader>ac` - Open Copilot chat for conversational AI assistance
 - `<leader>ai` - Ask Avante/Copilot questions (works in visual mode too)
 - `<C-i>` - Inline editing with Avante/Copilot (insert mode)
