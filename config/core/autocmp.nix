@@ -67,7 +67,6 @@
           documentation.auto_show = true;
           menu = {
             auto_show = true;
-            delay = 1000; # Wait 1 second before showing completion menu
           };
         };
 
