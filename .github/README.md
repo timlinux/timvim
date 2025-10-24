@@ -41,10 +41,10 @@ experience.
     <img src = "assets/telescope.png">
 </details>
 
+Hi
 <br>
 
-> [!WARNING 1]
-> **hardtime.nvim is configured with maximum strictness!**
+> [!WARNING 1] > **hardtime.nvim is configured with maximum strictness!**
 >
 > **Since I want to learn VIM Motions I have enabled hardtime-nvim with
 > precognition!**
@@ -63,7 +63,6 @@ experience.
 >
 > This setup autosaves any buffers when they lose focus or you quit!
 > If you don't like this behaviour, see autosave.nix and session.nix.
->
 
 ## Features
 
@@ -108,47 +107,47 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 
 #### Navigation
 
-| Key     | Mode | Description                        |
-| ------- | ---- | ---------------------------------- |
-| `H`     | n, v | Go to start of line                |
-| `L`     | n, v | Go to end of line                  |
-| `K`     | n    | Hover Documentation                |
-| `<C-l>` | n    | Go to Definition                   |
-| `<C-h>` | n    | Return from Definition             |
+| Key     | Mode | Description                          |
+| ------- | ---- | ------------------------------------ |
+| `H`     | n, v | Go to start of line                  |
+| `L`     | n, v | Go to end of line                    |
+| `K`     | n    | Hover Documentation                  |
+| `<C-l>` | n    | Go to Definition                     |
+| `<C-h>` | n    | Return from Definition               |
 | `-`     | n    | Open Oil File Manager (Quick Access) |
 
 #### AI Assistant (`<leader>a`)
 
-| Key          | Mode | Description                 |
-| ------------ | ---- | --------------------------- |
-| `<leader>ac` | n, v | Copilot Chat                |
-| `<leader>ap` | n    | Copilot Panel               |
-| `<leader>as` | n    | Copilot Status              |
-| `<leader>ae` | n    | Enable Copilot              |
-| `<leader>ad` | n    | Disable Copilot             |
-| `<leader>ai` | n, v | Ask Copilot to Explain      |
-| `<leader>ar` | n, v | Ask Copilot to Review       |
-| `<leader>af` | n, v | Ask Copilot to Fix          |
-| `<leader>ao` | n, v | Ask Copilot to Optimise     |
+| Key          | Mode | Description             |
+| ------------ | ---- | ----------------------- |
+| `<leader>ac` | n, v | Copilot Chat            |
+| `<leader>ap` | n    | Copilot Panel           |
+| `<leader>as` | n    | Copilot Status          |
+| `<leader>ae` | n    | Enable Copilot          |
+| `<leader>ad` | n    | Disable Copilot         |
+| `<leader>ai` | n, v | Ask Copilot to Explain  |
+| `<leader>ar` | n, v | Ask Copilot to Review   |
+| `<leader>af` | n, v | Ask Copilot to Fix      |
+| `<leader>ao` | n, v | Ask Copilot to Optimise |
 
 #### Buffers (`<leader>b`)
 
-| Key          | Mode | Description        |
-| ------------ | ---- | ------------------ |
-| `<leader>bb` | n    | Find Buffers       |
-| `<leader>bl` | n    | Next Buffer        |
-| `<leader>bh` | n    | Previous Buffer    |
-| `<leader>bx` | n    | Close Buffer       |
-| `<leader>bp` | n    | Pick Buffer        |
-| `<leader>bj` | n    | Swap Buffer Down   |
-| `<leader>bk` | n    | Swap Buffer Up     |
-| `<leader>bs` | n    | Swap Buffer Left   |
-| `<leader>bd` | n    | Swap Buffer Right  |
+| Key          | Mode | Description       |
+| ------------ | ---- | ----------------- |
+| `<leader>bb` | n    | Find Buffers      |
+| `<leader>bl` | n    | Next Buffer       |
+| `<leader>bh` | n    | Previous Buffer   |
+| `<leader>bx` | n    | Close Buffer      |
+| `<leader>bp` | n    | Pick Buffer       |
+| `<leader>bj` | n    | Swap Buffer Down  |
+| `<leader>bk` | n    | Swap Buffer Up    |
+| `<leader>bs` | n    | Swap Buffer Left  |
+| `<leader>bd` | n    | Swap Buffer Right |
 
 #### Code (`<leader>c`)
 
-| Key          | Mode | Description           |
-| ------------ | ---- | --------------------- |
+| Key          | Mode | Description                |
+| ------------ | ---- | -------------------------- |
 | `<leader>cp` | n    | Colour Picker              |
 | `<leader>cr` | n    | Rename Symbol              |
 | `<leader>cf` | n    | Format Buffer              |
@@ -169,85 +168,85 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 
 #### Debug (`<leader>d`)
 
-| Key          | Mode | Description                               |
-| ------------ | ---- | ----------------------------------------- |
-| `<leader>da` | n    | Attach to Remote Python (Port 9000)      |
-| `<leader>dl` | n    | Start/Continue Local Debugging            |
-| `<leader>ds` | n    | Show Debug Status                         |
-| `<leader>di` | n    | Check Debugpy Installation                |
-| `<leader>dc` | n    | Continue                                  |
-| `<leader>db` | n    | Toggle Breakpoint                         |
-| `<leader>du` | n    | Toggle DAP UI                             |
-| `<leader>dr` | n    | Toggle REPL                               |
-| `<leader>dh` | n    | Hover                                     |
-| `<leader>dq` | n    | Terminate                                 |
-| `<leader>dR` | n    | Restart                                   |
-| `<leader>d.` | n    | Run Last                                  |
-| `<leader>dn` | n    | Step Into                                 |
-| `<leader>dv` | n    | Step Over                                 |
-| `<leader>dt` | n    | Run to Cursor                             |
-| `<leader>dj` | n    | Go Down Stack                             |
-| `<leader>dk` | n    | Go Up Stack                               |
+| Key          | Mode | Description                         |
+| ------------ | ---- | ----------------------------------- |
+| `<leader>da` | n    | Attach to Remote Python (Port 9000) |
+| `<leader>dl` | n    | Start/Continue Local Debugging      |
+| `<leader>ds` | n    | Show Debug Status                   |
+| `<leader>di` | n    | Check Debugpy Installation          |
+| `<leader>dc` | n    | Continue                            |
+| `<leader>db` | n    | Toggle Breakpoint                   |
+| `<leader>du` | n    | Toggle DAP UI                       |
+| `<leader>dr` | n    | Toggle REPL                         |
+| `<leader>dh` | n    | Hover                               |
+| `<leader>dq` | n    | Terminate                           |
+| `<leader>dR` | n    | Restart                             |
+| `<leader>d.` | n    | Run Last                            |
+| `<leader>dn` | n    | Step Into                           |
+| `<leader>dv` | n    | Step Over                           |
+| `<leader>dt` | n    | Run to Cursor                       |
+| `<leader>dj` | n    | Go Down Stack                       |
+| `<leader>dk` | n    | Go Up Stack                         |
 
 #### Files (`<leader>f`)
 
-| Key          | Mode | Description                        |
-| ------------ | ---- | ---------------------------------- |
-| `<leader>ff` | n    | Find Files with Names              |
-| `<leader>fg` | n    | Find Files with Contents (FZF)     |
+| Key          | Mode | Description                    |
+| ------------ | ---- | ------------------------------ |
+| `<leader>ff` | n    | Find Files with Names          |
+| `<leader>fg` | n    | Find Files with Contents (FZF) |
 
-| `<leader>fm` | n    | Find Media Files                   |
-| `<leader>fp` | n    | Find Python Files                  |
-| `<leader>fn` | n    | Find Nix Files                     |
-| `<leader>fs` | n    | Find Symbols in Current File       |
-| `<leader>fo` | n    | Open Oil File Manager              |
-| `<leader>fO` | n    | Open Oil File Manager (Floating)   |
+| `<leader>fm` | n | Find Media Files |
+| `<leader>fp` | n | Find Python Files |
+| `<leader>fn` | n | Find Nix Files |
+| `<leader>fs` | n | Find Symbols in Current File |
+| `<leader>fo` | n | Open Oil File Manager |
+| `<leader>fO` | n | Open Oil File Manager (Floating) |
 
 #### Git (`<leader>g`)
 
-| Key          | Mode | Description                    |
-| ------------ | ---- | ------------------------------ |
-| `<leader>gg` | n    | Open Git Terminal              |
-| `<leader>gb` | n    | Git Blame Line                 |
-| `<leader>gx` | n    | Toggle Git Blame               |
-| `<leader>gl` | n    | Git Log (Telescope Git Commits)|
-| `<leader>go` | n    | Toggle Git Outline             |
-| `<leader>gs` | n, v | Stage Hunk                     |
-| `<leader>gr` | n, v | Reset Hunk                     |
-| `<leader>gS` | n    | Stage Buffer                   |
-| `<leader>gR` | n    | Reset Buffer                   |
-| `<leader>gu` | n    | Undo Stage Hunk                |
-| `<leader>gp` | n    | Preview Hunk                   |
-| `<leader>gd` | n    | Diff This                      |
-| `<leader>gD` | n    | Diff Project                   |
-| `<leader>gn` | n    | Git Choose None                |
-| `<leader>gt` | n    | Git Choose Theirs              |
-| `<leader>gc` | n    | Git Choose Ours                |
-| `<leader>ga` | n    | Git Choose Both                |
+| Key          | Mode | Description                     |
+| ------------ | ---- | ------------------------------- |
+| `<leader>gg` | n    | Open Git Terminal               |
+| `<leader>gb` | n    | Git Blame Line                  |
+| `<leader>gx` | n    | Toggle Git Blame                |
+| `<leader>gl` | n    | Git Log (Telescope Git Commits) |
+| `<leader>go` | n    | Toggle Git Outline              |
+| `<leader>gs` | n, v | Stage Hunk                      |
+| `<leader>gr` | n, v | Reset Hunk                      |
+| `<leader>gS` | n    | Stage Buffer                    |
+| `<leader>gR` | n    | Reset Buffer                    |
+| `<leader>gu` | n    | Undo Stage Hunk                 |
+| `<leader>gp` | n    | Preview Hunk                    |
+| `<leader>gd` | n    | Diff This                       |
+| `<leader>gD` | n    | Diff Project                    |
+| `<leader>gn` | n    | Git Choose None                 |
+| `<leader>gt` | n    | Git Choose Theirs               |
+| `<leader>gc` | n    | Git Choose Ours                 |
+| `<leader>ga` | n    | Git Choose Both                 |
 
 #### Session (`<leader>s`)
 
-| Key          | Mode | Description            |
-| ------------ | ---- | ---------------------- |
-| `<leader>sm` | n    | Open Session Manager   |
-| `<leader>ss` | n    | Save Current Session   |
-| `<leader>sl` | n    | Load Last Session      |
-| `<leader>so` | n    | Load Session           |
-| `<leader>sd` | n    | Delete Session         |
+| Key          | Mode | Description          |
+| ------------ | ---- | -------------------- |
+| `<leader>sm` | n    | Open Session Manager |
+| `<leader>ss` | n    | Save Current Session |
+| `<leader>sl` | n    | Load Last Session    |
+| `<leader>so` | n    | Load Session         |
+| `<leader>sd` | n    | Delete Session       |
 
 #### Toggles (`<leader>t`)
 
-| Key          | Mode | Description                       |
-| ------------ | ---- | --------------------------------- |
-| `<leader>tt` | n, t | Toggle Floaterm                   |
-| `<leader>tn` | n    | Toggle Neotree Filesystem         |
-| `<leader>tf` | n    | Toggle Oil File Manager           |
-| `<leader>th` | n    | Toggle HardTime                   |
-| `<leader>tc` | n    | Toggle Treesitter Context         |
-| `<leader>ti` | n    | Toggle Indent Guides              |
-| `<leader>to` | n    | Toggle Code Outline Panel         |
-| `<leader>tw` | n    | Toggle CursorHold Error Tooltips  |
-| `<leader>tp` | n    | Toggle Precognition               |
+| Key          | Mode | Description                      |
+| ------------ | ---- | -------------------------------- |
+| `<leader>tt` | n, t | Toggle Floaterm                  |
+| `<leader>tn` | n    | Toggle Neotree Filesystem        |
+| `<leader>tf` | n    | Toggle Oil File Manager          |
+| `<leader>th` | n    | Toggle HardTime                  |
+| `<leader>tc` | n    | Toggle Treesitter Context        |
+| `<leader>ti` | n    | Toggle Indent Guides             |
+| `<leader>to` | n    | Toggle Code Outline Panel        |
+| `<leader>tw` | n    | Toggle CursorHold Error Tooltips |
+| `<leader>tp` | n    | Toggle Precognition              |
 
 #### Window Management (Smart Splits)
 
@@ -267,38 +266,38 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 
 ##### F-Key Shortcuts (Standard IDE Style)
 
-| Key      | Mode | Description                      |
-| -------- | ---- | -------------------------------- |
-| `F5`     | n    | **Continue** debugging           |
-| `F8`     | n    | **Toggle Breakpoint**            |
-| `F9`     | n    | **Step Over** (next line)        |
-| `F10`    | n    | **Step Into** (enter functions)  |
-| `F11`    | n    | **Step Out** (exit function)     |
-| `F12`    | n    | **Run to Cursor**                |
-| `Shift+F5` | n  | **Terminate** debug session      |
-| `Shift+F8` | n  | **Clear All Breakpoints**        |
-| `Shift+F9` | n  | **Toggle Debug UI**              |
+| Key        | Mode | Description                     |
+| ---------- | ---- | ------------------------------- |
+| `F5`       | n    | **Continue** debugging          |
+| `F8`       | n    | **Toggle Breakpoint**           |
+| `F9`       | n    | **Step Over** (next line)       |
+| `F10`      | n    | **Step Into** (enter functions) |
+| `F11`      | n    | **Step Out** (exit function)    |
+| `F12`      | n    | **Run to Cursor**               |
+| `Shift+F5` | n    | **Terminate** debug session     |
+| `Shift+F8` | n    | **Clear All Breakpoints**       |
+| `Shift+F9` | n    | **Toggle Debug UI**             |
 
 ##### Leader Key Shortcuts (Alternative)
 
-| Key           | Mode | Description                       |
-| ------------- | ---- | --------------------------------- |
-| `<leader>dc`  | n    | Continue debugging                |
-| `<leader>db`  | n    | Toggle breakpoint                 |
-| `<leader>dR`  | n    | Restart debugger                  |
-| `<leader>d.`  | n    | Run last                          |
-| `<leader>dt`  | n    | Run to cursor                     |
-| `<leader>dn`  | n    | Step into                         |
-| `<leader>dv`  | n    | Step over                         |
-| `<leader>dh`  | n    | Debug hover                       |
-| `<leader>dq`  | n    | Terminate debugging               |
-| `<leader>du`  | n    | Toggle DAP UI                     |
-| `<leader>dr`  | n    | Toggle REPL                       |
-| `<leader>dj`  | n    | Go down in stack                  |
-| `<leader>dk`  | n    | Go up in stack                    |
-| `<leader>da`  | n    | **Attach to remote Python** (port 9000) |
-| `<leader>ds`  | n    | Show debug status                 |
-| `<leader>di`  | n    | Check debugpy installation       |
+| Key          | Mode | Description                             |
+| ------------ | ---- | --------------------------------------- |
+| `<leader>dc` | n    | Continue debugging                      |
+| `<leader>db` | n    | Toggle breakpoint                       |
+| `<leader>dR` | n    | Restart debugger                        |
+| `<leader>d.` | n    | Run last                                |
+| `<leader>dt` | n    | Run to cursor                           |
+| `<leader>dn` | n    | Step into                               |
+| `<leader>dv` | n    | Step over                               |
+| `<leader>dh` | n    | Debug hover                             |
+| `<leader>dq` | n    | Terminate debugging                     |
+| `<leader>du` | n    | Toggle DAP UI                           |
+| `<leader>dr` | n    | Toggle REPL                             |
+| `<leader>dj` | n    | Go down in stack                        |
+| `<leader>dk` | n    | Go up in stack                          |
+| `<leader>da` | n    | **Attach to remote Python** (port 9000) |
+| `<leader>ds` | n    | Show debug status                       |
+| `<leader>di` | n    | Check debugpy installation              |
 
 #### Copilot Suggestions
 
@@ -350,25 +349,25 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 
 #### Code Completion (Blink-CMP)
 
-| Key          | Mode | Description                              |
-| ------------ | ---- | ---------------------------------------- |
-| `<CR>`       | i    | **Confirm/Accept selected completion**   |
-| `<TAB>`      | i    | **Smart Tab** (Copilot → Completion → Indent) |
-| `<C-Space>`  | i    | **Trigger completion menu**              |
-| `<C-j>`      | i    | Navigate to **next** completion item     |
-| `<C-k>`      | i    | Navigate to **previous** completion item |
-| `<C-e>`      | i    | **Close** completion menu                |
-| `<C-f>`      | i    | Scroll completion documentation **down** |
-| `<C-d>`      | i    | Scroll completion documentation **up**   |
+| Key         | Mode | Description                                   |
+| ----------- | ---- | --------------------------------------------- |
+| `<CR>`      | i    | **Confirm/Accept selected completion**        |
+| `<TAB>`     | i    | **Smart Tab** (Copilot → Completion → Indent) |
+| `<C-Space>` | i    | **Trigger completion menu**                   |
+| `<C-j>`     | i    | Navigate to **next** completion item          |
+| `<C-k>`     | i    | Navigate to **previous** completion item      |
+| `<C-e>`     | i    | **Close** completion menu                     |
+| `<C-f>`     | i    | Scroll completion documentation **down**      |
+| `<C-d>`     | i    | Scroll completion documentation **up**        |
 
 > **Note**: `<TAB>` intelligently prioritizes Copilot suggestions over completion menu items.
 
 #### Other Keybinds
 
-| Key     | Mode | Description           |
-| ------- | ---- | --------------------- |
-| `gz`    | n    | Surround operations   |
-| `F5`    | n    | Toggle UndoTree       |
+| Key  | Mode | Description         |
+| ---- | ---- | ------------------- |
+| `gz` | n    | Surround operations |
+| `F5` | n    | Toggle UndoTree     |
 
 > **Note**: `<leader>` is typically mapped to the space key. Some keybindings
 > may have conflicts or variations depending on the active mode and context.
@@ -383,12 +382,12 @@ TimVim includes comprehensive Python debugging support via DAP (Debug Adapter Pr
 
    ```python
    import debugpy
-   
+
    # Listen on port 9000 for debugger attachment
    debugpy.listen(9000)
    print("⏳ Waiting for debugger to attach...")
    debugpy.wait_for_client()  # Optional: blocks until debugger connects
-   
+
    # Your code here - execution will pause here once debugger attaches
    your_function_to_debug()
    ```
