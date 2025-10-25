@@ -29,10 +29,14 @@
           max_height = null;
           max_width_window_percentage = null;
           max_height_window_percentage = 50;
-          window_overlap_clear_enabled = false;
+          window_overlap_clear_enabled = true;
           window_overlap_clear_ft_ignore = [
             "cmp_menu"
             "cmp_docs"
+            "which-key"
+            "notify"
+            "cmdline"
+            "popup"
             ""
           ];
           editor_only_render_when_focused = false;
