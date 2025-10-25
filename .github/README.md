@@ -237,6 +237,28 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 | `<leader>so` | n    | Load Session         |
 | `<leader>sd` | n    | Delete Session       |
 
+#### Spell Checking (`<leader>z`)
+
+| Key          | Mode | Description                           |
+| ------------ | ---- | ------------------------------------- |
+| `<leader>zs` | n    | Toggle Spell Check                    |
+| `<leader>z=` | n    | Show Spell Suggestions                |
+| `<leader>za` | n    | Add Word to Dictionary                |
+| `<leader>zb` | n    | Mark Word as Bad                      |
+| `<leader>zr` | n    | Remove Word from Dictionary           |
+| `<leader>zf` | n    | Quick Fix with First Suggestion       |
+| `<leader>zt` | n    | Toggle Syntax-based Spell Check      |
+| `]s`         | n    | Next Misspelled Word                  |
+| `[s`         | n    | Previous Misspelled Word              |
+
+**Spell Checking Features:**
+
+- Automatically enabled for Markdown files
+- Available for Python files (strings, comments, docstrings only with `<leader>zt`)
+- Integrated with autocomplete for spell suggestions
+- Personal dictionary support
+- Works with built-in Neovim spell checking
+
 #### Toggles (`<leader>t`)
 
 | Key          | Mode | Description                      |

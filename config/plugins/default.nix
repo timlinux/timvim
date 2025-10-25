@@ -29,5 +29,6 @@
     ./mini-nvim.nix
     ./image.nix
     ./markdown.nix
+    ./python.nix
   ];
 }

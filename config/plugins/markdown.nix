@@ -56,6 +56,52 @@
           map('n', '<leader>mi', function()
             vim.api.nvim_put({'![alt text](image_path)'}, 'c', true, true)
           end, { desc = 'Insert Image Template', buffer = true })
+          
+          -- Spell checking keybindings (markdown-specific overrides)
+          map('n', '<leader>zs', function()
+            -- Toggle spell checking on/off (buffer-local for markdown)
+            vim.opt_local.spell = not vim.opt_local.spell:get()
+            print('Markdown spell check: ' .. (vim.opt_local.spell:get() and 'enabled' or 'disabled'))
+          end, { desc = 'Toggle Markdown Spell Check', buffer = true })
+          
+          -- Show spell suggestions for word under cursor
+          map('n', '<leader>z=', 'z=', { desc = 'Show Spell Suggestions', buffer = true })
+          
+          -- Add word under cursor to spellfile (personal dictionary)
+          map('n', '<leader>za', 'zg', { desc = 'Add Word to Dictionary', buffer = true })
+          
+          -- Mark word under cursor as incorrect (add to bad words)
+          map('n', '<leader>zb', 'zw', { desc = 'Mark Word as Bad', buffer = true })
+          
+          -- Remove word from spellfile
+          map('n', '<leader>zr', 'zug', { desc = 'Remove Word from Dictionary', buffer = true })
+          
+          -- Navigate to next misspelled word
+          map('n', ']s', ']s', { desc = 'Next Misspelled Word', buffer = true })
+          
+          -- Navigate to previous misspelled word
+          map('n', '[s', '[s', { desc = 'Previous Misspelled Word', buffer = true })
+          
+          -- Quick fix: replace with first suggestion
+          map('n', '<leader>zf', function()
+            -- Get the word under cursor
+            local word = vim.fn.expand('<cword>')
+            -- Check if word is misspelled
+            local badword = vim.fn.spellbadword(word)[1]
+            if badword ~= "" then
+              -- Get suggestions
+              local suggestions = vim.fn.spellsuggest(word, 1)
+              if #suggestions > 0 then
+                -- Replace with first suggestion
+                vim.cmd("normal! ciw" .. suggestions[1])
+                print("Replaced '" .. word .. "' with '" .. suggestions[1] .. "'")
+              else
+                print("No suggestions found for '" .. word .. "'")
+              end
+            else
+              print("Word '" .. word .. "' is spelled correctly")
+            end
+          end, { desc = 'Quick Fix with First Suggestion', buffer = true })
         end,
         group = vim.api.nvim_create_augroup('MarkdownSettings', { clear = true }),
       })

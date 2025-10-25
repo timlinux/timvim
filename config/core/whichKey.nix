@@ -5,7 +5,7 @@
 
     register = {
       # AI Assistant Menu
-      "<leader>a" = " Assistant";
+      "<leader>a" = "󰆔 Assistant";
       "<leader>ac" = " Copilot Chat";
       "<leader>ap" = "󰌘 Copilot Panel";
       "<leader>as" = "󰋖 Copilot Status";
@@ -15,6 +15,14 @@
       "<leader>ar" = "󰤌 Ask Copilot to Review";
       "<leader>af" = "󰁨 Ask Copilot to Fix";
       "<leader>ao" = "󰓕 Ask Copilot to Optimise";
+
+      # Session Menu
+      "<leader>s" = "󰆔 Session";
+      "<leader>sm" = "󰆔 Open Session Manager";
+      "<leader>ss" = "󰆓 Save Current Session";
+      "<leader>sl" = "󰆒 Load Last Session";
+      "<leader>so" = "󰆑 Load Session";
+      "<leader>sd" = "󰅙 Delete Session";
 
       # Buffer Menu
       "<leader>b" = "󰓩 Buffers";
@@ -99,14 +107,6 @@
       "<leader>gc" = "󰊢 Git Choose Ours";
       "<leader>ga" = "󰊢 Git Choose Both";
 
-      # Session Menu
-      "<leader>s" = "󰆔 Session";
-      "<leader>sm" = "󰆔 Open Session Manager";
-      "<leader>ss" = "󰆓 Save Current Session";
-      "<leader>sl" = "󰆒 Load Last Session";
-      "<leader>so" = "󰆑 Load Session";
-      "<leader>sd" = "󰅙 Delete Session";
-
       # Toggles Menu
       "<leader>t" = "󰔡 Toggles";
       "<leader>tt" = "󰔡 Toggle Floaterm";
@@ -125,6 +125,17 @@
       "<leader>pm" = "󰷈 Preview Markdown";
       "<leader>pi" = "󰸶 Preview Image";
 
+      # Spell Checking Menu
+      "<leader>z" = "󰓆 Spell Check";
+      "<leader>zs" = "󰓆 Toggle Spell Check";
+      "<leader>z=" = "󰋖 Show Spell Suggestions";
+      "<leader>za" = "󰐕 Add Word to Dictionary";
+      "<leader>zb" = "󰅙 Mark Word as Bad";
+      "<leader>zr" = "󰅖 Remove Word from Dictionary";
+      "<leader>zf" = "󰚀 Quick Fix with First Suggestion";
+      "<leader>zt" = "󰓆 Toggle Syntax-based Spell Check";
+      "]s" = "󰒭 Next Misspelled Word";
+      "[s" = "󰒮 Previous Misspelled Word";
       # Surround
       "gz" = "󰔡 Surround";
     };

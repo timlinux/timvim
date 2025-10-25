@@ -40,6 +40,34 @@
         -- Just send Tab and let Copilot intercept if it has a suggestion
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "m", false)
       end
+
+      -- Global quick spell fix function
+      _G.quick_spell_fix = function()
+        -- Check if spell checking is enabled
+        if not vim.opt.spell:get() then
+          print('Spell checking is not enabled. Use <leader>ss to enable it.')
+          return
+        end
+        
+        -- Get the word under cursor
+        local word = vim.fn.expand('<cword>')
+        
+        -- Check if word is misspelled
+        local badword = vim.fn.spellbadword(word)[1]
+        if badword ~= "" then
+          -- Get suggestions
+          local suggestions = vim.fn.spellsuggest(word, 1)
+          if #suggestions > 0 then
+            -- Replace with first suggestion
+            vim.cmd("normal! ciw" .. suggestions[1])
+            print("Replaced '" .. word .. "' with '" .. suggestions[1] .. "'")
+          else
+            print("No suggestions found for '" .. word .. "'")
+          end
+        else
+          print("Word '" .. word .. "' is spelled correctly")
+        end
+      end
     '';
   };
 }

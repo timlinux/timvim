@@ -383,5 +383,69 @@
       action = "<cmd>GitConflictChooseBoth<CR>";
       desc = "Git Choose Both";
     }
+    # Global Spell Checking keymaps
+    {
+      key = "<leader>zs";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua vim.opt.spell = not vim.opt.spell:get(); print('Global spell check: ' .. (vim.opt.spell:get() and 'enabled' or 'disabled'))<CR>";
+      desc = "Toggle Global Spell Check";
+    }
+    {
+      key = "<leader>z=";
+      mode = "n";
+      silent = false;
+      action = "z=";
+      desc = "Show Spell Suggestions";
+    }
+    {
+      key = "<leader>za";
+      mode = "n";
+      silent = false;
+      action = "zg";
+      desc = "Add Word to Dictionary";
+    }
+    {
+      key = "<leader>zb";
+      mode = "n";
+      silent = false;
+      action = "zw";
+      desc = "Mark Word as Bad";
+    }
+    {
+      key = "<leader>zr";
+      mode = "n";
+      silent = false;
+      action = "zug";
+      desc = "Remove Word from Dictionary";
+    }
+    {
+      key = "]s";
+      mode = "n";
+      silent = true;
+      action = "]s";
+      desc = "Next Misspelled Word";
+    }
+    {
+      key = "[s";
+      mode = "n";
+      silent = true;
+      action = "[s";
+      desc = "Previous Misspelled Word";
+    }
+    {
+      key = "<leader>zf";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.quick_spell_fix()<CR>";
+      desc = "Quick Fix with First Suggestion";
+    }
+    {
+      key = "<leader>zt";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua print('Syntax-based spell check available in Python files')<CR>";
+      desc = "Toggle Syntax-based Spell Check";
+    }
   ];
 }
