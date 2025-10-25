@@ -440,5 +440,12 @@
       action = "<cmd>lua print('Syntax-based spell check available in Python files')<CR>";
       desc = "Toggle Syntax-based Spell Check";
     }
+    {
+      key = "<leader>ty";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Typr<CR>";
+      desc = "Open Typing Tutor";
+    }
   ];
 }

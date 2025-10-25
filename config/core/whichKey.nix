@@ -90,7 +90,7 @@
 
       # Git Menu
       "<leader>g" = "󰊢 Git";
-      "<leader>gg" = "󰊢 Open Git Terminal";
+      "<leader>gg" = "󰊢 LazyGit";
       "<leader>gb" = "󰊢 Git Blame Line";
       "<leader>gx" = "󰊢 Toggle Git Blame";
       "<leader>gl" = "󰊢 Git Log";
@@ -121,6 +121,7 @@
       "<leader>tv" = "󰔡 Toggle Virtual Text Diagnostics";
       "<leader>tp" = "󰔡 Toggle Precognition";
       "<leader>tm" = "󰔡 Toggle Markdown Preview";
+      "<leader>ty" = "󰔡 Typing Tutor";
 
       # Preview Menu
       "<leader>p" = "󰸶 Preview";
