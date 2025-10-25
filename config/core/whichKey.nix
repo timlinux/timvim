@@ -118,9 +118,12 @@
       "<leader>to" = "󰔡 Toggle Code Outline Panel";
       "<leader>tw" = "󰔡 Toggle CursorHold Error Tooltips";
       "<leader>tp" = "󰔡 Toggle Precognition";
+      "<leader>tm" = "󰔡 Toggle Markdown Preview";
 
-      # Markdown Preview
+      # Preview Menu
+      "<leader>p" = "󰸶 Preview";
       "<leader>pm" = "󰷈 Preview Markdown";
+      "<leader>pi" = "󰸶 Preview Image";
 
       # Surround
       "gz" = "󰔡 Surround";

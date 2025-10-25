@@ -1,5 +1,18 @@
 <h1 align="center">
-  <a href="#"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
+  <a href="#"><img src="h> [!WARNING 1] > **hardtime.nvim is available but disabled by default!**
+>
+> **Since I want to learn VIM Motions I have included hardtime-nvim with
+> precognition, but it's disabled by default for a smoother initial experience.**
+>
+> - When enabled, holding or repeating `h/j/k/l` and other basic motions is discouraged.
+> - You may see popups or be blocked for inefficient navigation when active.
+> - This is intentional — to help you master efficient Vim motions.
+>
+> **Toggle it:** Press `<leader>th` to turn Hardtime ON or OFF at any time.
+>
+> **Tip:** Enable it when you want to practice efficient Vim motions!
+>
+> **Configure:** You can modify the plugin settings in `config/plugins/hardtime.nix`hubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br><br>
   <div align="center">
     <p>
@@ -41,23 +54,13 @@ experience.
     <img src = "assets/telescope.png">
 </details>
 
-Hi
 <br>
 
-> [!WARNING 1] > **hardtime.nvim is configured with maximum strictness!**
 >
-> **Since I want to learn VIM Motions I have enabled hardtime-nvim with
-> precognition!**
->
-> - Holding or repeating `h/j/k/l` and other basic motions is discouraged.
-> - You may see popups or be blocked for inefficient navigation.
-> - This is intentional — to help you master efficient Vim motions.
->
-> **Toggle it:** Press `<leader>th` to turn Hardtime ON or OFF at any time.
+> **Toggle Hard Time:** Press `<leader>th` to turn Hardtime ON or OFF at any time. It is off by default.
 >
 > **Tip:** Don’t be afraid to disable it when you want a break!
 >
-> **Turn OFF:** You can turn the plugin off in `config/plugins/hardtime.nix`
 
 > [|WARNING 2]
 >
@@ -157,7 +160,7 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 | `<leader>cm` | n    | Toggle Minimap             |
 | `<leader>ci` | n    | Focus Minimap              |
 | `<leader>co` | n    | Toggle Code Outline        |
-| `<leader>pm` | n    | Preview Markdown           |
+| `<leader>pm` | n    | Preview Markdown (Direct)  |
 | `<leader>cd` | n    | Go to Definition           |
 | `<leader>cD` | n    | Go to Declaration          |
 | `<leader>cI` | n    | Find Implementations       |
@@ -247,6 +250,7 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 | `<leader>to` | n    | Toggle Code Outline Panel        |
 | `<leader>tw` | n    | Toggle CursorHold Error Tooltips |
 | `<leader>tp` | n    | Toggle Precognition              |
+| `<leader>tm` | n    | Toggle Markdown Preview          |
 
 #### Window Management (Smart Splits)
 
