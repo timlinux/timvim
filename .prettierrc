@@ -1,26 +1,26 @@
 {
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": false,
-  "singleQuote": false,
-  "quoteProps": "as-needed",
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "bracketSameLine": false,
-  "arrowParens": "avoid",
-  "proseWrap": "always",
-  "htmlWhitespaceSensitivity": "css",
-  "endOfLine": "lf",
-  "embeddedLanguageFormatting": "auto",
-  "overrides": [
-    {
-      "files": "*.md",
-      "options": {
-        "proseWrap": "always",
-        "printWidth": 80,
-        "tabWidth": 2
-      }
-    }
-  ]
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "avoid",
+    "proseWrap": "always",
+    "htmlWhitespaceSensitivity": "css",
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto",
+    "overrides": [
+        {
+            "files": "*.md",
+            "options": {
+                "proseWrap": "always",
+                "printWidth": 80,
+                "tabWidth": 2
+            }
+        }
+    ]
 }
