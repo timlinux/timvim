@@ -12,6 +12,21 @@
             # Enable chafa for image preview in telescope
             mime_hook = true;
           };
+          vimgrep_arguments = [
+            "${pkgs.ripgrep}/bin/rg"
+            "--color=never"
+            "--no-heading"
+            "--with-filename"
+            "--line-number"
+            "--column"
+            "--smart-case"
+            "--hidden"
+          ];
+        };
+        pickers = {
+          live_grep = {
+            additional_args = [ "--hidden" ];
+          };
         };
       };
 
@@ -115,16 +130,54 @@
       -- Load media files extension
       require('telescope').load_extension('media_files')
 
-      -- Custom command for browsing images with preview
-      vim.api.nvim_create_user_command('TelescopeImages', function()
+      -- Custom command for browsing media files with preview
+      vim.api.nvim_create_user_command('TelescopeMediaFiles', function()
+        -- Use find_files with media file patterns instead of the buggy extension
         require('telescope.builtin').find_files({
-          find_command = {"rg", "--files", "--type-add", "image:*.{png,jpg,jpeg,gif,webp,bmp,tiff}", "--type", "image"},
+          find_command = {
+            "${pkgs.ripgrep}/bin/rg", 
+            "--files", 
+            "--type-add", "media:*.{png,jpg,jpeg,gif,webp,bmp,tiff,mp4,webm,pdf,mov,avi,mkv}",
+            "--type", "media"
+          },
           previewer = image_previewer(),
+          prompt_title = "Media Files",
         })
       end, {})
 
-      -- Map to existing media files command
-      vim.keymap.set('n', '<leader>fm', '<cmd>TelescopeImages<cr>', { desc = 'Find Images with Preview' })
+      -- Override the default media_files keymap to use our custom command with preview
+      vim.keymap.set('n', '<leader>fm', '<cmd>TelescopeMediaFiles<cr>', { desc = 'Find Media Files with Preview' })
+
+      -- Debug live_grep functionality
+      vim.api.nvim_create_user_command('DebugLiveGrep', function()
+        local builtin = require('telescope.builtin')
+        print("Ripgrep path: ${pkgs.ripgrep}/bin/rg")
+        print("Current working directory: " .. vim.fn.getcwd())
+        builtin.live_grep({
+          cwd = vim.fn.getcwd(),
+          prompt_title = "Live Grep (Debug)",
+        })
+      end, {})
+
+      -- Ensure live_grep works with proper configuration
+      vim.keymap.set('n', '<leader>fg', function()
+        require('telescope.builtin').live_grep({
+          cwd = vim.fn.getcwd(),
+          additional_args = function(opts)
+            return {"--hidden", "--glob", "!.git/*", "--fixed-strings"}
+          end,
+        })
+      end, { desc = 'Live Grep Files (Fixed Strings)' })
+
+      -- Add a regex version for when you need pattern matching
+      vim.keymap.set('n', '<leader>fG', function()
+        require('telescope.builtin').live_grep({
+          cwd = vim.fn.getcwd(),
+          additional_args = function(opts)
+            return {"--hidden", "--glob", "!.git/*"}
+          end,
+        })
+      end, { desc = 'Live Grep Files (Regex)' })
     '';
   };
 }

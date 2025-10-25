@@ -78,7 +78,8 @@
       # Files Menu (Telescope & File Browser)
       "<leader>f" = "󰈞 Files";
       "<leader>ff" = "󰈞 Find Files with Names";
-      "<leader>fg" = "󰊄 Find Files with Contents (FZF)";
+      "<leader>fg" = "󰊄 Find Files with Contents (Fixed String)";
+      "<leader>fG" = "󰊄 Find Files with Contents (Regex)";
 
       "<leader>fm" = "󰸶 Find Media Files";
       "<leader>fp" = "󰌠 Find Python Files";
@@ -117,6 +118,7 @@
       "<leader>ti" = "󰔡 Toggle Indent Guides";
       "<leader>to" = "󰔡 Toggle Code Outline Panel";
       "<leader>tw" = "󰔡 Toggle CursorHold Error Tooltips";
+      "<leader>tv" = "󰔡 Toggle Virtual Text Diagnostics";
       "<leader>tp" = "󰔡 Toggle Precognition";
       "<leader>tm" = "󰔡 Toggle Markdown Preview";
 

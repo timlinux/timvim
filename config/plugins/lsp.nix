@@ -30,6 +30,9 @@
       -- Global variable to track CursorHold diagnostic state
       _G.cursorhold_diagnostics_enabled = false
 
+      -- Global variable to track virtual text diagnostic state
+      _G.virtual_text_diagnostics_enabled = true
+
       -- Function to show diagnostic popup
       local function show_diagnostic_popup()
         if vim.fn.mode() == "n" then
@@ -72,6 +75,52 @@
       end
 
       vim.o.updatetime = 500  -- Faster CursorHold
+
+      -- Configure diagnostic virtual text (ghost text) for inline error display
+      vim.diagnostic.config({
+        virtual_text = {
+          enabled = true,
+          spacing = 4,
+          source = "if_many",
+          prefix = "●",
+          -- Customize the format to include error type and truncate long messages
+          format = function(diagnostic)
+            local message = diagnostic.message
+            if #message > 80 then
+              message = string.sub(message, 1, 77) .. "..."
+            end
+            return string.format("%s %s", diagnostic.source or "", message)
+          end,
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+
+      -- Function to toggle virtual text diagnostics
+      _G.toggle_virtual_text_diagnostics = function()
+        _G.virtual_text_diagnostics_enabled = not _G.virtual_text_diagnostics_enabled
+        
+        vim.diagnostic.config({
+          virtual_text = _G.virtual_text_diagnostics_enabled and {
+            enabled = true,
+            spacing = 4,
+            source = "if_many",
+            prefix = "●",
+            format = function(diagnostic)
+              local message = diagnostic.message
+              if #message > 80 then
+                message = string.sub(message, 1, 77) .. "..."
+              end
+              return string.format("%s %s", diagnostic.source or "", message)
+            end,
+          } or false
+        })
+        
+        local status = _G.virtual_text_diagnostics_enabled and "enabled" or "disabled"
+        vim.notify("Virtual text diagnostics " .. status, vim.log.levels.INFO)
+      end
     '';
   };
 }

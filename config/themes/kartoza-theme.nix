@@ -60,7 +60,7 @@
         LineNr = { fg = colors.darktext, bg = colors.base03 },
         CursorLineNr = { fg = colors.yellow, bg = colors.base02, bold = true },
         StatusLine = { fg = colors.base2, bg = colors.base02 },
-        Visual = { fg = colors.orange, bg = colors.base03  }
+        Visual = { fg = colors.violet, bg = colors.base03  }
       }
 
       -- Set all highlights

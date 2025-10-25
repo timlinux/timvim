@@ -51,20 +51,6 @@
       desc = "Find Files with Names";
     }
     {
-      key = "<leader>fm";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Telescope media_files<CR>";
-      desc = "Find Media Files";
-    }
-    {
-      key = "<leader>fg";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Telescope live_grep<CR>";
-      desc = "Find Files with Contents (FZF)";
-    }
-    {
       key = "<leader>fp";
       mode = "n";
       silent = true;
@@ -268,6 +254,13 @@
       silent = true;
       action = "<cmd>lua _G.toggle_cursorhold_diagnostics()<CR>";
       desc = "Toggle CursorHold Error Tooltips";
+    }
+    {
+      key = "<leader>tv";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.toggle_virtual_text_diagnostics()<CR>";
+      desc = "Toggle Virtual Text Diagnostics";
     }
     {
       key = "<leader>cf";
