@@ -14,6 +14,7 @@
         bash = [ "shfmt" ];
         sh = [ "shfmt" ];
         markdown = [ "prettier" ];
+        mdx = [ "prettier" ];
         rust = [ "rustfmt" ];
       };
       format_on_save = {

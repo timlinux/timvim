@@ -27,5 +27,7 @@
     ./yanky.nix
     ./colorizer.nix
     ./mini-nvim.nix
+    ./image.nix
+    ./markdown.nix
   ];
 }
