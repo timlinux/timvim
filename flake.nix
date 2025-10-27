@@ -155,6 +155,7 @@
               pkgs.chafa
               pkgs.epub-thumbnailer
               pkgs.fd
+              pkgs.fzf
               pkgs.fontpreview
               pkgs.ffmpegthumbnailer
               pkgs.git
