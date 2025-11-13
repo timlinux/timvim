@@ -11,6 +11,6 @@
 
   # Extra packages available to Neovim
   vim.extraPackages = with pkgs; [
-    nodejs_20 # Required for GitHub Copilot
+    # No additional packages needed for Claude Code integration
   ];
 }

@@ -74,7 +74,7 @@ experience.
 
 - **Advanced Debugging**: Full Python remote debugging support with standard F-key shortcuts (F5, F8, F9, F10, F11, F12) and direct server connection for improved reliability.
 
-- **Smart Code Completion**: Blink-CMP with intelligent Tab handling that prioritizes GitHub Copilot suggestions over completion menu items.
+- **Smart Code Completion**: nvim-cmp with ghost text support and intelligent Tab handling for LSP, buffer, and path completions.
 
 - **NVF Integration:** Build upon the
   [NVF](https://github.com/NotAShelf/nvf.git) Framework which gives it a solid
@@ -121,17 +121,12 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 
 #### AI Assistant (`<leader>a`)
 
-| Key          | Mode | Description             |
-| ------------ | ---- | ----------------------- |
-| `<leader>ac` | n, v | Copilot Chat            |
-| `<leader>ap` | n    | Copilot Panel           |
-| `<leader>as` | n    | Copilot Status          |
-| `<leader>ae` | n    | Enable Copilot          |
-| `<leader>ad` | n    | Disable Copilot         |
-| `<leader>ai` | n, v | Ask Copilot to Explain  |
-| `<leader>ar` | n, v | Ask Copilot to Review   |
-| `<leader>af` | n, v | Ask Copilot to Fix      |
-| `<leader>ao` | n, v | Ask Copilot to Optimise |
+| Key          | Mode | Description                        |
+| ------------ | ---- | ---------------------------------- |
+| `<leader>ac` | n    | Claude Code Chat (terminal split)  |
+| `<leader>am` | v    | Modify selection with Claude Code  |
+| `<leader>af` | n    | Open current file with Claude Code |
+| `<leader>at` | n    | Claude Code terminal               |
 
 #### Buffers (`<leader>b`)
 
@@ -325,27 +320,6 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 | `<leader>ds` | n    | Show debug status                       |
 | `<leader>di` | n    | Check debugpy installation              |
 
-#### Copilot Suggestions
-
-| Key         | Mode | Description                 |
-| ----------- | ---- | --------------------------- |
-| `<Tab>`     | i    | Accept suggestion           |
-| `<C-Right>` | i    | Accept next word            |
-| `<Tab>`     | i    | Accept current line         |
-| `<M-]>`     | i    | Next suggestion (Alt+])     |
-| `<M-[>`     | i    | Previous suggestion (Alt+[) |
-| `<C-e>`     | i    | Dismiss suggestion          |
-| `<C-h>`     | i    | Dismiss suggestion          |
-
-#### Copilot Panel
-
-| Key      | Mode | Description            |
-| -------- | ---- | ---------------------- |
-| `[[`     | n    | Jump to previous item  |
-| `]]`     | n    | Jump to next item      |
-| `<CR>`   | n    | Accept item            |
-| `gr`     | n    | Refresh panel          |
-| `<M-CR>` | n    | Open panel (Alt+Enter) |
 
 #### Motion & Text Objects (Flash)
 
@@ -373,20 +347,17 @@ The following is a comprehensive list of keybinds organised by topic in TimVim:
 | `<C-g>z` | i    | Insert surround              |
 | `<C-g>Z` | i    | Insert line surround         |
 
-#### Code Completion (Blink-CMP)
+#### Code Completion (nvim-cmp)
 
-| Key         | Mode | Description                                   |
-| ----------- | ---- | --------------------------------------------- |
-| `<CR>`      | i    | **Confirm/Accept selected completion**        |
-| `<TAB>`     | i    | **Smart Tab** (Copilot → Completion → Indent) |
-| `<C-Space>` | i    | **Trigger completion menu**                   |
-| `<C-j>`     | i    | Navigate to **next** completion item          |
-| `<C-k>`     | i    | Navigate to **previous** completion item      |
-| `<C-e>`     | i    | **Close** completion menu                     |
-| `<C-f>`     | i    | Scroll completion documentation **down**      |
-| `<C-d>`     | i    | Scroll completion documentation **up**        |
+| Key         | Mode | Description                           |
+| ----------- | ---- | ------------------------------------- |
+| `<CR>`      | i    | **Confirm/Accept selected completion** |
+| `<Tab>`     | i    | **Smart Tab** (Complete → Next item)   |
+| `<S-Tab>`   | i    | **Previous** completion item            |
+| `<C-Space>` | i    | **Trigger completion menu**             |
+| `<C-e>`     | i    | **Abort** completion menu               |
 
-> **Note**: `<TAB>` intelligently prioritizes Copilot suggestions over completion menu items.
+> **Note**: Includes ghost text support and LSP, buffer, and path completions.
 
 #### Other Keybinds
 
@@ -452,36 +423,32 @@ TimVim includes comprehensive Python debugging support via DAP (Debug Adapter Pr
 - **Connection Testing**: Built-in connection verification before attempting to attach
 - **Multiple Configurations**: Both direct server and standard executable adapter modes available
 
-## GitHub Copilot Integration
+## Claude Code Integration
 
-TimVim includes comprehensive GitHub Copilot support for AI-assisted coding:
+TimVim includes comprehensive Claude Code integration for AI-assisted coding:
 
-### Copilot Setup
+### Claude Code Features
 
-- Copilot is enabled by default with auto-trigger suggestions
-- Use `<leader>as` to check Copilot status
-- Use `<leader>ae` / `<leader>ad` to enable/disable Copilot
+- **Chat Interface**: Direct terminal integration with Claude Code
+- **Selection Modification**: Send selected text to Claude for modification
+- **File Analysis**: Open current file with Claude Code for analysis
+- **Ghost Text Completion**: nvim-cmp with LSP, buffer, and path sources
 
-### Copilot Usage
+### Claude Code Usage
 
-- `<Tab>` - Accept suggestion
-- `<C-Right>` - Accept next word only
-- `<M-]>` / `<M-[>` - Navigate between suggestions (Alt + brackets)
-- `<C-e>` - Dismiss current suggestion
+- `<leader>ac` - Open Claude Code chat in a terminal split
+- `<leader>am` - Send selected text to Claude for modification (visual mode)
+- `<leader>af` - Open current file with Claude Code
+- `<leader>at` - Open Claude Code terminal
 
-### Copilot Panel & Chat
+### AI-Assisted Development
 
-- `<leader>ap` - Open Copilot panel for browsing multiple suggestions
-- `<leader>ac` - Open Copilot chat for conversational AI assistance
-- `<leader>ai` - Ask Avante/Copilot questions (works in visual mode too)
-- `<C-i>` - Inline editing with Avante/Copilot (insert mode)
-
-### Panel Navigation
-
-- `[[` / `]]` - Jump between panel items
-- `<CR>` - Accept selected item
-- `gr` - Refresh panel
-- `<M-CR>` - Open panel (Alt+Enter)
+Claude Code provides context-aware assistance for:
+- Code explanation and documentation
+- Refactoring and optimization
+- Bug fixing and debugging
+- Architecture guidance
+- Best practices recommendations
 
 ### How to install TimVim in your system
 
@@ -548,7 +515,7 @@ devShells.default = pkgs.mkShell {
       ripgrep
       deadnix
       statix
-      nodejs_20 # Node.js for GitHub Copilot
+      # No additional dependencies needed for Claude Code integration
       # Python development essentials
       python3
       pyright

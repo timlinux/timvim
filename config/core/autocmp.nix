@@ -6,7 +6,7 @@
       mappings = {
         close = "<C-e>";
         complete = "<C-Space>";
-        confirm = "<CR>"; # Enter for completion confirmation (Tab reserved for Copilot)
+        confirm = "<CR>"; # Enter for completion confirmation
         next = "<C-j>";
         previous = "<C-k>";
         scrollDocsDown = "<C-f>";

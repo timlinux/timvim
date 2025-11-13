@@ -6,6 +6,10 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nvf.url = "github:notashelf/nvf";
+    plugin-claude-code = {
+      url = "github:coder/claudecode.nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       nixpkgs-stable,
       flake-parts,
       nvf,
+      plugin-claude-code,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -41,8 +46,16 @@
             config.allowUnfree = true;
           };
 
+          claude-code-plugin = pkgs.vimUtils.buildVimPlugin {
+            name = "claudecode.nvim";
+            src = inputs.plugin-claude-code;
+          };
+
           nvimConfig = nvf.lib.neovimConfiguration {
             inherit pkgs;
+            extraSpecialArgs = {
+              claude-code-plugin = claude-code-plugin;
+            };
             modules = [ ./config ];
           };
         in
@@ -131,7 +144,7 @@
                 ripgrep
                 deadnix
                 statix
-                nodejs_20 # Node.js for GitHub Copilot
+                # No longer need Node.js - removed GitHub Copilot
                 # Python development essentials
                 python3
                 pyright
@@ -143,6 +156,7 @@
                 nodePackages.prettier # Markdown, JS, HTML formatter
                 google-java-format # Java formatter
               ]
+                a
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
         };
@@ -166,8 +180,7 @@
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
-              # Node.js for GitHub Copilot
-              pkgs.nodejs_20
+              # No longer need Node.js - removed GitHub Copilot
               # Python development essentials
               pkgs.python3
               pkgs.pyright
@@ -179,10 +192,21 @@
               pkgs.nodePackages.prettier # Markdown, JS, HTML formatter
               pkgs.google-java-format # Java formatter
 
-              (nvf.lib.neovimConfiguration {
-                inherit pkgs;
-                modules = [ ./config ];
-              }).neovim
+              (
+                let
+                  claude-code-plugin = pkgs.vimUtils.buildVimPlugin {
+                    name = "claudecode.nvim";
+                    src = inputs.plugin-claude-code;
+                  };
+                in
+                nvf.lib.neovimConfiguration {
+                  inherit pkgs;
+                  extraSpecialArgs = {
+                    claude-code-plugin = claude-code-plugin;
+                  };
+                  modules = [ ./config ];
+                }
+              ).neovim
             ];
           };
       };

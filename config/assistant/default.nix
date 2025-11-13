@@ -1,5 +1,5 @@
 {
   imports = [
-    ./copilot.nix
+    ./claude-code.nix
   ];
 }

@@ -107,86 +107,8 @@
       action = "<cmd>Session<CR>";
       desc = "Open Session Manager";
     }
-    # GitHub Copilot keymaps
-    {
-      key = "<leader>ap";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Copilot panel<CR>";
-      desc = "Copilot Panel";
-    }
-    {
-      key = "<leader>as";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Copilot status<CR>";
-      desc = "Copilot Status";
-    }
-    {
-      key = "<leader>ae";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Copilot enable<CR>";
-      desc = "Enable Copilot";
-    }
-    {
-      key = "<leader>ad";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Copilot disable<CR>";
-      desc = "Disable Copilot";
-    }
-    # Copilot Chat keymaps
-    {
-      key = "<leader>ac";
-      mode = [
-        "n"
-        "v"
-      ];
-      silent = true;
-      action = "<cmd>CopilotChat<CR>";
-      desc = "Copilot Chat";
-    }
-    {
-      key = "<leader>ai";
-      mode = [
-        "n"
-        "v"
-      ];
-      silent = true;
-      action = "<cmd>CopilotChatExplain<CR>";
-      desc = "Ask Copilot to Explain";
-    }
-    {
-      key = "<leader>ar";
-      mode = [
-        "n"
-        "v"
-      ];
-      silent = true;
-      action = "<cmd>CopilotChatReview<CR>";
-      desc = "Ask Copilot to Review";
-    }
-    {
-      key = "<leader>af";
-      mode = [
-        "n"
-        "v"
-      ];
-      silent = true;
-      action = "<cmd>CopilotChatFix<CR>";
-      desc = "Ask Copilot to Fix";
-    }
-    {
-      key = "<leader>ao";
-      mode = [
-        "n"
-        "v"
-      ];
-      silent = true;
-      action = "<cmd>CopilotChatOptimize<CR>";
-      desc = "Ask Copilot to Optimise";
-    }
+    # Claude Code keymaps - handled in claude-code.nix plugin configuration
+    # Keymaps are defined in the pluginRC.claude-code section
 
     # Toggles
     {

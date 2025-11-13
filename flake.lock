@@ -177,12 +177,29 @@
         "type": "github"
       }
     },
+    "plugin-claude-code": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760892433,
+        "narHash": "sha256-XYmf1RQ2bVK6spINZW4rg6OQQ5CWWcR0Tw4QX8ZDjgs=",
+        "owner": "coder",
+        "repo": "claudecode.nvim",
+        "rev": "1552086ebcce9f4a2ea3b9793018a884d6b60169",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coder",
+        "repo": "claudecode.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nvf": "nvf"
+        "nvf": "nvf",
+        "plugin-claude-code": "plugin-claude-code"
       }
     },
     "systems": {

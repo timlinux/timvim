@@ -4,17 +4,12 @@
     enable = true;
 
     register = {
-      # AI Assistant Menu
+      # AI Assistant Menu (Claude Code)
       "<leader>a" = "󰆔 Assistant";
-      "<leader>ac" = " Copilot Chat";
-      "<leader>ap" = "󰌘 Copilot Panel";
-      "<leader>as" = "󰋖 Copilot Status";
-      "<leader>ae" = "󰐊 Enable Copilot";
-      "<leader>ad" = "󰈅 Disable Copilot";
-      "<leader>ai" = "󰋗 Ask Copilot to Explain";
-      "<leader>ar" = "󰤌 Ask Copilot to Review";
-      "<leader>af" = "󰁨 Ask Copilot to Fix";
-      "<leader>ao" = "󰓕 Ask Copilot to Optimise";
+      "<leader>ac" = " Claude Code Toggle";
+      "<leader>af" = "󰁨 Claude Code Focus";
+      "<leader>as" = "󰤌 Select Claude Model";
+      "<leader>am" = "󰤌 Send Selection to Claude";
 
       # Session Menu
       "<leader>s" = "󰆔 Session";

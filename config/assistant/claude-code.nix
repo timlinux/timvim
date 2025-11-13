@@ -1,0 +1,55 @@
+{ claude-code-plugin, ... }:
+{
+  vim = {
+    extraPlugins = {
+      claude-code = {
+        package = claude-code-plugin;
+        setup = ''
+          require('claudecode').setup({
+            -- Optional configuration
+            server = {
+              host = "localhost",
+              port = 9000,
+            },
+            -- Enable automatic startup of the server
+            auto_start = true,
+          })
+        '';
+      };
+    };
+
+    keymaps = [
+      {
+        key = "<leader>ac";
+        action = "<cmd>ClaudeCode<cr>";
+        mode = "n";
+        silent = true;
+        desc = "Toggle Claude Code";
+      }
+      {
+        key = "<leader>af";
+        action = "<cmd>ClaudeCodeFocus<cr>";
+        mode = "n";
+        silent = true;
+        desc = "Focus Claude Code";
+      }
+      {
+        key = "<leader>as";
+        action = "<cmd>ClaudeCodeSelectModel<cr>";
+        mode = "n";
+        silent = true;
+        desc = "Select Claude Model";
+      }
+      {
+        key = "<leader>am";
+        action = "<cmd>ClaudeCodeSend<cr>";
+        mode = "v";
+        silent = true;
+        desc = "Send selection to Claude";
+      }
+    ];
+
+    # Disable Copilot entirely - now using Claude Code
+    assistant.copilot.enable = false;
+  };
+}
