@@ -80,7 +80,6 @@
                 [
                   "kind_icon"
                   "label"
-                  " "
                   "label_description"
                 ]
               ];
