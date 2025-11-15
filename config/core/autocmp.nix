@@ -75,15 +75,15 @@
             draw = {
               # Position menu below current line to avoid obscuring text
               gap = 1; # Gap between cursor and menu
-              padding = 1; # Add padding for better spacing
+              padding = 0;
               columns = [
                 [
                   "kind_icon"
                   "label"
+                  " "
                   "label_description"
                 ]
               ];
-              treesitter = [ "lsp" ];
             };
           };
           # Configure ghost text behavior
