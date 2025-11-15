@@ -2,10 +2,10 @@
   vim.utility = {
     images = {
       image-nvim = {
-        enable = true;
+        enable = false;
         setupOpts = {
-          backend = "kitty";
-          editorOnlyRenderWhenFocused = false;
+          backend = "ueberzug";
+          editorOnlyRenderWhenFocused = true;
           integrations = {
             markdown = {
               enabled = true;
