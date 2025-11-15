@@ -67,6 +67,15 @@
           documentation.auto_show = true;
           menu = {
             auto_show = true;
+            draw = {
+              # Position menu below current line to avoid obscuring text
+              gap = 1; # Gap between cursor and menu
+              padding = 0;
+            };
+          };
+          # Configure ghost text behavior
+          ghost_text = {
+            enabled = true;
           };
         };
 

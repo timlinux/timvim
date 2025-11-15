@@ -144,7 +144,7 @@
                 ripgrep
                 deadnix
                 statix
-                # No longer need Node.js - removed GitHub Copilot
+                nodejs_20 # Node.js for GitHub Copilot inline completion
                 # Python development essentials
                 python3
                 pyright
@@ -156,7 +156,6 @@
                 nodePackages.prettier # Markdown, JS, HTML formatter
                 google-java-format # Java formatter
               ]
-                a
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
         };
@@ -180,7 +179,7 @@
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
-              # No longer need Node.js - removed GitHub Copilot
+              pkgs.nodejs_20 # Node.js for GitHub Copilot inline completion
               # Python development essentials
               pkgs.python3
               pkgs.pyright

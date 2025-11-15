@@ -27,7 +27,7 @@
         vim.notify("Available formatters: " .. vim.inspect(formatters), vim.log.levels.INFO)
       end
 
-      -- Smart Tab handler for nvim-cmp integration
+      -- Smart Tab handler for Copilot and nvim-cmp integration
       _G.smart_tab = function()
         -- Priority 1: If nvim-cmp menu is visible, confirm selection  
         local cmp = require('cmp')
@@ -36,7 +36,8 @@
           return
         end
         
-        -- Priority 2: Default tab behavior
+        -- Priority 2: Try to let Copilot handle Tab
+        -- Just send Tab and let Copilot intercept if it has a suggestion
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "m", false)
       end
 

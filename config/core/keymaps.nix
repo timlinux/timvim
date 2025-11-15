@@ -108,7 +108,35 @@
       desc = "Open Session Manager";
     }
     # Claude Code keymaps - handled in claude-code.nix plugin configuration
-    # Keymaps are defined in the pluginRC.claude-code section
+    # Copilot keymaps for inline completion control
+    {
+      key = "<leader>ap";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot panel<CR>";
+      desc = "Copilot Panel";
+    }
+    {
+      key = "<leader>as";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot status<CR>";
+      desc = "Copilot Status";
+    }
+    {
+      key = "<leader>ae";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot enable<CR>";
+      desc = "Enable Copilot";
+    }
+    {
+      key = "<leader>ad";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Copilot disable<CR>";
+      desc = "Disable Copilot";
+    }
 
     # Toggles
     {

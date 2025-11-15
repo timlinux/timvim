@@ -34,7 +34,7 @@
         desc = "Focus Claude Code";
       }
       {
-        key = "<leader>as";
+        key = "<leader>acs";
         action = "<cmd>ClaudeCodeSelectModel<cr>";
         mode = "n";
         silent = true;
@@ -49,7 +49,7 @@
       }
     ];
 
-    # Disable Copilot entirely - now using Claude Code
-    assistant.copilot.enable = false;
+    # Note: Copilot is now configured separately in copilot.nix for inline completion
+    # Claude Code handles chat functionality
   };
 }
