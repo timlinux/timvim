@@ -162,7 +162,7 @@
 
       flake = {
         homeModules.default =
-          { pkgs, ... }:
+          { pkgs, system, ... }:
           {
             home.packages = [
               pkgs.chafa
@@ -191,21 +191,8 @@
               pkgs.nodePackages.prettier # Markdown, JS, HTML formatter
               pkgs.google-java-format # Java formatter
 
-              (
-                let
-                  claude-code-plugin = pkgs.vimUtils.buildVimPlugin {
-                    name = "claudecode.nvim";
-                    src = inputs.plugin-claude-code;
-                  };
-                in
-                nvf.lib.neovimConfiguration {
-                  inherit pkgs;
-                  extraSpecialArgs = {
-                    claude-code-plugin = claude-code-plugin;
-                  };
-                  modules = [ ./config ];
-                }
-              ).neovim
+              # Use the same timvim package that nix run uses
+              inputs.self.packages.${system}.default
             ];
           };
       };

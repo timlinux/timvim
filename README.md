@@ -1,4 +1,8 @@
 # timvim
+q!
+:q!
+:q
+:q!
 
 A beautiful, fully-featured Neovim configuration built with [NVF (Neovim Flake)](https://github.com/notashelf/nvf) and Nix. Experience the power of declarative configuration with modern development tools, AI integration, and comprehensive language support.
 
