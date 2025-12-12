@@ -64,8 +64,17 @@
         format.enable = true;
         lsp.enable = true;
         extensions = {
-          markview-nvim.enable = true;
-          render-markdown-nvim.enable = true;
+          markview-nvim.enable = false;
+          render-markdown-nvim = {
+            enable = true;
+            setupOpts = {
+              render_modes = [
+                "n"
+                "c"
+                "t"
+              ];
+            };
+          };
         };
       };
 
@@ -92,15 +101,7 @@
         format.type = "rustfmt";
         lsp = {
           enable = true;
-          opts = "
-            ['rust-analyzer'] = {
-              cargo = {allFeature = true},
-              checkOnSave = true;
-              procMacro = {
-                enable =true;
-              },
-            },
-            ";
+          opts = "\n            ['rust-analyzer'] = {\n              cargo = {allFeature = true},\n              checkOnSave = true;\n              procMacro = {\n                enable =true;\n              },\n            },\n            ";
         };
       };
 

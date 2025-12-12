@@ -2,7 +2,7 @@
   vim.utility = {
     preview = {
       glow = {
-        enable = true;
+        enable = false;
         mappings = {
           openPreview = "<leader>pm";
         };

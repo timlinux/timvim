@@ -7,9 +7,7 @@
         enable = true;
         theme = "auto";
         icons.enable = true;
-        disabledFiletypes = [
-          "alpha"
-        ];
+        disabledFiletypes = [ "alpha" ];
       };
     };
     luaConfigRC = {
@@ -60,8 +58,70 @@
             c = { fg = colors.fg, bg = colors.bg },
           },
         }
+        -- Global variable to track last yanked register
+        vim.g.last_yanked_register = ""
+        vim.g.yank_timer = nil
+
+        -- Function to show yank indicator temporarily
+        local function show_yank_indicator(register)
+          vim.g.last_yanked_register = register
+          if vim.g.yank_timer then
+            vim.fn.timer_stop(vim.g.yank_timer)
+          end
+          vim.g.yank_timer = vim.fn.timer_start(3000, function()
+            vim.g.last_yanked_register = ""
+            vim.g.yank_timer = nil
+            vim.cmd('redrawstatus')
+          end)
+          vim.cmd('redrawstatus')
+        end
+
+        -- Set up autocmd for yank detection
+        vim.api.nvim_create_autocmd("TextYankPost", {
+          callback = function()
+            local event = vim.v.event
+            if event.regname and event.regname ~= "" then
+              show_yank_indicator(event.regname)
+            else
+              -- Default register is "
+              show_yank_indicator('"')
+            end
+          end,
+        })
+
         require('lualine').setup {
-          options = { theme = kartoza }
+          options = { theme = kartoza },
+          sections = {
+            lualine_a = {'mode'},
+            lualine_b = {'branch', 'diff', 'diagnostics'},
+            lualine_c = {'filename'},
+            lualine_x = {
+              {
+                function()
+                  local recording_register = vim.fn.reg_recording()
+                  if recording_register == "" then
+                    return ""
+                  else
+                    return "Recording @" .. recording_register
+                  end
+                end,
+                color = { fg = colors.bg, bg = colors.red, gui = 'bold' },
+              },
+              {
+                function()
+                  if vim.g.last_yanked_register and vim.g.last_yanked_register ~= "" then
+                    return "Yanked @" .. vim.g.last_yanked_register
+                  else
+                    return ""
+                  end
+                end,
+                color = { fg = colors.bg, bg = colors.green, gui = 'bold' },
+              },
+              'encoding', 'fileformat', 'filetype'
+            },
+            lualine_y = {'progress'},
+            lualine_z = {'location'}
+          }
         }
       '';
     };
