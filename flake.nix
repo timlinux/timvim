@@ -58,15 +58,34 @@
             };
             modules = [ ./config ];
           };
+
+          # Wrap the Neovim package to include runtime dependencies
+          wrappedNeovim = pkgs.symlinkJoin {
+            name = "timvim-wrapped";
+            paths = [ nvimConfig.neovim ];
+            buildInputs = [ pkgs.makeWrapper ];
+            postBuild = ''
+              wrapProgram $out/bin/nvim \
+                --prefix PATH : ${
+                  pkgs.lib.makeBinPath [
+                    pkgs.ripgrep
+                    pkgs.fd
+                    pkgs.fzf
+                    pkgs.chafa
+                    pkgs.git
+                  ]
+                }
+            '';
+          };
         in
         {
           _module.args.pkgs = pkgs;
 
-          packages.default = nvimConfig.neovim;
+          packages.default = wrappedNeovim;
 
           apps.default = {
             type = "app";
-            program = "${nvimConfig.neovim}/bin/nvim";
+            program = "${wrappedNeovim}/bin/nvim";
             meta = {
               description = "Launch timvim NVF config";
             };
@@ -165,20 +184,16 @@
           { pkgs, system, ... }:
           {
             home.packages = [
-              pkgs.chafa
+              # Core tools bundled with timvim: ripgrep, fd, fzf, chafa, git
               pkgs.epub-thumbnailer
-              pkgs.fd
-              pkgs.fzf
               pkgs.fontpreview
               pkgs.ffmpegthumbnailer
-              pkgs.git
               pkgs.imagemagick
               pkgs.pre-commit
               pkgs.poppler-utils
               pkgs.nixfmt-rfc-style
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
-              pkgs.ripgrep
               pkgs.nodejs_20 # Node.js for GitHub Copilot inline completion
               # Python development essentials
               pkgs.python3
@@ -191,7 +206,7 @@
               pkgs.nodePackages.prettier # Markdown, JS, HTML formatter
               pkgs.google-java-format # Java formatter
 
-              # Use the same timvim package that nix run uses
+              # Use the wrapped timvim package that includes runtime dependencies
               inputs.self.packages.${system}.default
             ];
           };
