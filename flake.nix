@@ -73,6 +73,9 @@
                     pkgs.fzf
                     pkgs.chafa
                     pkgs.git
+                    pkgs.go
+                    pkgs.gopls
+                    pkgs.delve
                   ]
                 }
             '';
