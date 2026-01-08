@@ -259,9 +259,105 @@
     -- Shift+F-key combinations for additional debug functions
     vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, { desc = 'Debug: Terminate' })
     vim.keymap.set('n', '<S-F8>', function() dap.clear_breakpoints() end, { desc = 'Debug: Clear All Breakpoints' })
-    vim.keymap.set('n', '<S-F9>', function() 
+    vim.keymap.set('n', '<S-F9>', function()
       local dapui = require('dapui')
       dapui.toggle()
     end, { desc = 'Debug: Toggle UI' })
+
+    -- Go (Delve) debugger configuration
+    local function setup_go_adapter()
+      local delve_cmd = vim.fn.exepath('dlv')
+
+      if delve_cmd == "" then
+        vim.notify('Delve (dlv) not found in PATH. Install with: go install github.com/go-delve/delve/cmd/dlv@latest', vim.log.levels.ERROR)
+        return false
+      end
+
+      vim.notify('Found Delve at: ' .. delve_cmd, vim.log.levels.INFO)
+
+      -- Setup Delve adapter
+      dap.adapters.go = {
+        type = 'server',
+        port = '$${port}',
+        executable = {
+          command = delve_cmd,
+          args = { 'dap', '-l', '127.0.0.1:$${port}' },
+        },
+        options = {
+          initialize_timeout_sec = 20,
+        },
+      }
+
+      return true
+    end
+
+    -- Initialize Go adapter
+    if not setup_go_adapter() then
+      vim.notify('Go DAP adapter setup failed', vim.log.levels.ERROR)
+    end
+
+    -- Go debug configurations
+    dap.configurations.go = {
+      {
+        type = 'go',
+        name = 'Debug',
+        request = 'launch',
+        program = '$${file}',
+      },
+      {
+        type = 'go',
+        name = 'Debug (Arguments)',
+        request = 'launch',
+        program = '$${file}',
+        args = function()
+          local args_string = vim.fn.input('Arguments: ')
+          return vim.split(args_string, " +")
+        end,
+      },
+      {
+        type = 'go',
+        name = 'Debug Package',
+        request = 'launch',
+        program = '$${fileDirname}',
+      },
+      {
+        type = 'go',
+        name = 'Attach (Pick Process)',
+        mode = 'local',
+        request = 'attach',
+        processId = require('dap.utils').pick_process,
+      },
+      {
+        type = 'go',
+        name = 'Debug test',
+        request = 'launch',
+        mode = 'test',
+        program = '$${file}',
+      },
+      {
+        type = 'go',
+        name = 'Debug test (go.mod)',
+        request = 'launch',
+        mode = 'test',
+        program = './$${relativeFileDirname}',
+      },
+    }
+
+    -- Check Delve installation
+    local function check_delve_installation()
+      local delve_cmd = vim.fn.exepath('dlv')
+
+      if delve_cmd == "" then
+        vim.notify('Delve not installed. Run: go install github.com/go-delve/delve/cmd/dlv@latest', vim.log.levels.WARN)
+      else
+        local handle = io.popen(delve_cmd .. ' version 2>&1')
+        local result = handle:read("*a")
+        handle:close()
+        vim.notify('Delve found:\n' .. result, vim.log.levels.INFO)
+      end
+    end
+
+    -- Register Go debug keymaps
+    vim.keymap.set('n', '<leader>dgi', check_delve_installation, { desc = 'Check Delve installation' })
   '';
 }

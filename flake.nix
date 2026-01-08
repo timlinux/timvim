@@ -169,6 +169,12 @@
                 pyright
                 python3Packages.debugpy
                 python3Packages.black
+                # Go development essentials
+                go
+                gopls
+                delve
+                gotools
+                go-tools
                 # Additional formatters
                 stylua # Lua formatter
                 shfmt # Shell formatter
@@ -200,6 +206,12 @@
               pkgs.pyright
               pkgs.python3Packages.debugpy
               pkgs.python3Packages.black
+              # Go development essentials
+              pkgs.go
+              pkgs.gopls
+              pkgs.delve
+              pkgs.gotools
+              pkgs.go-tools
               # Additional formatters
               pkgs.stylua # Lua formatter
               pkgs.shfmt # Shell formatter

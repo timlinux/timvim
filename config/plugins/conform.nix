@@ -16,6 +16,10 @@
         markdown = [ "prettier" ];
         mdx = [ "prettier" ];
         rust = [ "rustfmt" ];
+        go = [
+          "goimports"
+          "gofmt"
+        ];
       };
       format_on_save = {
         timeout_ms = 1000;

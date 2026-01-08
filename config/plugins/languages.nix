@@ -19,6 +19,16 @@
         lsp.enable = true;
       };
 
+      go = {
+        enable = true;
+        format.enable = true;
+        lsp = {
+          enable = true;
+          server = "gopls";
+        };
+        dap.enable = true;
+      };
+
       html = {
         enable = true;
         treesitter.autotagHtml = true;
