@@ -31,5 +31,6 @@
     ./image.nix
     ./markdown.nix
     ./python.nix
+    ./harper.nix
   ];
 }

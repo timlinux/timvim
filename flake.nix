@@ -76,6 +76,7 @@
                     pkgs.go
                     pkgs.gopls
                     pkgs.delve
+                    pkgs.harper
                   ]
                 }
             '';
@@ -183,6 +184,7 @@
                 shfmt # Shell formatter
                 nodePackages.prettier # Markdown, JS, HTML formatter
                 google-java-format # Java formatter
+                harper # Grammar checker LSP
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
@@ -220,6 +222,7 @@
               pkgs.shfmt # Shell formatter
               pkgs.nodePackages.prettier # Markdown, JS, HTML formatter
               pkgs.google-java-format # Java formatter
+              pkgs.harper # Grammar checker LSP
 
               # Use the wrapped timvim package that includes runtime dependencies
               inputs.self.packages.${system}.default
