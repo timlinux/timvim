@@ -23,6 +23,7 @@
     ./telescope.nix
     ./terminal.nix
     ./treesitter.nix
+    ./trouble.nix
     ./undoTree.nix
     ./yanky.nix
     ./colorizer.nix
