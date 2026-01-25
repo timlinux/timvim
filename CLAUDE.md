@@ -59,13 +59,30 @@ The configuration includes comprehensive support for:
 - **Web**: HTML, CSS, JavaScript, Markdown (prettier)
 - **Java**: Formatting (google-java-format)
 
+## Completion Keybindings (Harmonized)
+
+All popup selection uses a consistent navigation pattern:
+
+### Completion Menu (blink-cmp)
+- **`Ctrl+j`**: Move to next item in completion menu
+- **`Ctrl+k`**: Move to previous item in completion menu
+- **`Tab`**: Accept selected completion
+- **`Enter`**: Accept selected completion (alternative)
+- **`Ctrl+e`**: Close completion menu
+- **`Ctrl+Space`**: Manually trigger completion
+
+### Ghost Text (Copilot)
+- **`Ctrl+y`**: Accept Copilot ghost text suggestion
+- **`Alt+w`**: Accept next word from ghost text
+- **`Alt+e`**: Accept current line from ghost text
+- **`Alt+]`**: Next Copilot suggestion
+- **`Alt+[`**: Previous Copilot suggestion
+
 ## Claude Code Integration
 
-The AI assistant has been replaced with Claude Code integration:
-- **Ghost Text Completion**: `nvim-cmp` with LSP, buffer, and path sources
 - **Toggle Chat**: `<leader>ac` - Toggle Claude Code terminal window
 - **Focus Chat**: `<leader>af` - Focus/smart toggle Claude terminal
-- **Model Selection**: `<leader>as` - Select Claude model
+- **Model Selection**: `<leader>acs` - Select Claude model
 - **Send Selection**: `<leader>am` - Send current visual selection to Claude (visual mode)
 
 ## Development Shell

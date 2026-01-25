@@ -1,14 +1,21 @@
 # timvim
 
-A beautiful, fully-featured Neovim configuration built with [NVF (Neovim Flake)](https://github.com/notashelf/nvf) and Nix. Experience the power of declarative configuration with modern development tools, AI integration, and comprehensive language support.
+A beautiful, fully-featured Neovim configuration built with
+[NVF (Neovim Flake)](https://github.com/notashelf/nvf) and Nix. Experience the
+power of declarative configuration with modern development tools, AI
+integration, and comprehensive language support.
 
 ## ✨ Features
 
-- **🎨 Modern UI**: Beautiful themes with statusline, notifications, and enhanced visuals
-- **🧠 AI Integration**: Built-in Claude Code support with chat interface and ghost text completion
-- **📝 Language Support**: Full LSP setup with treesitter, formatting, and debugging for Python, Nix, Lua, and more
+- **🎨 Modern UI**: Beautiful themes with statusline, notifications, and
+  enhanced visuals
+- **🧠 AI Integration**: Built-in Claude Code support with chat interface and
+  ghost text completion
+- **📝 Language Support**: Full LSP setup with treesitter, formatting, and
+  debugging for Python, Nix, Lua, and more
 - **🔍 Fuzzy Finding**: FZF and Telescope for lightning-fast navigation
-- **📦 Declarative**: Everything configured through Nix expressions - no traditional Lua config files
+- **📦 Declarative**: Everything configured through Nix expressions - no
+  traditional Lua config files
 - **🚀 Fast**: Optimized startup time and performance
 - **🔧 Extensible**: Modular architecture makes customization simple
 
@@ -33,7 +40,7 @@ Add to your Home Manager configuration:
 ```nix
 {
   inputs.timvim.url = "github:timlinux/timvim";
-  
+
   # In your home.nix
   home.packages = [ inputs.timvim.packages.${pkgs.system}.default ];
 }
@@ -53,15 +60,15 @@ config/
 
 ## 🎯 Key Bindings
 
-| Key | Action |
-|-----|--------|
-| `<leader>ac` | Toggle Claude Code chat |
-| `<leader>af` | Focus Claude terminal |
-| `<leader>acs` | Select Claude model |
-| `<leader>am` | Send selection to Claude (visual mode) |
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>gg` | Open LazyGit |
+| Key           | Action                                 |
+| ------------- | -------------------------------------- |
+| `<leader>ac`  | Toggle Claude Code chat                |
+| `<leader>af`  | Focus Claude terminal                  |
+| `<leader>acs` | Select Claude model                    |
+| `<leader>am`  | Send selection to Claude (visual mode) |
+| `<leader>ff`  | Find files                             |
+| `<leader>fg`  | Live grep                              |
+| `<leader>gg`  | Open LazyGit                           |
 
 ## 🛠️ Development
 
@@ -112,8 +119,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit issues and pull requests.
----
+## Contributions are welcome! Please feel free to submit issues and pull requests.
 
 <div align="center">
 Built with ❤️ using <a href="https://github.com/notashelf/nvf">NVF</a> and <a href="https://nixos.org/">Nix</a>

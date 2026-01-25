@@ -1,5 +1,18 @@
 {
   vim.keymaps = [
+    # Completion keybindings (harmonized)
+    # C-j/C-k navigate completion menu (configured in autocmp.nix)
+    # Tab confirms selection (configured in autocmp.nix)
+    # Enter also confirms selection when menu is visible
+    {
+      key = "<CR>";
+      mode = "i";
+      silent = true;
+      expr = true;
+      action = "luaeval('_G.smart_enter()') ? '' : '<CR>'";
+      desc = "Smart Enter (confirm completion or newline)";
+    }
+
     {
       key = "H";
       action = "^";

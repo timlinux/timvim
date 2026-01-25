@@ -6,7 +6,7 @@
       mappings = {
         close = "<C-e>";
         complete = "<C-Space>";
-        confirm = "<CR>"; # Enter for completion confirmation
+        confirm = "<Tab>"; # Tab for completion confirmation (harmonized)
         next = "<C-j>";
         previous = "<C-k>";
         scrollDocsDown = "<C-f>";

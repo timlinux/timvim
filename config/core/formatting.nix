@@ -27,18 +27,15 @@
         vim.notify("Available formatters: " .. vim.inspect(formatters), vim.log.levels.INFO)
       end
 
-      -- Smart Tab handler for Copilot and nvim-cmp integration
-      _G.smart_tab = function()
-        -- Priority 1: If nvim-cmp menu is visible, confirm selection  
-        local cmp = require('cmp')
-        if cmp.visible() then
-          cmp.confirm({ select = true })
-          return
+      -- Smart Enter handler for blink-cmp completion confirmation
+      -- Enter confirms completion when menu is visible, otherwise inserts newline
+      _G.smart_enter = function()
+        local cmp = require('blink.cmp')
+        if cmp.is_visible() then
+          cmp.accept()
+          return true
         end
-        
-        -- Priority 2: Try to let Copilot handle Tab
-        -- Just send Tab and let Copilot intercept if it has a suggestion
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "m", false)
+        return false
       end
 
       -- Global quick spell fix function

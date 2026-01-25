@@ -1,3 +1,14 @@
 can you confirm if the trouble plugin is installed in my neovim configs here
 yes please enable it
 can you integrate harper-ls into vim neovim setup here
+
+=== 2026-01-25 ===
+User: I want to harmonise the completion shortcuts. Currently we have:
+
+Ctrl-y to accespt ghost text from copilot - I think we can keep this
+ctrlJ ctrlK to move up and down the completion list with tab to accept
+Tab to cycle the completion list with enter to accept
+
+These last two cause me a lot of cognative dissonance and I would like to harmonise them to use the ctrlJ ctrlK Tab or Enter to accept
+
+Can you do a deep analysis of my configuration in this flake and try to resolve this - and look for other inconsistencies with how popup selection works and harmonise it
