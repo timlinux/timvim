@@ -12,3 +12,7 @@ Tab to cycle the completion list with enter to accept
 These last two cause me a lot of cognative dissonance and I would like to harmonise them to use the ctrlJ ctrlK Tab or Enter to accept
 
 Can you do a deep analysis of my configuration in this flake and try to resolve this - and look for other inconsistencies with how popup selection works and harmonise it
+Review the go support and confirm that nvim is set up to be a first class go editing environment. Compile a readme.go explaining how to use go syntax completion, debugging, compiling etc.
+make a minimal go application and provide me instructions for running it in debug more in nvim so I can test
+look at the error in the screenshot in my home folder
+can you add a README.ubuntu.md file the provide nice clear instructions for an ubuntu user to use this flake and have it integrated into their system search path so that when they type timvim they get this flake managed vim
