@@ -25,6 +25,7 @@
         toggleDapUI = "<leader>du";
         toggleRepl = "<leader>dr";
       };
+
     };
   };
 
@@ -212,6 +213,15 @@
       end
     end
 
+    -- Show debug port in message bar when session starts
+    dap.listeners.before.event_initialized.dap_port_listener = function(session)
+      local adapter = session and session.adapter
+      local port = adapter and adapter.port
+      if port then
+        vim.api.nvim_echo({{'Debug Port ' .. port, 'WarningMsg'}}, false, {})
+      end
+    end
+
     -- Setup DAP event listeners for better error handling
     dap.listeners.before.attach.dap_attach_listener = function()
       vim.notify('Initiating debug attach...', vim.log.levels.INFO)
@@ -249,115 +259,45 @@
     vim.keymap.set('n', '<leader>dk', kill_debug_processes, { desc = 'Kill hanging debug processes' })
 
     -- Standard F-key debug shortcuts (single keypress)
-    vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Continue' })
-    vim.keymap.set('n', '<F8>', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint' })
-    vim.keymap.set('n', '<F9>', function() dap.step_over() end, { desc = 'Debug: Step Over' })
-    vim.keymap.set('n', '<F10>', function() dap.step_into() end, { desc = 'Debug: Step Into' })
-    vim.keymap.set('n', '<F11>', function() dap.step_out() end, { desc = 'Debug: Step Out' })
-    vim.keymap.set('n', '<F12>', function() dap.run_to_cursor() end, { desc = 'Debug: Run to Cursor' })
+    vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Debug: Continue (F5)' })
+    vim.keymap.set('n', '<F8>', function() dap.toggle_breakpoint() end, { desc = 'Debug: Toggle Breakpoint (F8)' })
+    vim.keymap.set('n', '<F9>', function() dap.step_over() end, { desc = 'Debug: Step Over (F9)' })
+    vim.keymap.set('n', '<F10>', function() dap.step_into() end, { desc = 'Debug: Step Into (F10)' })
+    vim.keymap.set('n', '<F11>', function() dap.step_out() end, { desc = 'Debug: Step Out (F11)' })
+    vim.keymap.set('n', '<F12>', function() dap.run_to_cursor() end, { desc = 'Debug: Run to Cursor (F12)' })
 
     -- Shift+F-key combinations for additional debug functions
-    vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, { desc = 'Debug: Terminate' })
-    vim.keymap.set('n', '<S-F8>', function() dap.clear_breakpoints() end, { desc = 'Debug: Clear All Breakpoints' })
+    vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, { desc = 'Debug: Terminate (S-F5)' })
+    vim.keymap.set('n', '<S-F8>', function() dap.clear_breakpoints() end, { desc = 'Debug: Clear All Breakpoints (S-F8)' })
     vim.keymap.set('n', '<S-F9>', function()
       local dapui = require('dapui')
       dapui.toggle()
-    end, { desc = 'Debug: Toggle UI' })
+    end, { desc = 'Debug: Toggle UI (S-F9)' })
 
-    -- Go (Delve) debugger configuration
-    local function setup_go_adapter()
-      local delve_cmd = vim.fn.exepath('dlv')
+    -- Override NVF leader mappings to include F-key hints in which-key
+    vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = 'Continue (F5)' })
+    vim.keymap.set('n', '<leader>dv', function() dap.step_over() end, { desc = 'Step Over (F9)' })
+    vim.keymap.set('n', '<leader>dn', function() dap.step_into() end, { desc = 'Step Into (F10)' })
+    vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint (F8)' })
+    vim.keymap.set('n', '<leader>dq', function() dap.terminate() end, { desc = 'Terminate (S-F5)' })
+    vim.keymap.set('n', '<leader>dt', function() dap.run_to_cursor() end, { desc = 'Run to Cursor (F12)' })
+    vim.keymap.set('n', '<leader>du', function()
+      local dapui = require('dapui')
+      dapui.toggle()
+    end, { desc = 'Toggle DAP UI (S-F9)' })
 
-      if delve_cmd == "" then
-        vim.notify('Delve (dlv) not found in PATH. Install with: go install github.com/go-delve/delve/cmd/dlv@latest', vim.log.levels.ERROR)
-        return false
-      end
-
-      vim.notify('Found Delve at: ' .. delve_cmd, vim.log.levels.INFO)
-
-      -- Setup Delve adapter
+    -- Go: override NVF's adapter to use a hardcoded port (Nix escaping breaks port substitution)
+    local delve_cmd = vim.fn.exepath('dlv')
+    if delve_cmd ~= "" then
       dap.adapters.go = {
         type = 'server',
-        port = '$${port}',
+        port = 38697,
         executable = {
           command = delve_cmd,
-          args = { 'dap', '-l', '127.0.0.1:$${port}' },
-        },
-        options = {
-          initialize_timeout_sec = 20,
+          args = { 'dap', '-l', '127.0.0.1:38697' },
+          detached = vim.fn.has("win32") == 0,
         },
       }
-
-      return true
     end
-
-    -- Initialize Go adapter
-    if not setup_go_adapter() then
-      vim.notify('Go DAP adapter setup failed', vim.log.levels.ERROR)
-    end
-
-    -- Go debug configurations
-    dap.configurations.go = {
-      {
-        type = 'go',
-        name = 'Debug',
-        request = 'launch',
-        program = '$${file}',
-      },
-      {
-        type = 'go',
-        name = 'Debug (Arguments)',
-        request = 'launch',
-        program = '$${file}',
-        args = function()
-          local args_string = vim.fn.input('Arguments: ')
-          return vim.split(args_string, " +")
-        end,
-      },
-      {
-        type = 'go',
-        name = 'Debug Package',
-        request = 'launch',
-        program = '$${fileDirname}',
-      },
-      {
-        type = 'go',
-        name = 'Attach (Pick Process)',
-        mode = 'local',
-        request = 'attach',
-        processId = require('dap.utils').pick_process,
-      },
-      {
-        type = 'go',
-        name = 'Debug test',
-        request = 'launch',
-        mode = 'test',
-        program = '$${file}',
-      },
-      {
-        type = 'go',
-        name = 'Debug test (go.mod)',
-        request = 'launch',
-        mode = 'test',
-        program = './$${relativeFileDirname}',
-      },
-    }
-
-    -- Check Delve installation
-    local function check_delve_installation()
-      local delve_cmd = vim.fn.exepath('dlv')
-
-      if delve_cmd == "" then
-        vim.notify('Delve not installed. Run: go install github.com/go-delve/delve/cmd/dlv@latest', vim.log.levels.WARN)
-      else
-        local handle = io.popen(delve_cmd .. ' version 2>&1')
-        local result = handle:read("*a")
-        handle:close()
-        vim.notify('Delve found:\n' .. result, vim.log.levels.INFO)
-      end
-    end
-
-    -- Register Go debug keymaps
-    vim.keymap.set('n', '<leader>dgi', check_delve_installation, { desc = 'Check Delve installation' })
   '';
 }
