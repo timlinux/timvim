@@ -4,7 +4,7 @@
       aerial-nvim = {
         enable = true;
         mappings = {
-          toggle = "<leader>go";
+          toggle = "<leader>to";
         };
       };
     };

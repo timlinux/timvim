@@ -3,7 +3,7 @@
   vim.minimap = {
     #enable = true;
     codewindow = {
-      enable = true;
+      enable = false;
       mappings = {
         open = "<leader>cs";
         close = "<leader>ch";

@@ -35,7 +35,7 @@
       # Autosave settings
       autowrite = true; # Auto-save when switching buffers
       autowriteall = true; # Auto-save on more events
-      updatetime = 1000; # Write swap file after 1 second of inactivity
+      updatetime = 500; # CursorHold delay and swap file write (single authoritative value)
 
       wrap = false;
     };

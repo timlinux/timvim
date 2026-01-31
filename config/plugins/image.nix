@@ -10,7 +10,7 @@
       local function setup_markdown_image_keymaps()
         local map = vim.keymap.set
         -- Toggle image rendering in markdown files
-        map('n', '<leader>ti', function()
+        map('n', '<leader>tI', function()
           require('image').toggle()
         end, { desc = 'Toggle Image Rendering', buffer = true })
         

@@ -24,7 +24,7 @@
         format.enable = true;
         lsp = {
           enable = true;
-          server = "gopls";
+          servers = [ "gopls" ];
         };
         dap.enable = true;
       };
@@ -49,16 +49,11 @@
       nix = {
         enable = true;
         format.enable = true;
-        format.type = "nixfmt";
+        format.type = [ "nixfmt" ];
         #format.package = pkgs.nixfmt-rfc-style;
         lsp = {
           enable = true;
-          server = "nixd";
-          options = {
-            nixpkgs = {
-              expr = "import <nixpkgs> { }";
-            };
-          };
+          servers = [ "nixd" ];
         };
         extraDiagnostics = {
           enable = true;
@@ -92,23 +87,22 @@
         enable = true;
         format = {
           enable = true;
-          type = "black";
+          type = [ "black" ];
         };
         lsp = {
           enable = true;
-          server = "pyright";
+          servers = [ "pyright" ];
         };
         dap.enable = true;
       };
 
       rust = {
         enable = true;
-        crates = {
+        extensions.crates-nvim = {
           enable = true;
-          codeActions = true;
         };
         format.enable = true;
-        format.type = "rustfmt";
+        format.type = [ "rustfmt" ];
         lsp = {
           enable = true;
           opts = "\n            ['rust-analyzer'] = {\n              cargo = {allFeature = true},\n              checkOnSave = true;\n              procMacro = {\n                enable =true;\n              },\n            },\n            ";

@@ -4,22 +4,21 @@
     ./alpha.nix
     ./conform.nix
     ./debugger.nix
-    ./fzf.nix
+    ./diffview.nix
     ./filetree.nix
-    ./floaterm.nix
     ./git.nix
+    ./goto-preview.nix
     ./hardtime.nix
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
     ./luasnip.nix
     ./notify.nix
-    ./notes.nix
     ./nvzone-typr.nix
     ./minimap.nix
+    ./neotest.nix
     ./oil.nix
     ./projects.nix
-    ./snacks
     ./telescope.nix
     ./terminal.nix
     ./treesitter.nix

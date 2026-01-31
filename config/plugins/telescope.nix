@@ -163,18 +163,7 @@
             })
           end, { desc = 'Find Files (FZF)' })
 
-          -- Debug live_grep functionality
-          vim.api.nvim_create_user_command('DebugLiveGrep', function()
-            local builtin = require('telescope.builtin')
-            print("Ripgrep path: ${pkgs.ripgrep}/bin/rg")
-            print("Current working directory: " .. vim.fn.getcwd())
-            builtin.live_grep({
-              cwd = vim.fn.getcwd(),
-              prompt_title = "Live Grep (Debug)",
-            })
-          end, {})
-
-          -- Ensure live_grep works with proper configuration
+          -- Live grep with proper configuration
           vim.keymap.set('n', '<leader>fg', function()
             require('telescope.builtin').live_grep({
               cwd = vim.fn.getcwd(),

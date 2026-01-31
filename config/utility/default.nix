@@ -8,7 +8,6 @@
     ./precognition.nix
     ./preview.nix
     ./smart-splits.nix
-    ./snacks-nvim.nix
     ./surround.nix
   ];
 }

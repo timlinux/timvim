@@ -6,9 +6,29 @@
     # Add harper-ls to extra packages so it's available in PATH
     extraPackages = [ pkgs.harper ];
 
+    # Toggle function for harper-ls
+    luaConfigRC.harper-toggle = ''
+      _G.harper_enabled = false
+      _G.toggle_harper = function()
+        _G.harper_enabled = not _G.harper_enabled
+        for _, client in ipairs(vim.lsp.get_clients({ name = "harper_ls" })) do
+          if _G.harper_enabled then
+            vim.notify("Harper grammar checker enabled", vim.log.levels.INFO)
+          else
+            vim.notify("Harper grammar checker disabled", vim.log.levels.INFO)
+          end
+          client.stop()
+        end
+        if _G.harper_enabled then
+          vim.cmd("LspStart harper_ls")
+        end
+      end
+    '';
+
     # Configure harper-ls via lspconfig
     lsp.lspconfig.sources.harper-ls = ''
       lspconfig.harper_ls.setup {
+        autostart = false,
         settings = {
           ["harper-ls"] = {
             linters = {

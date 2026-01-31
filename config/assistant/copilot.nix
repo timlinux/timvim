@@ -7,10 +7,10 @@
       setupOpts = {
         suggestion = {
           enabled = true; # Enable native suggestions for ghost text on current line
-          auto_trigger = true; # Auto-trigger enabled
-          debounce = 100; # Quick response when manually triggered
+          auto_trigger = false; # Only trigger manually via Ctrl+y
+          debounce = 75; # Fast response when manually triggered
           keymap = {
-            accept = "<C-y>"; # Ctrl+y to accept ghost text (common vim pattern)
+            accept = false; # Handled by custom smart keymap below
             accept_word = "<M-w>"; # Alt+w to accept next word
             accept_line = "<M-e>"; # Alt+e to accept current line
             next = "<M-]>"; # Next suggestion (Alt+])
@@ -49,5 +49,17 @@
         server_opts_overrides = { };
       };
     };
+
+    # Smart Ctrl+y: trigger suggestion if none visible, accept if visible
+    luaConfigRC.copilot-smart-accept = ''
+      vim.keymap.set("i", "<C-y>", function()
+        local suggestion = require("copilot.suggestion")
+        if suggestion.is_visible() then
+          suggestion.accept()
+        else
+          suggestion.next()
+        end
+      end, { desc = "Copilot: trigger or accept suggestion", silent = true })
+    '';
   };
 }

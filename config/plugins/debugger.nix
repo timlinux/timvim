@@ -17,7 +17,7 @@
         restart = "<leader>dR";
         runLast = "<leader>d.";
         runToCursor = "<leader>dt";
-        stepBack = "<leader>dt";
+        stepBack = "<leader>do";
         stepInto = "<leader>dn";
         stepOver = "<leader>dv";
         terminate = "<leader>dq";

@@ -74,8 +74,6 @@
         end
       end
 
-      vim.o.updatetime = 500  -- Faster CursorHold
-
       -- Configure diagnostic virtual text (ghost text) for inline error display
       vim.diagnostic.config({
         virtual_text = {

@@ -166,8 +166,8 @@
         "t"
       ];
       silent = true;
-      action = "<cmd>FloatermToggle<CR>";
-      desc = "Toggle Floaterm";
+      action = "<cmd>ToggleTerm direction=float<CR>";
+      desc = "Toggle Floating Terminal";
     }
     {
       key = "<leader>tn";
@@ -175,13 +175,6 @@
       silent = true;
       action = "<cmd>Neotree toggle<CR>";
       desc = "Toggle Neotree Filesystem";
-    }
-    {
-      key = "<leader>tf";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Oil<CR>";
-      desc = "Toggle Oil File Manager";
     }
     {
       key = "<leader>th";
@@ -226,6 +219,13 @@
       desc = "Toggle Virtual Text Diagnostics";
     }
     {
+      key = "<leader>tg";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.toggle_harper()<CR>";
+      desc = "Toggle Harper Grammar Checker";
+    }
+    {
       key = "<leader>cf";
       mode = "n";
       silent = true;
@@ -245,13 +245,6 @@
       silent = true;
       action = "<cmd>lua vim.lsp.buf.rename()<CR>";
       desc = "Rename Symbol";
-    }
-    {
-      key = "<leader>co";
-      mode = "n";
-      silent = true;
-      action = "<cmd>AerialToggle<CR>";
-      desc = "Toggle Code Outline";
     }
     # LSP navigation keymaps (moved from files menu)
     {
@@ -310,35 +303,7 @@
       action = "<cmd>Telescope git_commits<CR>";
       desc = "Git Log";
     }
-    # Git conflict resolution keymaps
-    {
-      key = "<leader>gn";
-      mode = "n";
-      silent = true;
-      action = "<cmd>GitConflictChooseNone<CR>";
-      desc = "Git Choose None";
-    }
-    {
-      key = "<leader>gt";
-      mode = "n";
-      silent = true;
-      action = "<cmd>GitConflictChooseTheirs<CR>";
-      desc = "Git Choose Theirs";
-    }
-    {
-      key = "<leader>gc";
-      mode = "n";
-      silent = true;
-      action = "<cmd>GitConflictChooseOurs<CR>";
-      desc = "Git Choose Ours";
-    }
-    {
-      key = "<leader>ga";
-      mode = "n";
-      silent = true;
-      action = "<cmd>GitConflictChooseBoth<CR>";
-      desc = "Git Choose Both";
-    }
+    # Git conflict resolution keymaps are defined buffer-locally in git.nix
     # Global Spell Checking keymaps
     {
       key = "<leader>zs";
