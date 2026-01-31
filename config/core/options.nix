@@ -40,6 +40,42 @@
       wrap = false;
     };
 
+    luaConfigRC.spellfile_setup = ''
+      -- Set spellfile to a writable location so zg/zw commands work
+      local spell_dir = vim.fn.stdpath("data") .. "/spell"
+      vim.fn.mkdir(spell_dir, "p")
+      vim.opt.spellfile = spell_dir .. "/en.utf-8.add"
+
+      -- Show spell suggestions popup when hovering a misspelled word
+      vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+          if not vim.opt_local.spell:get() then
+            return
+          end
+          -- Check if the word under cursor is misspelled
+          local word = vim.fn.expand("<cword>")
+          if word == "" then
+            return
+          end
+          local bad = vim.fn.spellbadword(word)
+          if bad[1] == "" then
+            return
+          end
+          local suggestions = vim.fn.spellsuggest(bad[1], 10)
+          if #suggestions == 0 then
+            return
+          end
+          vim.ui.select(suggestions, { prompt = "Spelling: " .. bad[1] }, function(choice)
+            if choice then
+              -- Replace the word under cursor with the chosen suggestion
+              vim.cmd("normal! ciw" .. choice)
+              vim.cmd("stopinsert")
+            end
+          end)
+        end,
+      })
+    '';
+
     # Restore cursor position when opening files
     luaConfigRC.restore_cursor = ''
       -- Restore cursor position when opening files
