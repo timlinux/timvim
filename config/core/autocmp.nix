@@ -75,10 +75,10 @@
             draw = {
               # Position menu below current line to avoid obscuring text
               gap = 1; # Gap between cursor and menu
-              padding = 0;
+              padding = 1;
               columns = [
+                [ "kind_icon" ]
                 [
-                  "kind_icon"
                   "label"
                   "label_description"
                 ]
