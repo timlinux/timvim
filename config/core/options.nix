@@ -47,14 +47,25 @@
       vim.opt.spellfile = spell_dir .. "/en.utf-8.add"
 
       -- Show spell suggestions popup when hovering a misspelled word
+      _G.spell_autopopup_enabled = false
+      local spell_dismissed = {}
+
+      _G.toggle_spell_autopopup = function()
+        _G.spell_autopopup_enabled = not _G.spell_autopopup_enabled
+        spell_dismissed = {}
+        vim.notify("Spell suggestion autopopup: " .. (_G.spell_autopopup_enabled and "enabled" or "disabled"), vim.log.levels.INFO)
+      end
+
       vim.api.nvim_create_autocmd("CursorHold", {
         callback = function()
+          if not _G.spell_autopopup_enabled then
+            return
+          end
           if not vim.opt_local.spell:get() then
             return
           end
-          -- Check if the word under cursor is misspelled
           local word = vim.fn.expand("<cword>")
-          if word == "" then
+          if word == "" or spell_dismissed[word] then
             return
           end
           local bad = vim.fn.spellbadword(word)
@@ -67,9 +78,11 @@
           end
           vim.ui.select(suggestions, { prompt = "Spelling: " .. bad[1] }, function(choice)
             if choice then
-              -- Replace the word under cursor with the chosen suggestion
               vim.cmd("normal! ciw" .. choice)
               vim.cmd("stopinsert")
+            else
+              -- User dismissed without choosing; don't show again for this word
+              spell_dismissed[word] = true
             end
           end)
         end,

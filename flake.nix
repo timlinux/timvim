@@ -167,7 +167,7 @@
                 ripgrep
                 deadnix
                 statix
-                nodejs_20 # Node.js for GitHub Copilot inline completion
+                nodejs_22 # Node.js for GitHub Copilot inline completion
                 # Python development essentials
                 python3
                 pyright
@@ -205,7 +205,7 @@
               pkgs.nixfmt-rfc-style
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
-              pkgs.nodejs_20 # Node.js for GitHub Copilot inline completion
+              pkgs.nodejs_22 # Node.js for GitHub Copilot inline completion
               # Python development essentials
               pkgs.python3
               pkgs.pyright

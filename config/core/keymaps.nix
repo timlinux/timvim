@@ -156,7 +156,7 @@
       key = "<leader>tp";
       mode = "n";
       silent = true;
-      action = "<cmd>Precognition toggle<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>tp'] = not _G.toggle_states['<leader>tp']; vim.cmd('Precognition toggle'); _G.update_toggle_desc('<leader>tp', 'Precognition', _G.toggle_states['<leader>tp'])<CR>";
       desc = "Toggle Precognition";
     }
     {
@@ -173,57 +173,64 @@
       key = "<leader>tn";
       mode = "n";
       silent = true;
-      action = "<cmd>Neotree toggle<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>tn'] = not _G.toggle_states['<leader>tn']; vim.cmd('Neotree toggle'); _G.update_toggle_desc('<leader>tn', 'Neotree', _G.toggle_states['<leader>tn'])<CR>";
       desc = "Toggle Neotree Filesystem";
     }
     {
       key = "<leader>th";
       mode = "n";
       silent = true;
-      action = "<cmd>Hardtime toggle<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>th'] = not _G.toggle_states['<leader>th']; vim.cmd('Hardtime toggle'); _G.update_toggle_desc('<leader>th', 'HardTime', _G.toggle_states['<leader>th'])<CR>";
       desc = "Toggle HardTime";
     }
     {
       key = "<leader>tc";
       mode = "n";
       silent = true;
-      action = "<cmd>TSContext toggle<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>tc'] = not _G.toggle_states['<leader>tc']; vim.cmd('TSContext toggle'); _G.update_toggle_desc('<leader>tc', 'Treesitter Context', _G.toggle_states['<leader>tc'])<CR>";
       desc = "Toggle Treesitter Context";
     }
     {
       key = "<leader>ti";
       mode = "n";
       silent = true;
-      action = "<cmd>lua local ibl = require('ibl'); local config = require('ibl.config'); local enabled = config.get_config(0).enabled; ibl.setup({enabled = not enabled}); print('IBL ' .. (enabled and 'disabled' or 'enabled'))<CR>";
+      action = "<cmd>lua local ibl = require('ibl'); local config = require('ibl.config'); local enabled = config.get_config(0).enabled; ibl.setup({enabled = not enabled}); _G.toggle_states['<leader>ti'] = not enabled; _G.update_toggle_desc('<leader>ti', 'Indent Guides', not enabled)<CR>";
       desc = "Toggle Indent Guides";
     }
     {
       key = "<leader>to";
       mode = "n";
       silent = true;
-      action = "<cmd>AerialToggle<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>to'] = not _G.toggle_states['<leader>to']; vim.cmd('AerialToggle'); _G.update_toggle_desc('<leader>to', 'Code Outline', _G.toggle_states['<leader>to'])<CR>";
       desc = "Toggle Code Outline Panel";
     }
     {
       key = "<leader>tw";
       mode = "n";
       silent = true;
-      action = "<cmd>lua _G.toggle_cursorhold_diagnostics()<CR>";
+      action = "<cmd>lua _G.toggle_cursorhold_diagnostics(); _G.update_toggle_desc('<leader>tw', 'CursorHold Diagnostics', _G.cursorhold_diagnostics_enabled)<CR>";
       desc = "Toggle CursorHold Error Tooltips";
     }
     {
       key = "<leader>tv";
       mode = "n";
       silent = true;
-      action = "<cmd>lua _G.toggle_virtual_text_diagnostics()<CR>";
+      action = "<cmd>lua _G.toggle_virtual_text_diagnostics(); _G.update_toggle_desc('<leader>tv', 'Virtual Text Diagnostics', _G.virtual_text_diagnostics_enabled)<CR>";
       desc = "Toggle Virtual Text Diagnostics";
     }
     {
       key = "<leader>tg";
       mode = "n";
       silent = true;
-      action = "<cmd>lua _G.toggle_harper()<CR>";
+      action = "<cmd>lua _G.toggle_harper(); _G.toggle_states['<leader>tg'] = not _G.toggle_states['<leader>tg']; _G.update_toggle_desc('<leader>tg', 'Harper Grammar', _G.toggle_states['<leader>tg'])<CR>";
       desc = "Toggle Harper Grammar Checker";
+    }
+    {
+      key = "<leader>tz";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.toggle_spell_autopopup(); _G.update_toggle_desc('<leader>tz', 'Spell Autopopup', _G.spell_autopopup_enabled)<CR>";
+      desc = "Toggle Spell Suggestion Autopopup";
     }
     {
       key = "<leader>cf";
@@ -372,8 +379,8 @@
       key = "<leader>ty";
       mode = "n";
       silent = true;
-      action = "<cmd>Typr<CR>";
-      desc = "Open Typing Tutor";
+      action = "<cmd>lua _G.toggle_states['<leader>ty'] = not _G.toggle_states['<leader>ty']; vim.cmd('Typr'); _G.update_toggle_desc('<leader>ty', 'Typing Tutor', _G.toggle_states['<leader>ty'])<CR>";
+      desc = "Typing Tutor";
     }
   ];
 }

@@ -4,141 +4,17 @@
     enable = true;
 
     register = {
-      # AI Assistant Menu (Claude Code + Copilot)
+      # Group prefixes only - leaf descriptions come from keymap desc fields
       "<leader>a" = "󰆔 Assistant";
-      "<leader>ac" = " Claude Code Toggle";
-      "<leader>af" = "󰁨 Claude Code Focus";
-      "<leader>acs" = "󰤌 Select Claude Model";
-      "<leader>am" = "󰤌 Send Selection to Claude";
-      "<leader>ap" = "󰌘 Copilot Panel";
-      "<leader>as" = "󰋖 Copilot Status";
-      "<leader>ae" = "󰐊 Enable Copilot";
-      "<leader>ad" = "󰈅 Disable Copilot";
-
-      # Session Menu
       "<leader>s" = "󰆔 Session";
-      "<leader>sm" = "󰆔 Open Session Manager";
-      "<leader>ss" = "󰆓 Save Current Session";
-      "<leader>sl" = "󰆒 Load Last Session";
-      "<leader>so" = "󰆑 Load Session";
-      "<leader>sd" = "󰅙 Delete Session";
-
-      # Buffer Menu
       "<leader>b" = "󰓩 Buffers";
-      "<leader>bb" = "󰸞 Find Buffers";
-      "<leader>bl" = "󰒭 Next Buffer";
-      "<leader>bh" = "󰒮 Previous Buffer";
-      "<leader>bx" = "󰅖 Close Buffer";
-      "<leader>bp" = "󰸞 Pick Buffer";
-      "<leader>bj" = "󰈔 Swap Buffer Down";
-      "<leader>bk" = "󰈕 Swap Buffer Up";
-      "<leader>bs" = "󰈖 Swap Buffer Left";
-      "<leader>bd" = "󰈗 Swap Buffer Right";
-
-      # Code Menu
       "<leader>c" = "󰅩 Code";
-      "<leader>cp" = "󰏘 Colour Picker";
-      "<leader>cr" = "󰑕 Rename Symbol";
-      "<leader>cf" = "󰉼 Format Buffer";
-      "<leader>cc" = "󰥔 Check Available Formatters";
-      "<leader>cs" = "󰆘 Show Minimap";
-      "<leader>ch" = "󰆘 Hide Minimap";
-      "<leader>cm" = "󰆘 Toggle Minimap";
-      "<leader>ci" = "󰆘 Focus Minimap";
-      "<leader>co" = "󰒺 Toggle Code Outline";
-      "<leader>cd" = "󰊄 Go to Definition";
-      "<leader>cD" = "󰊄 Go to Declaration";
-      "<leader>cI" = "󰡱 Find Implementations";
-      "<leader>ct" = "󰊕 Find Type Definitions";
-      "<leader>cR" = "󰈇 Find References";
-      "<leader>cn" = "󰎔 Next Diagnostic";
-      "<leader>cP" = "󰎖 Previous Diagnostic";
-
-      # Debug Menu
       "<leader>d" = "󰃤 Debug";
-      "<leader>da" = "󰃤 Attach to Remote Python (Port 9000)";
-      "<leader>dl" = "󰐊 Start/Continue Local Debugging";
-      "<leader>ds" = "󰙵 Show Debug Status";
-      "<leader>di" = "󰏖 Check Debugpy Installation";
-      "<leader>dc" = "󰐊 Continue";
-      "<leader>db" = "󰏃 Toggle Breakpoint";
-      "<leader>du" = "󰕮 Toggle DAP UI";
-      "<leader>dr" = "󰞷 Toggle REPL";
-      "<leader>dh" = "󰋖 Hover";
-      "<leader>dq" = "󰓛 Terminate";
-      "<leader>dR" = "󰜉 Restart";
-      "<leader>d." = "󰑮 Run Last";
-      "<leader>dn" = "󰆹 Step Into";
-      "<leader>dv" = "󰆸 Step Over";
-      "<leader>dt" = "󰆷 Run to Cursor";
-      "<leader>dj" = "󰬍 Go Down Stack";
-      "<leader>dk" = "󰬆 Go Up Stack";
-
-      # Files Menu (Telescope & File Browser)
       "<leader>f" = "󰈞 Files";
-      "<leader>ff" = "󰈞 Find Files with Names";
-      "<leader>fg" = "󰊄 Find Files with Contents (Fixed String)";
-      "<leader>fG" = "󰊄 Find Files with Contents (Regex)";
-
-      "<leader>fm" = "󰸶 Find Media Files";
-      "<leader>fp" = "󰌠 Find Python Files";
-      "<leader>fn" = "󱄅 Find Nix Files";
-      "<leader>fs" = "󰒕 Find Symbols in Current File";
-      "<leader>fo" = "󰏇 Open Oil File Manager";
-      "<leader>fO" = "󰏇 Open Oil File Manager (Floating)";
-
-      # Git Menu
       "<leader>g" = "󰊢 Git";
-      "<leader>gg" = "󰊢 LazyGit";
-      "<leader>gb" = "󰊢 Git Blame Line";
-      "<leader>gx" = "󰊢 Toggle Git Blame";
-      "<leader>gl" = "󰊢 Git Log";
-      "<leader>go" = "󰊢 Toggle Git Outline";
-      "<leader>gs" = "󰊢 Stage Hunk";
-      "<leader>gr" = "󰊢 Reset Hunk";
-      "<leader>gS" = "󰊢 Stage Buffer";
-      "<leader>gR" = "󰊢 Reset Buffer";
-      "<leader>gu" = "󰊢 Undo Stage Hunk";
-      "<leader>gp" = "󰊢 Preview Hunk";
-      "<leader>gd" = "󰊢 Diff This";
-      "<leader>gD" = "󰊢 Diff Project";
-      "<leader>gn" = "󰊢 Git Choose None";
-      "<leader>gt" = "󰊢 Git Choose Theirs";
-      "<leader>gc" = "󰊢 Git Choose Ours";
-      "<leader>ga" = "󰊢 Git Choose Both";
-
-      # Toggles Menu
       "<leader>t" = "󰔡 Toggles";
-      "<leader>tt" = "󰔡 Toggle Floaterm";
-      "<leader>tn" = "󰔡 Toggle Neotree Filesystem";
-      "<leader>tf" = "󰔡 Toggle Oil File Manager";
-      "<leader>th" = "󰔡 Toggle HardTime";
-      "<leader>tc" = "󰔡 Toggle Treesitter Context";
-      "<leader>ti" = "󰔡 Toggle Indent Guides";
-      "<leader>to" = "󰔡 Toggle Code Outline Panel";
-      "<leader>tw" = "󰔡 Toggle CursorHold Error Tooltips";
-      "<leader>tv" = "󰔡 Toggle Virtual Text Diagnostics";
-      "<leader>tp" = "󰔡 Toggle Precognition";
-      "<leader>tm" = "󰔡 Toggle Markdown Preview";
-      "<leader>ty" = "󰔡 Typing Tutor";
-
-      # Preview Menu
       "<leader>p" = "󰸶 Preview";
-      "<leader>pm" = "󰷈 Preview Markdown";
-      "<leader>pi" = "󰸶 Preview Image";
-
-      # Spell Checking Menu
       "<leader>z" = "󰓆 Spell Check";
-      "<leader>zs" = "󰓆 Toggle Spell Check";
-      "<leader>z=" = "󰋖 Show Spell Suggestions";
-      "<leader>za" = "󰐕 Add Word to Dictionary";
-      "<leader>zb" = "󰅙 Mark Word as Bad";
-      "<leader>zr" = "󰅖 Remove Word from Dictionary";
-      "<leader>zf" = "󰚀 Quick Fix with First Suggestion";
-      "<leader>zt" = "󰓆 Toggle Syntax-based Spell Check";
-      "]s" = "󰒭 Next Misspelled Word";
-      "[s" = "󰒮 Previous Misspelled Word";
-      # Surround
       "gz" = "󰔡 Surround";
     };
 
@@ -150,6 +26,57 @@
       };
     };
   };
+
+  vim.luaConfigRC.whichkey_height = ''
+    -- Allow which-key panel to use up to half the screen height
+    -- We set a large static max so which-key never artificially truncates
+    local wk_ok, wk = pcall(require, "which-key")
+    if wk_ok then
+      wk.setup({ win = { height = { min = 4, max = 50 } } })
+    end
+  '';
+
+  vim.luaConfigRC.whichkey_toggle_icons = ''
+    -- Dynamic toggle icons: gray off icon when disabled, colored on icon when enabled
+    -- Toggle state tracking table
+    _G.toggle_states = _G.toggle_states or {}
+
+    -- Highlight groups for toggle states
+    vim.api.nvim_set_hl(0, "WhichKeyToggleOff", { fg = "#666666" })
+    vim.api.nvim_set_hl(0, "WhichKeyToggleOn", { fg = "#89b4fa" })
+
+    -- Helper to update which-key toggle descriptions
+    _G.update_toggle_desc = function(key, name, enabled)
+      local ok, wk = pcall(require, "which-key")
+      if not ok then return end
+      local icon = enabled and "󰔡" or "󰨚"
+      local hl = enabled and "WhichKeyToggleOn" or "WhichKeyToggleOff"
+      local state = enabled and "ON" or "OFF"
+      wk.add({
+        { key, desc = name .. " [" .. state .. "]", icon = { icon = icon, hl = hl } },
+      })
+    end
+
+    -- Initialize all toggle descriptions as OFF
+    vim.defer_fn(function()
+      _G.update_toggle_desc("<leader>tt", "Floaterm", false)
+      _G.update_toggle_desc("<leader>tn", "Neotree", false)
+      _G.update_toggle_desc("<leader>tf", "Oil File Manager", false)
+      _G.update_toggle_desc("<leader>th", "HardTime", false)
+      _G.update_toggle_desc("<leader>tc", "Treesitter Context", false)
+      _G.update_toggle_desc("<leader>ti", "Indent Guides", false)
+      _G.update_toggle_desc("<leader>to", "Code Outline", false)
+      _G.update_toggle_desc("<leader>tw", "CursorHold Diagnostics", false)
+      _G.update_toggle_desc("<leader>tv", "Virtual Text Diagnostics", false)
+      _G.update_toggle_desc("<leader>tp", "Precognition", false)
+      _G.update_toggle_desc("<leader>tm", "Markdown Preview", false)
+      _G.update_toggle_desc("<leader>tg", "Harper Grammar", false)
+      _G.update_toggle_desc("<leader>tz", "Spell Autopopup", false)
+      _G.update_toggle_desc("<leader>tu", "Undo Tree", false)
+      _G.update_toggle_desc("<leader>td", "Deleted [Gitsigns]", false)
+      _G.update_toggle_desc("<leader>ty", "Typing Tutor", false)
+    end, 100)
+  '';
 
   vim.ui.borders.plugins.which-key = {
     enable = true;

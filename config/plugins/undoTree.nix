@@ -7,7 +7,13 @@
 
     pluginRC.undotree = ''
       -- Lua mapping
-      vim.keymap.set('n', '<leader>tu', vim.cmd.UndotreeToggle, { desc = 'Toggle Undo Tree' })
+      vim.keymap.set('n', '<leader>tu', function()
+        vim.cmd.UndotreeToggle()
+        _G.toggle_states['<leader>tu'] = not _G.toggle_states['<leader>tu']
+        if _G.update_toggle_desc then
+          _G.update_toggle_desc('<leader>tu', 'Undo Tree', _G.toggle_states['<leader>tu'])
+        end
+      end, { desc = 'Toggle Undo Tree' })
 
       -- Global variables: set them with vim.g
       vim.g.undotree_WindowLayout = 2
