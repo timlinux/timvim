@@ -536,6 +536,36 @@ devShells.default = pkgs.mkShell {
 
 - `config/ui` - contains UI and Visual Options.
 
+## Startup Banner (Kartoza Logo)
+
+The colored Kartoza logo displayed on the alpha dashboard at startup was generated using two tools:
+
+1. **[catimg](https://github.com/posva/catimg)** - Renders images in the terminal using Unicode half-block characters with 24-bit color ANSI escape codes
+2. **[term2alpha](https://git.sr.ht/~zethra/term2alpha)** - Converts ANSI-colored terminal output into Neovim highlight groups and header data compatible with [alpha-nvim](https://github.com/goolord/alpha-nvim)
+
+### How it was generated
+
+```bash
+# Install catimg (available in nixpkgs)
+nix shell nixpkgs#catimg
+
+# Build term2alpha from source (Rust)
+git clone https://git.sr.ht/~zethra/term2alpha
+cd term2alpha && cargo build --release
+
+# Generate the alpha header Lua code
+catimg -H 30 kartoza-logo.png | ./target/release/term2alpha > header.lua
+```
+
+The `-H 30` flag controls the output height in terminal lines. The generated `header.lua` contains:
+- `vim.api.nvim_set_hl(...)` calls defining per-pixel foreground/background color highlight groups (prefixed `T2A`)
+- A `dashboard.section.header.val` table with the Unicode block character art
+- A `dashboard.section.header.opts.hl` table mapping highlight groups to character positions per line
+
+These sections are embedded directly into `config/plugins/alpha.nix`.
+
+> **Note:** `term2alpha` only supports 24-bit color codes from `catimg`. Other terminal image renderers (chafa, etc.) use different ANSI sequences and are not compatible.
+
 ## Contribution
 
 Contributions are welome! Feel Free to

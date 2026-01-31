@@ -16,3 +16,5 @@ Review the go support and confirm that nvim is set up to be a first class go edi
 make a minimal go application and provide me instructions for running it in debug more in nvim so I can test
 look at the error in the screenshot in my home folder
 can you add a README.ubuntu.md file the provide nice clear instructions for an ubuntu user to use this flake and have it integrated into their system search path so that when they type timvim they get this flake managed vim
+=== 2026-01-31 ===
+User: Id really like to have the asciified kartoza banner show up in neovim every time it starts
