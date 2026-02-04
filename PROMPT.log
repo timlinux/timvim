@@ -19,3 +19,5 @@ can you add a README.ubuntu.md file the provide nice clear instructions for an u
 === 2026-01-31 ===
 User: Id really like to have the asciified kartoza banner show up in neovim every time it starts
 User: can you look back in the commit history - the kartoza alpha logo used to have colour and then it lost it at some point. Also can you look at the screenshot I made in my home directory and put gap between the icons and the text in the completion menus
+[2026-02-04T08:53:50+00:00] User asked: I can see in alpha.nix the colours are defined for the logo but when it shows in nvim it does not overlay the colours and shows only the simple monochrome version. Also please remind me what the tools are to build the logo from an image
+[2026-02-04T10:19:03+00:00] User reported: logo still shows in monochrome after charhl_to_bytehl fix. Root cause: Kartoza custom theme section runs 'highlight clear' at line 3800 of init.lua, after alpha pluginRC at line 1287, wiping all T2A highlight groups. Fix: wrapped highlights in setup_t2a_highlights() function and call it in VimEnter autocmd (after theme loading completes) plus ColorScheme autocmd for future theme changes.

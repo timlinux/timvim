@@ -97,6 +97,35 @@ statix check .
 2. Add the import to the subdirectory's `default.nix`
 3. Use NVF's plugin configuration syntax
 
+### Updating the Startup Banner
+
+The Kartoza logo on the alpha dashboard is generated using `catimg` and
+`term2alpha`. To regenerate or replace it:
+
+1. **Install the tools**:
+   - `catimg` is available in nixpkgs: `nix shell nixpkgs#catimg`
+   - `term2alpha` must be built from source:
+     `git clone https://git.sr.ht/~zethra/term2alpha && cargo build --release`
+
+2. **Generate the header Lua code**:
+   ```bash
+   catimg -H 30 kartoza-logo.png | term2alpha > /tmp/header.lua
+   ```
+   - `-H 30` controls the height in terminal lines (adjust to taste)
+   - `term2alpha` only supports 24-bit color codes from `catimg` output
+   - Other terminal image renderers (like chafa) produce different ANSI codes
+     that may not be compatible
+
+3. **Integrate into alpha.nix**:
+   - The generated `header.lua` contains two sections:
+     - Highlight group definitions (`vim.api.nvim_set_hl(...)` calls)
+     - A header table with `val` (text lines) and `opts.hl` (per-line highlight
+       specs)
+   - Copy both sections into `config/plugins/alpha.nix`, replacing the existing
+     highlight groups and `dashboard.section.header` block
+
+4. **Build and test**: `nix run`
+
 ### Modifying Settings
 
 - **Core options**: Edit files in `config/core/`
