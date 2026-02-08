@@ -1,5 +1,37 @@
 {
   vim.keymaps = [
+    # Clipboard paste keybindings
+    # Ctrl+Shift+V to paste from system clipboard in insert and command mode
+    {
+      key = "<C-S-v>";
+      mode = "i";
+      silent = true;
+      action = "<C-r>+";
+      desc = "Paste from system clipboard";
+    }
+    {
+      key = "<C-S-v>";
+      mode = "c";
+      silent = true;
+      action = "<C-r>+";
+      desc = "Paste from system clipboard";
+    }
+    # Middle mouse pastes from primary selection (highlighted text)
+    {
+      key = "<MiddleMouse>";
+      mode = "i";
+      silent = true;
+      action = "<C-r>*";
+      desc = "Paste from primary selection";
+    }
+    {
+      key = "<MiddleMouse>";
+      mode = "n";
+      silent = true;
+      action = "\"*p";
+      desc = "Paste from primary selection";
+    }
+
     # Completion keybindings (harmonized)
     # C-j/C-k navigate completion menu (configured in autocmp.nix)
     # Tab confirms selection (configured in autocmp.nix)

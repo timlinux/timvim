@@ -21,3 +21,9 @@ User: Id really like to have the asciified kartoza banner show up in neovim ever
 User: can you look back in the commit history - the kartoza alpha logo used to have colour and then it lost it at some point. Also can you look at the screenshot I made in my home directory and put gap between the icons and the text in the completion menus
 [2026-02-04T08:53:50+00:00] User asked: I can see in alpha.nix the colours are defined for the logo but when it shows in nvim it does not overlay the colours and shows only the simple monochrome version. Also please remind me what the tools are to build the logo from an image
 [2026-02-04T10:19:03+00:00] User reported: logo still shows in monochrome after charhl_to_bytehl fix. Root cause: Kartoza custom theme section runs 'highlight clear' at line 3800 of init.lua, after alpha pluginRC at line 1287, wiping all T2A highlight groups. Fix: wrapped highlights in setup_t2a_highlights() function and call it in VimEnter autocmd (after theme loading completes) plus ColorScheme autocmd for future theme changes.
+2026-02-08: User asked about difficulty copying text out of Neovim. Wanted vim motions yank to go to system clipboard and mouse highlight to go to primary selection (middle-click).
+Solution: Updated clipboard.nix to use "unnamedplus,unnamed" registers (syncs both system clipboard and primary selection), and added mouse="a" option.
+2026-02-08: Follow-up - user also wanted paste FROM system clipboard and primary selection INTO vim.
+Added keybindings in keymaps.nix:
+- Ctrl+Shift+V pastes from system clipboard (+) in insert and command mode
+- Middle mouse pastes from primary selection (*) in insert and normal mode

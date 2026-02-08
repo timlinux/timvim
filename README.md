@@ -70,6 +70,31 @@ config/
 | `<leader>fg`  | Live grep                              |
 | `<leader>gg`  | Open LazyGit                           |
 
+## Clipboard Integration
+
+Timvim provides seamless clipboard integration between Neovim and the system:
+
+### Copying (Yank)
+
+| Action                  | Result                                           |
+| ----------------------- | ------------------------------------------------ |
+| `y` (yank)              | Copies to both system clipboard AND primary selection |
+| Mouse highlight text    | Copies to primary selection (middle-click paste) |
+| `"+y`                   | Explicitly yank to system clipboard              |
+| `"*y`                   | Explicitly yank to primary selection             |
+
+### Pasting
+
+| Action                  | Result                                           |
+| ----------------------- | ------------------------------------------------ |
+| `p`                     | Paste from default register (last yank/delete)   |
+| `"+p`                   | Paste from system clipboard                      |
+| `"*p`                   | Paste from primary selection                     |
+| `Ctrl+Shift+V`          | Paste system clipboard (insert/command mode)     |
+| Middle mouse click      | Paste from primary selection                     |
+
+This uses `wl-copy`/`wl-paste` for Wayland clipboard support.
+
 ## 🛠️ Development
 
 ```bash

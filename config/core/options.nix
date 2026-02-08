@@ -38,6 +38,10 @@
       updatetime = 500; # CursorHold delay and swap file write (single authoritative value)
 
       wrap = false;
+
+      # Mouse settings for clipboard integration
+      mouse = "a"; # Enable mouse in all modes
+      mousemodel = "popup_setpos"; # Right-click shows popup menu
     };
 
     luaConfigRC.spellfile_setup = ''
