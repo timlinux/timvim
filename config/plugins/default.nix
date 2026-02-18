@@ -18,6 +18,7 @@
     ./minimap.nix
     ./neotest.nix
     ./oil.nix
+    ./persistent-breakpoints.nix
     ./projects.nix
     ./telescope.nix
     ./terminal.nix
