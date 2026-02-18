@@ -299,21 +299,25 @@
         },
       }
     end
+  '';
 
-    -- Register F-keys with which-key for visibility
-    local wk_ok, wk = pcall(require, 'which-key')
-    if wk_ok then
-      wk.add({
-        { "<F5>", desc = "Debug: Continue" },
-        { "<F8>", desc = "Debug: Toggle Breakpoint" },
-        { "<F9>", desc = "Debug: Step Over" },
-        { "<F10>", desc = "Debug: Step Into" },
-        { "<F11>", desc = "Debug: Step Out" },
-        { "<F12>", desc = "Debug: Run to Cursor" },
-        { "<S-F5>", desc = "Debug: Terminate" },
-        { "<S-F8>", desc = "Debug: Clear Breakpoints" },
-        { "<S-F9>", desc = "Debug: Toggle UI" },
-      })
-    end
+  # Register F-keys with which-key in a separate block to avoid interference
+  vim.luaConfigRC.dap-whichkey = ''
+    vim.defer_fn(function()
+      local wk_ok, wk = pcall(require, 'which-key')
+      if wk_ok then
+        wk.add({
+          { "<F5>", desc = "Debug: Continue" },
+          { "<F8>", desc = "Debug: Toggle Breakpoint" },
+          { "<F9>", desc = "Debug: Step Over" },
+          { "<F10>", desc = "Debug: Step Into" },
+          { "<F11>", desc = "Debug: Step Out" },
+          { "<F12>", desc = "Debug: Run to Cursor" },
+          { "<S-F5>", desc = "Debug: Terminate" },
+          { "<S-F8>", desc = "Debug: Clear Breakpoints" },
+          { "<S-F9>", desc = "Debug: Toggle UI" },
+        })
+      end
+    end, 100)
   '';
 }
