@@ -16,6 +16,9 @@
 
           -- Set to true if your font supports legacy computing symbols
           legacy_computing_symbols_support = false,
+
+          -- Enable particle effects
+          particles_enabled = true,
         })
       '';
     };
