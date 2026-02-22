@@ -42,6 +42,10 @@
       # Mouse settings for clipboard integration
       mouse = "a"; # Enable mouse in all modes
       mousemodel = "popup_setpos"; # Right-click shows popup menu
+
+      # Project-local config (.nvim.lua, .exrc, .nvimrc)
+      exrc = true; # Auto-source project-local config files
+      secure = true; # Restrict dangerous commands in exrc files
     };
 
     luaConfigRC.spellfile_setup = ''
