@@ -8,6 +8,7 @@
     ./precognition.nix
     ./preview.nix
     ./smart-splits.nix
+    ./smear-cursor.nix
     ./surround.nix
   ];
 }
