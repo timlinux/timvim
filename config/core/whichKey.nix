@@ -23,18 +23,15 @@
       notify = true;
       win = {
         border = "rounded";
+        # Allow which-key to expand to show all content
+        # Set max high enough to show everything unless screen is too small
+        height = {
+          min = 4;
+          max = 100;
+        };
       };
     };
   };
-
-  vim.luaConfigRC.whichkey_height = ''
-    -- Allow which-key panel to use up to half the screen height
-    -- We set a large static max so which-key never artificially truncates
-    local wk_ok, wk = pcall(require, "which-key")
-    if wk_ok then
-      wk.setup({ win = { height = { min = 4, max = 50 } } })
-    end
-  '';
 
   vim.luaConfigRC.whichkey_toggle_icons = ''
     -- Dynamic toggle icons: gray off icon when disabled, colored on icon when enabled
