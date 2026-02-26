@@ -155,11 +155,12 @@
 
           -- Override the default media_files keymap to use our custom command with preview
           vim.keymap.set('n', '<leader>fm', '<cmd>TelescopeMediaFiles<cr>', { desc = 'Find Media Files with Preview' })
-          -- Add <leader>ff to find files using fzf
+          -- Add <leader>ff to find files using telescope
           vim.keymap.set('n', '<leader>ff', function()
             require('telescope.builtin').find_files({
               prompt_title = "Find Files (FZF)",
               hidden = true,
+              find_command = { "fd", "--type", "f", "--type", "l", "--hidden", "--follow", "--exclude", ".git", "--exclude", "__pycache__", "--exclude", "node_modules", "--exclude", ".mypy_cache", "--exclude", ".pytest_cache" },
             })
           end, { desc = 'Find Files (FZF)' })
 
