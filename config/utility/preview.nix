@@ -11,7 +11,7 @@
         enable = true;
         alwaysAllowPreview = true;
         autoClose = true;
-        autoStart = false; # Disabled by default, can be toggled with <leader>tm
+        autoStart = false; # Disabled by default, can be toggled with <leader>mp (in .md files)
       };
 
     };

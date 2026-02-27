@@ -17,8 +17,17 @@
           -- Set to true if your font supports legacy computing symbols
           legacy_computing_symbols_support = false,
 
-          -- Enable particle effects
+          -- Enable particle effects for extra flair
           particles_enabled = true,
+
+          -- Smooth trail settings
+          stiffness = 0.8,              -- Cursor movement responsiveness
+          trailing_stiffness = 0.4,      -- Trail follows slower for longer effect
+          trailing_exponent = 0.15,      -- More gradual fade at the end
+
+          -- Distance threshold for smear effect
+          distance_stop_animating = 0.5,
+          hide_target_hack = false,
         })
       '';
     };

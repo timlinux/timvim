@@ -34,18 +34,18 @@
         desc = "Focus Claude Code";
       }
       {
-        key = "<leader>acs";
+        key = "<leader>am";
         action = "<cmd>ClaudeCodeSelectModel<cr>";
         mode = "n";
         silent = true;
         desc = "Select Claude Model";
       }
       {
-        key = "<leader>am";
+        key = "<leader>as";
         action = "<cmd>ClaudeCodeSend<cr>";
         mode = "v";
         silent = true;
-        desc = "Send selection to Claude";
+        desc = "Send Selection to Claude";
       }
     ];
 

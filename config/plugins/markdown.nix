@@ -8,8 +8,16 @@
       vim.api.nvim_create_autocmd('FileType', {
         pattern = 'markdown',
         callback = function()
+          -- Register markdown group with which-key for this buffer only
+          local ok, wk = pcall(require, "which-key")
+          if ok then
+            wk.add({
+              { "<leader>m", group = "  Markdown", buffer = 0 },
+            })
+          end
+
           local opt = vim.opt_local
-          
+
           -- Enable text wrapping for markdown files
           opt.wrap = true
           opt.linebreak = true
@@ -56,7 +64,12 @@
           map('n', '<leader>mi', function()
             vim.api.nvim_put({'![alt text](image_path)'}, 'c', true, true)
           end, { desc = 'Insert Image Template', buffer = true })
-          
+
+          -- Toggle markdown preview
+          map('n', '<leader>mp', function()
+            vim.cmd('MarkdownPreviewToggle')
+          end, { desc = 'Toggle Markdown Preview', buffer = true })
+
           -- Spell checking keybindings (markdown-specific overrides)
           map('n', '<leader>zs', function()
             -- Toggle spell checking on/off (buffer-local for markdown)

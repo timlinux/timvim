@@ -41,6 +41,16 @@
               width = 60,
               height = "auto",
             },
+            border = {
+              style = "rounded",
+              padding = { 0, 1 },
+            },
+            win_options = {
+              winhighlight = {
+                Normal = "Normal",
+                FloatBorder = "FloatBorder",
+              },
+            },
           },
           cmdline_search = {
             position = {

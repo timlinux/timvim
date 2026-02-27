@@ -3,7 +3,7 @@
   vim = {
     filetree = {
       neo-tree = {
-        enable = true;
+        enable = false;
         setupOpts = {
           default_component_configs = {
             file_size = {

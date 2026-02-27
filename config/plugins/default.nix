@@ -17,7 +17,6 @@
     ./nvzone-typr.nix
     ./minimap.nix
     ./neotest.nix
-    ./oil.nix
     ./persistent-breakpoints.nix
     ./projects.nix
     ./telescope.nix
@@ -25,6 +24,7 @@
     ./treesitter.nix
     ./trouble.nix
     ./undoTree.nix
+    ./yazi.nix
     ./yanky.nix
     ./colorizer.nix
     ./mini-nvim.nix

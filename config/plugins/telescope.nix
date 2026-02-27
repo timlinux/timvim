@@ -39,13 +39,10 @@
           };
         }
         {
-          name = "file-browser";
-          packages = [ pkgs.vimPlugins.telescope-file-browser-nvim ];
+          name = "notify";
+          packages = [ pkgs.vimPlugins.telescope-nvim ];
           setup = {
-            "file-browser" = {
-              theme = "ivy";
-              hijack_netrw = true;
-            };
+            "notify" = { };
           };
         }
         {
@@ -134,9 +131,10 @@
             }
           })
 
-          -- Load media files extension
+          -- Load telescope extensions
       require('telescope').load_extension('media_files')
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('notify')
 
           -- Custom command for browsing media files with preview
           vim.api.nvim_create_user_command('TelescopeMediaFiles', function()

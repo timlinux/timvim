@@ -110,35 +110,6 @@
       desc = "Find Nix Files";
     }
     {
-      key = "<leader>fs";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Telescope lsp_document_symbols<CR>";
-      desc = "Find Symbols in Current File";
-    }
-    # OIL File Manager keymaps
-    {
-      key = "<leader>fo";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Oil<CR>";
-      desc = "Open Oil File Manager";
-    }
-    {
-      key = "<leader>fO";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Oil --float<CR>";
-      desc = "Open Oil File Manager (Floating)";
-    }
-    {
-      key = "-";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Oil<CR>";
-      desc = "Open Oil File Manager (Quick Access)";
-    }
-    {
       key = "K";
       mode = "n";
       silent = true;
@@ -162,11 +133,11 @@
       desc = "Copilot Panel";
     }
     {
-      key = "<leader>as";
+      key = "<leader>ai";
       mode = "n";
       silent = true;
       action = "<cmd>Copilot status<CR>";
-      desc = "Copilot Status";
+      desc = "Copilot Info/Status";
     }
     {
       key = "<leader>ae";
@@ -200,13 +171,6 @@
       silent = true;
       action = "<cmd>ToggleTerm direction=float<CR>";
       desc = "Toggle Floating Terminal";
-    }
-    {
-      key = "<leader>tn";
-      mode = "n";
-      silent = true;
-      action = "<cmd>lua _G.toggle_states['<leader>tn'] = not _G.toggle_states['<leader>tn']; vim.cmd('Neotree toggle'); _G.update_toggle_desc('<leader>tn', 'Neotree', _G.toggle_states['<leader>tn'])<CR>";
-      desc = "Toggle Neotree Filesystem";
     }
     {
       key = "<leader>th";
@@ -285,51 +249,66 @@
       action = "<cmd>lua vim.lsp.buf.rename()<CR>";
       desc = "Rename Symbol";
     }
-    # LSP navigation keymaps (moved from files menu)
+    # Navigate group - LSP navigation
     {
-      key = "<leader>cd";
+      key = "<leader>nd";
       mode = "n";
       silent = true;
       action = "<cmd>lua vim.lsp.buf.definition()<CR>";
       desc = "Go to Definition";
     }
     {
-      key = "<leader>cD";
+      key = "<leader>nD";
       mode = "n";
       silent = true;
       action = "<cmd>lua vim.lsp.buf.declaration()<CR>";
       desc = "Go to Declaration";
     }
     {
-      key = "<leader>cI";
+      key = "<leader>ni";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope lsp_implementations<CR>";
       desc = "Find Implementations";
     }
     {
-      key = "<leader>ct";
+      key = "<leader>nt";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope lsp_type_definitions<CR>";
       desc = "Find Type Definitions";
     }
     {
-      key = "<leader>cR";
+      key = "<leader>nr";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope lsp_references<CR>";
       desc = "Find References";
     }
     {
-      key = "<leader>cn";
+      key = "<leader>nh";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+      desc = "Hover Documentation";
+    }
+    {
+      key = "<leader>ns";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope lsp_document_symbols<CR>";
+      desc = "Find Document Symbols";
+    }
+    # LSP diagnostics
+    {
+      key = "<leader>ln";
       mode = "n";
       silent = true;
       action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
       desc = "Next Diagnostic";
     }
     {
-      key = "<leader>cP";
+      key = "<leader>lp";
       mode = "n";
       silent = true;
       action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
@@ -408,10 +387,10 @@
       desc = "Toggle Syntax-based Spell Check";
     }
     {
-      key = "<leader>ty";
+      key = "<leader>tT";
       mode = "n";
       silent = true;
-      action = "<cmd>lua _G.toggle_states['<leader>ty'] = not _G.toggle_states['<leader>ty']; vim.cmd('Typr'); _G.update_toggle_desc('<leader>ty', 'Typing Tutor', _G.toggle_states['<leader>ty'])<CR>";
+      action = "<cmd>lua _G.toggle_states['<leader>tT'] = not _G.toggle_states['<leader>tT']; vim.cmd('Typr'); _G.update_toggle_desc('<leader>tT', 'Typing Tutor', _G.toggle_states['<leader>tT'])<CR>";
       desc = "Typing Tutor";
     }
   ];
