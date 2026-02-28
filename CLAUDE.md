@@ -133,3 +133,4 @@ The Kartoza logo on the alpha dashboard is generated using `catimg` and `term2al
 4. **Build and test**: `nix run`
 
 Note: `term2alpha` has only been tested with `catimg` output. Other terminal image renderers (like chafa) produce different ANSI codes that may not be compatible.
+- Whenever we change any configuration, always make sure the keybinds are updated accordingly

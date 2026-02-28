@@ -22,6 +22,8 @@ Complete and accurate reference for all keybindings in timvim.
 - [F-Keys (Debug Shortcuts)](#f-keys-debug-shortcuts)
 - [Insert Mode](#insert-mode)
 - [Yazi File Manager](#yazi-file-manager)
+- [Flash Navigation](#flash-navigation)
+- [Vim Surround](#vim-surround)
 - [Known Issues and Conflicts](#known-issues-and-conflicts)
 
 ---
@@ -325,6 +327,71 @@ Complete and accurate reference for all keybindings in timvim.
 
 ---
 
+## Flash Navigation
+
+**Quick motion/jumping with flash.nvim**
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `s` | n, x, o | Flash jump - type characters to jump to location |
+| `S` | n, x, o | Flash Treesitter - jump to treesitter nodes |
+| `r` | o | Remote flash - jump to remote location for operator |
+| `R` | o, x | Treesitter search - search with treesitter |
+| `Ctrl+s` | c | Toggle flash search in command line |
+
+**Usage:**
+1. Press `s` to activate flash
+2. Type characters you want to jump to
+3. Labels appear - press the label key to jump
+4. For `S` (Treesitter), labels appear on AST nodes
+
+**WhichKey Integration:** Flash bindings (`s`, `S`) appear in the root whichKey menu with icons.
+
+---
+
+## Vim Surround
+
+**Text manipulation with nvim-surround (remapped to avoid flash conflicts)**
+
+### Normal Mode
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `gz{motion}{char}` | n | Add surround around motion (e.g., `gziw"` surrounds word with quotes) |
+| `gzz{char}` | n | Add surround around entire line |
+| `gZ{char}` | n | Add surround around current cursor position |
+| `gZZ{char}` | n | Add surround around current line (alternative) |
+| `gzd{char}` | n | Delete surrounding character (e.g., `gzd"` removes quotes) |
+| `gzr{old}{new}` | n | Replace surrounding (e.g., `gzr"'` changes quotes to single quotes) |
+| `gZR{old}{new}` | n | Replace surrounding on line |
+
+### Visual Mode
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `gz{char}` | v | Surround visual selection with character |
+| `gZ{char}` | v | Surround visual selection with character on new lines |
+
+### Insert Mode
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `Ctrl+g z{char}` | i | Insert surround |
+| `Ctrl+g Z{char}` | i | Insert surround on new lines |
+
+**Examples:**
+- `gziw"` - Surround inner word with double quotes
+- `gza}"` - Surround around `}` with double quotes
+- `gzd'` - Delete surrounding single quotes
+- `gzr"'` - Change surrounding double quotes to single quotes
+- Visual select + `gz)` - Wrap selection in parentheses
+
+**Note:** Default vim-surround uses `s`/`S` which conflicts with flash.nvim. These keybindings have been remapped to use `gz`/`gZ` prefix.
+
+**WhichKey Integration:** Press `g` then wait for whichKey to see the `gz` Surround group. Press `gz` to see all surround actions.
+
+---
+
 ## Notification Management
 
 **⚠️ WARNING: These keybindings have conflicts!**
@@ -370,5 +437,5 @@ The following file managers were removed and replaced with Yazi:
 
 ---
 
-_Last Updated: 2026-02-27_
-_Reflects current state after keybinding reorganization and notification enhancement_
+_Last Updated: 2026-02-28_
+_Reflects current state after keybinding reorganization, notification enhancement, and flash/surround documentation_

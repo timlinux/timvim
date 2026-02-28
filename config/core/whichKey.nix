@@ -18,7 +18,7 @@
       "<leader>t" = "󰔡 Toggles";
       "<leader>x" = "󰖷 Lists";
       "<leader>z" = "󰓆 Spell";
-      "gz" = "󰔡 Surround";
+      # gz/gZ groups registered via wk.add() in whichkey_surround_flash for proper icons
     };
 
     setupOpts = {
@@ -94,6 +94,32 @@
       };
     };
   };
+
+  vim.luaConfigRC.whichkey_surround_flash = ''
+    -- Register surround and flash keybindings with which-key for visibility
+    vim.defer_fn(function()
+      local ok, wk = pcall(require, "which-key")
+      if not ok then return end
+
+      -- Surround keybindings (remapped to gz prefix to avoid flash conflicts)
+      wk.add({
+        -- Normal mode surround
+        { "gz", group = "Surround", icon = "󰔡" },
+        { "gZ", group = "Surround Line", icon = "󰔡" },
+        { "gzz", desc = "Surround entire line", icon = "󰔡" },
+        { "gZZ", desc = "Surround current line", icon = "󰔡" },
+        { "gzd", desc = "Delete surrounding", icon = "󰛌" },
+        { "gzr", desc = "Change surrounding", icon = "󰏫" },
+        { "gZR", desc = "Change surrounding line", icon = "󰏫" },
+
+        -- Flash keybindings
+        { "s", desc = "Flash jump", icon = "󰉁", mode = { "n", "x", "o" } },
+        { "S", desc = "Flash Treesitter", icon = "󰐅", mode = { "n", "x", "o" } },
+        { "r", desc = "Remote flash", icon = "󰈿", mode = "o" },
+        { "R", desc = "Treesitter search", icon = "󰈿", mode = { "o", "x" } },
+      })
+    end, 150)
+  '';
 
   vim.luaConfigRC.whichkey_navigation_hint = ''
     -- Add navigation hint to whichkey footer
