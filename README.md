@@ -21,28 +21,259 @@ integration, and comprehensive language support.
 
 ## 🚀 Quick Start
 
-### With Nix Flakes
+### Prerequisites
+
+You need **Nix** with flakes enabled. Follow the platform-specific instructions below to install Nix.
+
+---
+
+## 📦 Platform Installation
+
+### 🐧 Linux (Ubuntu/Debian/Fedora/Arch)
+
+#### 1. Install Nix
 
 ```bash
-# Try it out without installing
+# Official Nix installer (recommended)
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+# Or use the Determinate Systems installer (better defaults)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+#### 2. Enable Flakes
+
+If you used the official installer, enable flakes by adding to `~/.config/nix/nix.conf`:
+
+```ini
+experimental-features = nix-command flakes
+```
+
+Then restart your shell or run `source /etc/profile`.
+
+#### 3. Run timvim
+
+```bash
+# Try without installing
 nix run github:timlinux/timvim
 
-# Or build locally
+# Or clone and run locally
 git clone https://github.com/timlinux/timvim.git
 cd timvim
 nix run
 ```
 
-### Home Manager Integration
+#### Distribution-Specific Notes
 
-Add to your Home Manager configuration:
+**Ubuntu/Debian:**
+```bash
+# You may need to add yourself to the nix-users group
+sudo usermod -aG nix-users $USER
+# Log out and back in for group changes to take effect
+```
 
+**Fedora:**
+```bash
+# SELinux may require restorecon after install
+sudo restorecon -RF /nix
+```
+
+**Arch Linux:**
+```bash
+# Alternative: install via pacman
+sudo pacman -S nix
+sudo systemctl enable --now nix-daemon
+```
+
+**NixOS:**
 ```nix
+# In your configuration.nix or home.nix
 {
   inputs.timvim.url = "github:timlinux/timvim";
 
-  # In your home.nix
-  home.packages = [ inputs.timvim.packages.${pkgs.system}.default ];
+  # Add to environment.systemPackages or home.packages
+  environment.systemPackages = [ inputs.timvim.packages.${pkgs.system}.default ];
+}
+```
+
+---
+
+### 🍎 macOS
+
+#### 1. Install Nix
+
+```bash
+# Determinate Systems installer (recommended for macOS)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# Or official installer
+sh <(curl -L https://nixos.org/nix/install)
+```
+
+#### 2. Enable Flakes (if using official installer)
+
+Add to `~/.config/nix/nix.conf`:
+
+```ini
+experimental-features = nix-command flakes
+```
+
+#### 3. Run timvim
+
+```bash
+# Try without installing
+nix run github:timlinux/timvim
+
+# Or clone and run
+git clone https://github.com/timlinux/timvim.git
+cd timvim
+nix run
+```
+
+#### macOS-Specific Notes
+
+- **Apple Silicon (M1/M2/M3)**: Fully supported, Nix automatically uses `aarch64-darwin`
+- **Intel Macs**: Uses `x86_64-darwin`
+- **Rosetta 2**: Not required; native ARM builds are provided
+- **Clipboard**: Uses `pbcopy`/`pbpaste` automatically
+
+---
+
+### 🪟 Windows
+
+Nix runs on Windows through **WSL2** (Windows Subsystem for Linux).
+
+#### 1. Install WSL2
+
+Open PowerShell as Administrator:
+
+```powershell
+wsl --install
+```
+
+This installs Ubuntu by default. Restart your computer when prompted.
+
+#### 2. Configure WSL2 (recommended settings)
+
+Create or edit `%USERPROFILE%\.wslconfig`:
+
+```ini
+[wsl2]
+memory=8GB
+processors=4
+```
+
+#### 3. Install Nix in WSL2
+
+Open your WSL terminal (Ubuntu):
+
+```bash
+# Install Nix with Determinate Systems installer
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# Restart your shell
+exec $SHELL
+```
+
+#### 4. Run timvim
+
+```bash
+# In WSL terminal
+nix run github:timlinux/timvim
+
+# Or clone and run
+git clone https://github.com/timlinux/timvim.git
+cd timvim
+nix run
+```
+
+#### Windows-Specific Notes
+
+- **Windows Terminal**: Recommended for best experience with colors and fonts
+- **Clipboard Integration**: Works between WSL and Windows automatically
+- **File Access**: Access Windows files at `/mnt/c/Users/YourName/`
+- **Performance**: Store projects in WSL filesystem (`~/`) not Windows mounts for best performance
+- **GPU Support**: WSL2 supports GPU passthrough for compatible features
+
+#### Recommended Windows Terminal Settings
+
+Add to your Windows Terminal `settings.json` for best experience:
+
+```json
+{
+  "profiles": {
+    "defaults": {
+      "font": {
+        "face": "JetBrainsMono Nerd Font",
+        "size": 12
+      },
+      "colorScheme": "One Half Dark"
+    }
+  }
+}
+```
+
+Install a Nerd Font from [nerdfonts.com](https://www.nerdfonts.com/) for icon support.
+
+---
+
+## 🏠 Home Manager Integration
+
+For permanent installation via Home Manager:
+
+### Standalone Home Manager
+
+```nix
+# flake.nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    timvim.url = "github:timlinux/timvim";
+  };
+
+  outputs = { nixpkgs, home-manager, timvim, ... }: {
+    homeConfigurations."yourname" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [{
+        home.packages = [ timvim.packages.x86_64-linux.default ];
+      }];
+    };
+  };
+}
+```
+
+### NixOS with Home Manager Module
+
+```nix
+# configuration.nix
+{ inputs, pkgs, ... }:
+{
+  home-manager.users.yourname = {
+    home.packages = [ inputs.timvim.packages.${pkgs.system}.default ];
+  };
+}
+```
+
+### nix-darwin (macOS)
+
+```nix
+# flake.nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    darwin.url = "github:lnl7/nix-darwin";
+    timvim.url = "github:timlinux/timvim";
+  };
+
+  outputs = { darwin, timvim, ... }: {
+    darwinConfigurations."yourmac" = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";  # or x86_64-darwin for Intel
+      modules = [{
+        environment.systemPackages = [ timvim.packages.aarch64-darwin.default ];
+      }];
+    };
+  };
 }
 ```
 
@@ -173,8 +404,14 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
 
-## Contributions are welcome! Please feel free to submit issues and pull requests.
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+---
 
 <div align="center">
-Built with ❤️ using <a href="https://github.com/notashelf/nvf">NVF</a> and <a href="https://nixos.org/">Nix</a>
+
+Made with 💗 by [Kartoza](https://kartoza.com) | [Donate!](https://github.com/sponsors/timlinux) | [GitHub](https://github.com/timlinux/timvim)
+
+Built using [NVF](https://github.com/notashelf/nvf) and [Nix](https://nixos.org/)
+
 </div>
