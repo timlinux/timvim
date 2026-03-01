@@ -18,7 +18,7 @@
         timeout = 5000, -- 5 seconds (default is 5000, but let's be explicit)
 
         -- Position on screen
-        top_down = true, -- Notifications appear from top and go down
+        top_down = false, -- Notifications appear from bottom right corner
 
         -- Minimum width for notification windows
         minimum_width = 50,

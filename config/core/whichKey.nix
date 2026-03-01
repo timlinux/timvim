@@ -16,6 +16,7 @@
       "<leader>n" = "󰑮 Navigate";
       "<leader>s" = "󰆔 Session";
       "<leader>t" = "󰔡 Toggles";
+      "<leader>T" = "󰙨 Test";
       "<leader>x" = "󰖷 Lists";
       "<leader>z" = "󰓆 Spell";
       # gz/gZ groups registered via wk.add() in whichkey_surround_flash for proper icons
@@ -171,7 +172,6 @@
       _G.update_toggle_desc("<leader>tg", "Harper Grammar", false)
       _G.update_toggle_desc("<leader>tz", "Spell Autopopup", false)
       _G.update_toggle_desc("<leader>tu", "Undo Tree", false)
-      _G.update_toggle_desc("<leader>tD", "Deleted Lines [Git]", false)
       _G.update_toggle_desc("<leader>tT", "Typing Tutor", false)
     end, 100)
   '';
