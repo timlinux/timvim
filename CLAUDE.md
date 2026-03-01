@@ -134,3 +134,4 @@ The Kartoza logo on the alpha dashboard is generated using `catimg` and `term2al
 
 Note: `term2alpha` has only been tested with `catimg` output. Other terminal image renderers (like chafa) produce different ANSI codes that may not be compatible.
 - Whenever we change any configuration, always make sure the keybinds are updated accordingly
+- I feel like the whichkey menus have regressed and you have been disrespectful of me and my time making me recheck your work over and over. So lets introduce a formal change process by which you never change bindings or whichkey menu organisation without first showing me the proposed before and after for each atomic change and only make such changes apon my acceptance.
