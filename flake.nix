@@ -10,6 +10,10 @@
       url = "github:coder/claudecode.nvim";
       flake = false;
     };
+    plugin-octo = {
+      url = "github:pwntester/octo.nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       flake-parts,
       nvf,
       plugin-claude-code,
+      plugin-octo,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -51,10 +56,17 @@
             src = inputs.plugin-claude-code;
           };
 
+          octo-plugin = pkgs.vimUtils.buildVimPlugin {
+            name = "octo.nvim";
+            src = inputs.plugin-octo;
+            doCheck = false; # Disable require check - plugin has runtime dependencies
+          };
+
           nvimConfig = nvf.lib.neovimConfiguration {
             inherit pkgs;
             extraSpecialArgs = {
               claude-code-plugin = claude-code-plugin;
+              octo-plugin = octo-plugin;
             };
             modules = [ ./config ];
           };

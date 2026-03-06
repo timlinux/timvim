@@ -14,6 +14,13 @@
       "<leader>g" = "󰊢 Git";
       "<leader>l" = "󰌵 LSP";
       "<leader>n" = "󰑮 Navigate";
+      "<leader>o" = " Octo/GitHub";
+      "<leader>oi" = " Issues";
+      "<leader>op" = " Pull Requests";
+      "<leader>or" = " Review";
+      "<leader>oc" = " Comments";
+      "<leader>oR" = " Repos";
+      "<leader>og" = " Gists";
       "<leader>s" = "󰆔 Session";
       "<leader>t" = "󰔡 Toggles";
       "<leader>T" = "󰙨 Test";

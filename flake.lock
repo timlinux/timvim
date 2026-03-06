@@ -194,13 +194,30 @@
         "type": "github"
       }
     },
+    "plugin-octo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772661731,
+        "narHash": "sha256-SKC9r/H3idSq72G5McWwMcuiU9K5yuAxv/CQm+y5/5c=",
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "rev": "c14f5b6ee92f0b2717efd525211bcb6cebf03fa6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvf": "nvf",
-        "plugin-claude-code": "plugin-claude-code"
+        "plugin-claude-code": "plugin-claude-code",
+        "plugin-octo": "plugin-octo"
       }
     },
     "systems": {
