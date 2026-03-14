@@ -71,26 +71,28 @@
             modules = [ ./config ];
           };
 
+          # Runtime dependencies that must be in PATH for Neovim plugins
+          runtimeDeps = [
+            pkgs.ripgrep
+            pkgs.fd
+            pkgs.fzf
+            pkgs.chafa
+            pkgs.git
+            pkgs.go
+            pkgs.gopls
+            pkgs.delve
+            pkgs.harper
+          ];
+
           # Wrap the Neovim package to include runtime dependencies
+          # Adding runtimeDeps to paths ensures they're part of the closure
           wrappedNeovim = pkgs.symlinkJoin {
             name = "timvim-wrapped";
-            paths = [ nvimConfig.neovim ];
+            paths = [ nvimConfig.neovim ] ++ runtimeDeps;
             buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''
               wrapProgram $out/bin/nvim \
-                --prefix PATH : ${
-                  pkgs.lib.makeBinPath [
-                    pkgs.ripgrep
-                    pkgs.fd
-                    pkgs.fzf
-                    pkgs.chafa
-                    pkgs.git
-                    pkgs.go
-                    pkgs.gopls
-                    pkgs.delve
-                    pkgs.harper
-                  ]
-                }
+                --prefix PATH : ${pkgs.lib.makeBinPath runtimeDeps}
             '';
           };
         in
