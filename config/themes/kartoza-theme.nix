@@ -36,7 +36,7 @@
         violet = "#56f341",    -- violet
         base1 = "#f23abb",     -- base1
         base3 = "#c8856e",      -- light background
-        darktext = "#282b2b"  -- for line numbers
+        darktext = "#57a0c7"  -- for line numbers (kartoza blue)
       }
 
       -- Apply highlights using proper Lua syntax
