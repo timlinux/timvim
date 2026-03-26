@@ -33,3 +33,4 @@ Added keybindings in keymaps.nix:
 [2026-03-26 05:35:16] no the popup toggle does not work (image preview always shows regardless of toggle state, image preview is not a fixed size in the bottom right of the screen
 [2026-03-26 05:42:33] how am I supposed to verify it? I used nix run .# but the image still pops over the main editor area. also can we have it so pressing esc hides the preview again
 [2026-03-26 05:53:37] the image should be scaled to the container, not clipped and the preview panel should be smaller
+if the current buffer does not support outline mode, the outline panel should be hidden
