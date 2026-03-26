@@ -23,7 +23,8 @@ integration, and comprehensive language support.
 
 ### Prerequisites
 
-You need **Nix** with flakes enabled. Follow the platform-specific instructions below to install Nix.
+You need **Nix** with flakes enabled. Follow the platform-specific instructions
+below to install Nix.
 
 ---
 
@@ -43,7 +44,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 #### 2. Enable Flakes
 
-If you used the official installer, enable flakes by adding to `~/.config/nix/nix.conf`:
+If you used the official installer, enable flakes by adding to
+`~/.config/nix/nix.conf`:
 
 ```ini
 experimental-features = nix-command flakes
@@ -66,6 +68,7 @@ nix run
 #### Distribution-Specific Notes
 
 **Ubuntu/Debian:**
+
 ```bash
 # You may need to add yourself to the nix-users group
 sudo usermod -aG nix-users $USER
@@ -73,12 +76,14 @@ sudo usermod -aG nix-users $USER
 ```
 
 **Fedora:**
+
 ```bash
 # SELinux may require restorecon after install
 sudo restorecon -RF /nix
 ```
 
 **Arch Linux:**
+
 ```bash
 # Alternative: install via pacman
 sudo pacman -S nix
@@ -86,6 +91,7 @@ sudo systemctl enable --now nix-daemon
 ```
 
 **NixOS:**
+
 ```nix
 # In your configuration.nix or home.nix
 {
@@ -132,7 +138,8 @@ nix run
 
 #### macOS-Specific Notes
 
-- **Apple Silicon (M1/M2/M3)**: Fully supported, Nix automatically uses `aarch64-darwin`
+- **Apple Silicon (M1/M2/M3)**: Fully supported, Nix automatically uses
+  `aarch64-darwin`
 - **Intel Macs**: Uses `x86_64-darwin`
 - **Rosetta 2**: Not required; native ARM builds are provided
 - **Clipboard**: Uses `pbcopy`/`pbpaste` automatically
@@ -192,7 +199,8 @@ nix run
 - **Windows Terminal**: Recommended for best experience with colors and fonts
 - **Clipboard Integration**: Works between WSL and Windows automatically
 - **File Access**: Access Windows files at `/mnt/c/Users/YourName/`
-- **Performance**: Store projects in WSL filesystem (`~/`) not Windows mounts for best performance
+- **Performance**: Store projects in WSL filesystem (`~/`) not Windows mounts
+  for best performance
 - **GPU Support**: WSL2 supports GPU passthrough for compatible features
 
 #### Recommended Windows Terminal Settings
@@ -213,7 +221,8 @@ Add to your Windows Terminal `settings.json` for best experience:
 }
 ```
 
-Install a Nerd Font from [nerdfonts.com](https://www.nerdfonts.com/) for icon support.
+Install a Nerd Font from [nerdfonts.com](https://www.nerdfonts.com/) for icon
+support.
 
 ---
 
@@ -307,22 +316,22 @@ Timvim provides seamless clipboard integration between Neovim and the system:
 
 ### Copying (Yank)
 
-| Action                  | Result                                           |
-| ----------------------- | ------------------------------------------------ |
-| `y` (yank)              | Copies to both system clipboard AND primary selection |
-| Mouse highlight text    | Copies to primary selection (middle-click paste) |
-| `"+y`                   | Explicitly yank to system clipboard              |
-| `"*y`                   | Explicitly yank to primary selection             |
+| Action               | Result                                                |
+| -------------------- | ----------------------------------------------------- |
+| `y` (yank)           | Copies to both system clipboard AND primary selection |
+| Mouse highlight text | Copies to primary selection (middle-click paste)      |
+| `"+y`                | Explicitly yank to system clipboard                   |
+| `"*y`                | Explicitly yank to primary selection                  |
 
 ### Pasting
 
-| Action                  | Result                                           |
-| ----------------------- | ------------------------------------------------ |
-| `p`                     | Paste from default register (last yank/delete)   |
-| `"+p`                   | Paste from system clipboard                      |
-| `"*p`                   | Paste from primary selection                     |
-| `Ctrl+Shift+V`          | Paste system clipboard (insert/command mode)     |
-| Middle mouse click      | Paste from primary selection                     |
+| Action             | Result                                         |
+| ------------------ | ---------------------------------------------- |
+| `p`                | Paste from default register (last yank/delete) |
+| `"+p`              | Paste from system clipboard                    |
+| `"*p`              | Paste from primary selection                   |
+| `Ctrl+Shift+V`     | Paste system clipboard (insert/command mode)   |
+| Middle mouse click | Paste from primary selection                   |
 
 This uses `wl-copy`/`wl-paste` for Wayland clipboard support.
 
@@ -364,9 +373,13 @@ The Kartoza logo on the alpha dashboard is generated using `catimg` and
      `git clone https://git.sr.ht/~zethra/term2alpha && cargo build --release`
 
 2. **Generate the header Lua code**:
+
+   ![kartoza-logo.png](kartoza-logo.png)
+
    ```bash
    catimg -H 30 kartoza-logo.png | term2alpha > /tmp/header.lua
    ```
+
    - `-H 30` controls the height in terminal lines (adjust to taste)
    - `term2alpha` only supports 24-bit color codes from `catimg` output
    - Other terminal image renderers (like chafa) produce different ANSI codes
@@ -410,8 +423,11 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 <div align="center">
 
-Made with 💗 by [Kartoza](https://kartoza.com) | [Donate!](https://github.com/sponsors/timlinux) | [GitHub](https://github.com/timlinux/timvim)
+Made with 💗 by [Kartoza](https://kartoza.com) |
+[Donate!](https://github.com/sponsors/timlinux) |
+[GitHub](https://github.com/timlinux/timvim)
 
-Built using [NVF](https://github.com/notashelf/nvf) and [Nix](https://nixos.org/)
+Built using [NVF](https://github.com/notashelf/nvf) and
+[Nix](https://nixos.org/)
 
 </div>

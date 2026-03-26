@@ -85,6 +85,15 @@ All popup selection uses a consistent navigation pattern:
 - **Model Selection**: `<leader>acs` - Select Claude model
 - **Send Selection**: `<leader>am` - Send current visual selection to Claude (visual mode)
 
+## Image Preview (Kitty Graphics Protocol)
+
+Uses image.nvim with Kitty graphics protocol to show popup image previews when cursor is on an image path in markdown files.
+
+- **Toggle Image Preview**: `<leader>tI` - Enable/disable image preview popups
+- **Clear Images**: `<leader>ic` - Clear all rendered images in current buffer
+
+**Requirements**: Kitty terminal (28.0+) or compatible terminal with Kitty graphics protocol support.
+
 ## Development Shell
 
 The `nix develop` environment includes:
@@ -114,8 +123,8 @@ The `nix develop` environment includes:
 The Kartoza logo on the alpha dashboard is generated using `catimg` and `term2alpha`. To regenerate or replace it:
 
 1. **Install the tools**:
-   - `catimg` is available in nixpkgs: `nix shell nixpkgs#catimg`
-   - `term2alpha` must be built from source: `git clone https://git.sr.ht/~zethra/term2alpha && cargo build --release`
+   - Both `catimg` and `term2alpha` are available in the dev shell: `nix develop`
+   - Alternatively: `catimg` is in nixpkgs, `term2alpha` is a Haskell flake from `git+https://git.sr.ht/~zethra/term2alpha`
 
 2. **Generate the header Lua code**:
    ```bash

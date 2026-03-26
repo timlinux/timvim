@@ -393,5 +393,12 @@
       action = "<cmd>lua _G.toggle_states['<leader>tT'] = not _G.toggle_states['<leader>tT']; vim.cmd('Typr'); _G.update_toggle_desc('<leader>tT', 'Typing Tutor', _G.toggle_states['<leader>tT'])<CR>";
       desc = "Typing Tutor";
     }
+    {
+      key = "<leader>tI";
+      mode = "n";
+      silent = true;
+      action = "<cmd>lua _G.toggle_image_preview()<CR>";
+      desc = "Toggle Image Preview";
+    }
   ];
 }

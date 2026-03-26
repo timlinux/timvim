@@ -55,6 +55,24 @@
         "type": "github"
       }
     },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1768701608,
@@ -155,6 +173,21 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1713013257,
+        "narHash": "sha256-ZEfGB3YCBVggvk0BQIqVY7J8XF/9jxQ68fCca6nib+8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "90055d5e616bd943795d38808c94dbf0dd35abe8",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-23.11",
+        "type": "indirect"
+      }
+    },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -217,7 +250,8 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nvf": "nvf",
         "plugin-claude-code": "plugin-claude-code",
-        "plugin-octo": "plugin-octo"
+        "plugin-octo": "plugin-octo",
+        "term2alpha": "term2alpha"
       }
     },
     "systems": {
@@ -233,6 +267,40 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "term2alpha": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1723077244,
+        "narHash": "sha256-TqGryK4a+zizTq/5xS4HYF6JCeRHP27ZVkGJq22bAbk=",
+        "ref": "refs/heads/main",
+        "rev": "d1d3b51071e099d0473d9ef228e9bb8bf7b016ca",
+        "revCount": 9,
+        "type": "git",
+        "url": "https://git.sr.ht/~zethra/term2alpha"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sr.ht/~zethra/term2alpha"
       }
     }
   },

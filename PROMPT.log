@@ -27,3 +27,9 @@ Solution: Updated clipboard.nix to use "unnamedplus,unnamed" registers (syncs bo
 Added keybindings in keymaps.nix:
 - Ctrl+Shift+V pastes from system clipboard (+) in insert and command mode
 - Middle mouse pastes from primary selection (*) in insert and normal mode
+[2026-03-26 04:58:28] can you make catimg and term2alpha available here in the nix develop environment
+[2026-03-26 05:05:58] I would like a neovim plugin enabled that shows an imagepreview popup when you cursor onto an image path (using the kitty graphics protocol) - it should be possible to toggle this behaviour off and on in the whichkey menus
+[2026-03-26 05:15:14] The popover for images is nice but can you make it show in the bottom right corner as I have indicated
+[2026-03-26 05:35:16] no the popup toggle does not work (image preview always shows regardless of toggle state, image preview is not a fixed size in the bottom right of the screen
+[2026-03-26 05:42:33] how am I supposed to verify it? I used nix run .# but the image still pops over the main editor area. also can we have it so pressing esc hides the preview again
+[2026-03-26 05:53:37] the image should be scaled to the container, not clipped and the preview panel should be smaller

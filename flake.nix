@@ -14,6 +14,7 @@
       url = "github:pwntester/octo.nvim";
       flake = false;
     };
+    term2alpha.url = "git+https://git.sr.ht/~zethra/term2alpha";
   };
 
   outputs =
@@ -24,6 +25,7 @@
       nvf,
       plugin-claude-code,
       plugin-octo,
+      term2alpha,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -167,6 +169,7 @@
             packages =
               with pkgs;
               [
+                catimg # Terminal image viewer for alpha header generation
                 chafa
                 epub-thumbnailer
                 fd
@@ -200,7 +203,8 @@
                 google-java-format # Java formatter
                 harper # Grammar checker LSP
               ]
-              ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
+              ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ]
+              ++ [ inputs.term2alpha.packages.${system}.default ];
           };
         };
 
