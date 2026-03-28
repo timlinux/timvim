@@ -7,6 +7,7 @@
     ./outline.nix
     ./precognition.nix
     ./preview.nix
+    ./refactoring.nix
     ./smart-splits.nix
     ./smear-cursor.nix
     ./surround.nix

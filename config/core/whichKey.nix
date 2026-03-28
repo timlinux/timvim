@@ -15,6 +15,7 @@
       "<leader>l" = "󰌵 LSP";
       "<leader>n" = "󰑮 Navigate";
       "<leader>o" = " Octo/GitHub";
+      "<leader>r" = "󰑕 Refactor";
       "<leader>oi" = " Issues";
       "<leader>op" = " Pull Requests";
       "<leader>or" = " Review";

@@ -85,6 +85,26 @@ All popup selection uses a consistent navigation pattern:
 - **Model Selection**: `<leader>acs` - Select Claude model
 - **Send Selection**: `<leader>am` - Send current visual selection to Claude (visual mode)
 
+## Refactoring (ThePrimeagen's refactoring.nvim)
+
+Code refactoring operations for extracting, inlining, and restructuring code.
+
+### Visual Mode
+- **`<leader>re`**: Extract function - Extract selected code into a new function
+- **`<leader>rf`**: Extract to file - Extract selected code to a new file
+- **`<leader>rv`**: Extract variable - Extract selected expression into a variable
+
+### Normal/Visual Mode
+- **`<leader>ri`**: Inline variable - Inline variable under cursor
+- **`<leader>rr`**: Select refactor - Show refactoring menu with all options
+
+### Normal Mode
+- **`<leader>rI`**: Inline function - Inline function under cursor
+- **`<leader>rb`**: Extract block - Extract code block into a function
+- **`<leader>rB`**: Extract block to file - Extract code block to a new file
+
+**Supported languages**: Go, Python, JavaScript/TypeScript, Lua, C/C++, Java, Ruby, PHP
+
 ## Image Preview (Kitty Graphics Protocol)
 
 Uses image.nvim with Kitty graphics protocol to show popup image previews when cursor is on an image path in markdown files.
