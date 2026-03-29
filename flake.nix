@@ -82,6 +82,7 @@
             pkgs.git
             pkgs.go
             pkgs.gopls
+            pkgs.gotools # Contains goimports for Go formatting
             pkgs.delve
             pkgs.harper
           ];
