@@ -7,8 +7,7 @@ let
     "go"
     "html"
     "java"
-    #"js"
-    #"json"
+    # "json" # handled separately, not a standalone NVF language
     "kotlin"
     "lua"
     "markdown"
@@ -17,8 +16,8 @@ let
     "rust"
     "sql"
     # "toml"
-    #"tsx"
-    #"typescript"
+    # "tsx" # handled by ts language config
+    # "typescript" # handled by ts language config
     "yaml"
     "zig"
 

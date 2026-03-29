@@ -96,6 +96,13 @@
         dap.enable = true;
       };
 
+      ts = {
+        enable = true;
+        format.enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+      };
+
       rust = {
         enable = true;
         extensions.crates-nvim = {

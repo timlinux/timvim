@@ -13,12 +13,18 @@
               cpp = true,
               c = true,
               java = true,
+              python = true,
+              javascript = true,
+              typescript = true,
             },
             prompt_func_param_type = {
               go = true,
               cpp = true,
               c = true,
               java = true,
+              python = true,
+              javascript = true,
+              typescript = true,
             },
           })
         '';
