@@ -26,6 +26,7 @@
           "quickfix"
           "nofile"
           "help"
+          "aerial"
         ];
         autosave_ignore_dirs = [
           "~/"
