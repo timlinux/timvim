@@ -36,3 +36,5 @@ Added keybindings in keymaps.nix:
 if the current buffer does not support outline mode, the outline panel should be hidden
 [2026-03-28 18:58:05] User: I want to add primagens refactor plugin to my config
 2026-03-29 21:58:07 - Fixed Go formatter not working. Added pkgs.gotools to runtimeDeps in flake.nix to make goimports available for conform.nvim formatting.
+2026-03-31 22:01:53 - User reported outline/symbols window not auto-opening for supported file types like Python. Fixed by adding defensive initialization of _G.toggle_states and pcall protection around require('aerial') in config/utility/outline.nix
+2026-03-31 22:17:04 - Removed aerial auto-open automation. User will toggle outline manually with <leader>to

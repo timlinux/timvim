@@ -85,6 +85,11 @@
             pkgs.gotools # Contains goimports for Go formatting
             pkgs.delve
             pkgs.harper
+            # RST/Sphinx tools
+            pkgs.python3Packages.rstcheck
+            pkgs.python3Packages.doc8
+            # pkgs.esbonio # Not available in nixpkgs
+            # pkgs.rstfmt # Not available in nixpkgs
           ];
 
           # Wrap the Neovim package to include runtime dependencies
@@ -203,6 +208,14 @@
                 nodePackages.prettier # Markdown, JS, HTML formatter
                 google-java-format # Java formatter
                 harper # Grammar checker LSP
+                # RST/Sphinx development tools
+                python3Packages.rstcheck
+                python3Packages.doc8
+                python3Packages.sphinx
+                python3Packages.sphinx-autobuild
+                python3Packages.rst2pdf
+                # python3Packages.esbonio # Not available in nixpkgs
+                # rstfmt # Not available in nixpkgs
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ]
               ++ [ inputs.term2alpha.packages.${system}.default ];

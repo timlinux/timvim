@@ -15,6 +15,7 @@
         sh = [ "shfmt" ];
         markdown = [ "prettier" ];
         mdx = [ "prettier" ];
+        rst = [ "rstfmt" ];
         rust = [ "rustfmt" ];
         go = [
           "goimports"

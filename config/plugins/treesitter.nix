@@ -13,6 +13,7 @@ let
     "markdown"
     "nix"
     "python"
+    # "rst" # needs language config in languages.nix
     "rust"
     "sql"
     # "toml"

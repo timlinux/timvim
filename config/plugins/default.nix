@@ -20,6 +20,7 @@
     ./neotest.nix
     ./persistent-breakpoints.nix
     ./projects.nix
+    ./rst.nix
     ./telescope.nix
     ./terminal.nix
     ./treesitter.nix
