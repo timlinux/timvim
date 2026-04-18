@@ -44,6 +44,8 @@ result-*
 temp/
 temp.*
 test.*
+test*.py
+alpha.txt
 .vscode
 .vscode-extensions
 core
