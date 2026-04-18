@@ -99,20 +99,32 @@
               -- Copilot status indicator
               {
                 function()
-                  local ok, copilot_client = pcall(require, 'copilot.client')
-                  if ok and copilot_client then
+                  local client_ok, copilot_client = pcall(require, 'copilot.client')
+                  if client_ok and copilot_client then
                     if copilot_client.is_disabled() then
                       return " Copilot OFF"
                     else
-                      return " Copilot ON"
+                      -- Check if a suggestion is currently visible
+                      local suggestion_ok, copilot_suggestion = pcall(require, 'copilot.suggestion')
+                      if suggestion_ok and copilot_suggestion and copilot_suggestion.is_visible() then
+                        return " Ctrl-y accept"
+                      else
+                        return " Ctrl-y for hint"
+                      end
                     end
                   end
                   return ""
                 end,
                 color = function()
-                  local ok, copilot_client = pcall(require, 'copilot.client')
-                  if ok and copilot_client and not copilot_client.is_disabled() then
-                    return { fg = colors.bg, bg = colors.green, gui = 'bold' }
+                  local client_ok, copilot_client = pcall(require, 'copilot.client')
+                  if client_ok and copilot_client and not copilot_client.is_disabled() then
+                    -- Check if suggestion is visible for different color
+                    local suggestion_ok, copilot_suggestion = pcall(require, 'copilot.suggestion')
+                    if suggestion_ok and copilot_suggestion and copilot_suggestion.is_visible() then
+                      return { fg = colors.bg, bg = colors.yellow, gui = 'bold' }
+                    else
+                      return { fg = colors.bg, bg = colors.green, gui = 'bold' }
+                    end
                   else
                     return { fg = colors.fg, bg = colors.bg }
                   end
