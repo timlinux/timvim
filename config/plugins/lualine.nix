@@ -96,6 +96,29 @@
             lualine_b = {'branch', 'diff', 'diagnostics'},
             lualine_c = {'filename'},
             lualine_x = {
+              -- Copilot status indicator
+              {
+                function()
+                  local ok, copilot_client = pcall(require, 'copilot.client')
+                  if ok and copilot_client then
+                    if copilot_client.is_disabled() then
+                      return " Copilot OFF"
+                    else
+                      return " Copilot ON"
+                    end
+                  end
+                  return ""
+                end,
+                color = function()
+                  local ok, copilot_client = pcall(require, 'copilot.client')
+                  if ok and copilot_client and not copilot_client.is_disabled() then
+                    return { fg = colors.bg, bg = colors.green, gui = 'bold' }
+                  else
+                    return { fg = colors.fg, bg = colors.bg }
+                  end
+                end,
+              },
+              -- Macro recording indicator
               {
                 function()
                   local recording_register = vim.fn.reg_recording()
