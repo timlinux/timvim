@@ -90,6 +90,8 @@
             pkgs.python3Packages.doc8
             # pkgs.esbonio # Not available in nixpkgs
             # pkgs.rstfmt # Not available in nixpkgs
+            # Node.js 22+ required by Copilot.lua
+            pkgs.nodejs_22
           ];
 
           # Wrap the Neovim package to include runtime dependencies
