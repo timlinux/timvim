@@ -12,10 +12,13 @@
       "<leader>d" = "󰃤 Debug";
       "<leader>f" = "󰈞 Files";
       "<leader>g" = "󰊢 Git";
+      "<leader>h" = "󰊢 Gitsigns";
+      "<leader>i" = "󰋩 Image";
       "<leader>l" = "󰌵 LSP";
+      "<leader>m" = "󰍔 Markdown";
       "<leader>n" = "󰑮 Navigate";
       "<leader>N" = "󰈸 Notifications";
-      "<leader>o" = " Octo/GitHub";
+      "<leader>o" = " GitHub";
       "<leader>r" = "󰑕 Refactor";
       "<leader>s" = "󰆔 Session";
       "<leader>t" = "󰔡 Toggles";
@@ -62,7 +65,7 @@
         separator = "➜";
         group = "+";
         ellipsis = "…";
-        mappings = true;
+        mappings = false;
         rules = [ ];
         colors = true;
         keys = {

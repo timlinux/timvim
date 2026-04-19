@@ -146,7 +146,7 @@
           vim.notify('Invalid port number', vim.log.levels.ERROR)
           return
         end
-        vim.g.dap_python_port = input
+        vim.g.dap_python_port = tostring(port)
 
         vim.notify('Testing connection to port ' .. port .. '...', vim.log.levels.INFO)
         if not test_debug_connection(port) then
