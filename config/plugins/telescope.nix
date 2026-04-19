@@ -152,7 +152,7 @@
           end, {})
 
           -- Override the default media_files keymap to use our custom command with preview
-          vim.keymap.set('n', '<leader>fm', '<cmd>TelescopeMediaFiles<cr>', { desc = 'Find Media Files with Preview' })
+          vim.keymap.set('n', '<leader>fm', '<cmd>TelescopeMediaFiles<cr>', { desc = '󰋩 Find Media Files with Preview' })
           -- Add <leader>ff to find files using telescope
           vim.keymap.set('n', '<leader>ff', function()
             require('telescope.builtin').find_files({
@@ -170,7 +170,7 @@
                 return {"--hidden", "--glob", "!.git/*", "--fixed-strings"}
               end,
             })
-          end, { desc = 'Live Grep Files (Fixed Strings)' })
+          end, { desc = '󰑑 Live Grep Files (Fixed Strings)' })
 
           -- Add a regex version for when you need pattern matching
           vim.keymap.set('n', '<leader>fG', function()
@@ -180,7 +180,7 @@
                 return {"--hidden", "--glob", "!.git/*"}
               end,
             })
-          end, { desc = 'Live Grep Files (Regex)' })
+          end, { desc = '󰑑 Live Grep Files (Regex)' })
     '';
   };
 }

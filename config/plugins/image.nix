@@ -73,7 +73,7 @@
       vim.keymap.set('n', '<leader>ic', function()
         _G.hide_image_preview()
         vim.notify('Images cleared', vim.log.levels.INFO)
-      end, { desc = 'Clear Images in Buffer' })
+      end, { desc = '󰹍 Clear Images in Buffer' })
 
       -- Escape key clears image preview (in markdown files)
       vim.api.nvim_create_autocmd('FileType', {

@@ -44,28 +44,28 @@
       mode = "n";
       silent = true;
       action = "<cmd>Yazi<CR>";
-      desc = "Open Yazi File Manager";
+      desc = "󰉋 Open Yazi File Manager";
     }
     {
       key = "<leader>fo";
       mode = "n";
       silent = true;
       action = "<cmd>Yazi<CR>";
-      desc = "Open Yazi at Current File";
+      desc = "󰉋 Open Yazi at Current File";
     }
     {
       key = "<leader>fO";
       mode = "n";
       silent = true;
       action = "<cmd>Yazi cwd<CR>";
-      desc = "Open Yazi in Working Directory";
+      desc = "󰉋 Open Yazi in Working Directory";
     }
     {
       key = "<leader>fy";
       mode = "n";
       silent = true;
       action = "<cmd>Yazi toggle<CR>";
-      desc = "Toggle/Resume Last Yazi Session";
+      desc = "󰉋 Toggle/Resume Last Yazi Session";
     }
   ];
 }

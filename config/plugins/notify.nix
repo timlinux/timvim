@@ -61,11 +61,11 @@
     -- Dismiss all visible notifications
     vim.keymap.set("n", "<leader>Nd", function()
       require("notify").dismiss({ silent = true, pending = true })
-    end, { desc = "Dismiss All Notifications" })
+    end, { desc = "󰅖 Dismiss All Notifications" })
 
     -- Show notification history
     vim.keymap.set("n", "<leader>Nh", function()
       require("telescope").extensions.notify.notify()
-    end, { desc = "Notification History" })
+    end, { desc = "󰋚 Notification History" })
   '';
 }

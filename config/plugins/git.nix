@@ -40,27 +40,27 @@
           pcall(vim.keymap.del, 'n', 'u', { buffer = bufnr })
           
           -- Git blame keybinds (already configured)
-          map('n', '<leader>gb', gs.blame_line, { buffer = bufnr, desc = "Toggle Git Blame Line" })
-          
-          -- Git hunk operations 
-          map('n', '<leader>gs', gs.stage_hunk, { buffer = bufnr, desc = "Stage Hunk" })
-          map('n', '<leader>gr', gs.reset_hunk, { buffer = bufnr, desc = "Reset Hunk" })
-          map('n', '<leader>gS', gs.stage_buffer, { buffer = bufnr, desc = "Stage Buffer" })
-          map('n', '<leader>gR', gs.reset_buffer, { buffer = bufnr, desc = "Reset Buffer" })
-          map('n', '<leader>gu', gs.undo_stage_hunk, { buffer = bufnr, desc = "Undo Stage Hunk" })
-          map('n', '<leader>gp', gs.preview_hunk, { buffer = bufnr, desc = "Preview Hunk" })
-          map('n', '<leader>gd', gs.diffthis, { buffer = bufnr, desc = "Diff This" })
-          map('n', '<leader>gD', function() gs.diffthis('~') end, { buffer = bufnr, desc = "Diff Project" })
-          
+          map('n', '<leader>gb', gs.blame_line, { buffer = bufnr, desc = "󰋚 Toggle Git Blame Line" })
+
+          -- Git hunk operations
+          map('n', '<leader>gs', gs.stage_hunk, { buffer = bufnr, desc = "󰐕 Stage Hunk" })
+          map('n', '<leader>gr', gs.reset_hunk, { buffer = bufnr, desc = "󰕌 Reset Hunk" })
+          map('n', '<leader>gS', gs.stage_buffer, { buffer = bufnr, desc = "󰐕 Stage Buffer" })
+          map('n', '<leader>gR', gs.reset_buffer, { buffer = bufnr, desc = "󰕌 Reset Buffer" })
+          map('n', '<leader>gu', gs.undo_stage_hunk, { buffer = bufnr, desc = "󰕍 Undo Stage Hunk" })
+          map('n', '<leader>gp', gs.preview_hunk, { buffer = bufnr, desc = "󰋽 Preview Hunk" })
+          map('n', '<leader>gd', gs.diffthis, { buffer = bufnr, desc = " Diff This" })
+          map('n', '<leader>gD', function() gs.diffthis('~') end, { buffer = bufnr, desc = " Diff Project" })
+
           -- Visual mode stage/reset hunk
-          map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "Stage Selected Hunk" })
-          map('v', '<leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "Reset Selected Hunk" })
-          
+          map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "󰐕 Stage Selected Hunk" })
+          map('v', '<leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { buffer = bufnr, desc = "󰕌 Reset Selected Hunk" })
+
           -- Git conflict resolution keybinds
-          map('n', '<leader>gn', '<cmd>GitConflictChooseNone<CR>', { buffer = bufnr, desc = "Git Choose None" })
-          map('n', '<leader>gt', '<cmd>GitConflictChooseTheirs<CR>', { buffer = bufnr, desc = "Git Choose Theirs" })
-          map('n', '<leader>gc', '<cmd>GitConflictChooseOurs<CR>', { buffer = bufnr, desc = "Git Choose Ours" })
-          map('n', '<leader>ga', '<cmd>GitConflictChooseBoth<CR>', { buffer = bufnr, desc = "Git Choose Both" })
+          map('n', '<leader>gn', '<cmd>GitConflictChooseNone<CR>', { buffer = bufnr, desc = "󰜺 Git Choose None" })
+          map('n', '<leader>gt', '<cmd>GitConflictChooseTheirs<CR>', { buffer = bufnr, desc = "󰁔 Git Choose Theirs" })
+          map('n', '<leader>gc', '<cmd>GitConflictChooseOurs<CR>', { buffer = bufnr, desc = "󰁕 Git Choose Ours" })
+          map('n', '<leader>ga', '<cmd>GitConflictChooseBoth<CR>', { buffer = bufnr, desc = "󰐙 Git Choose Both" })
         end,
       }
     '';

@@ -38,21 +38,21 @@
         mode = "v";
         silent = true;
         action = "<cmd>Refactor extract<CR>";
-        desc = "Extract Function";
+        desc = "󰆧 Extract Function";
       }
       {
         key = "<leader>rf";
         mode = "v";
         silent = true;
         action = "<cmd>Refactor extract_to_file<CR>";
-        desc = "Extract to File";
+        desc = "󰈙 Extract to File";
       }
       {
         key = "<leader>rv";
         mode = "v";
         silent = true;
         action = "<cmd>Refactor extract_var<CR>";
-        desc = "Extract Variable";
+        desc = " Extract Variable";
       }
       {
         key = "<leader>ri";
@@ -62,7 +62,7 @@
         ];
         silent = true;
         action = "<cmd>Refactor inline_var<CR>";
-        desc = "Inline Variable";
+        desc = "󰗈 Inline Variable";
       }
       # Normal mode refactoring operations
       {
@@ -70,21 +70,21 @@
         mode = "n";
         silent = true;
         action = "<cmd>Refactor inline_func<CR>";
-        desc = "Inline Function";
+        desc = "󰗈 Inline Function";
       }
       {
         key = "<leader>rb";
         mode = "n";
         silent = true;
         action = "<cmd>Refactor extract_block<CR>";
-        desc = "Extract Block";
+        desc = "󰆧 Extract Block";
       }
       {
         key = "<leader>rB";
         mode = "n";
         silent = true;
         action = "<cmd>Refactor extract_block_to_file<CR>";
-        desc = "Extract Block to File";
+        desc = "󰈙 Extract Block to File";
       }
       # Refactor menu (shows all available refactors)
       {
@@ -95,7 +95,7 @@
         ];
         silent = true;
         action = "<cmd>lua require('refactoring').select_refactor()<CR>";
-        desc = "Select Refactor";
+        desc = "󰑕 Select Refactor";
       }
     ];
   };

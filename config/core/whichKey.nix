@@ -18,7 +18,7 @@
       "<leader>m" = "󰍔 Markdown";
       "<leader>n" = "󰑮 Navigate";
       "<leader>N" = "󰈸 Notifications";
-      "<leader>o" = " GitHub";
+      "<leader>o" = " GitHub";
       "<leader>r" = "󰑕 Refactor";
       "<leader>s" = "󰆔 Session";
       "<leader>t" = "󰔡 Toggles";
