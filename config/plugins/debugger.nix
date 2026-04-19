@@ -71,11 +71,13 @@
       }
       
       -- Setup a direct server adapter that bypasses the executable adapter
-      dap.adapters.python_direct = {
-        type = 'server',
-        host = '127.0.0.1',
-        port = 9000,
-      }
+      dap.adapters.python_direct = function(cb, config)
+        cb({
+          type = 'server',
+          host = '127.0.0.1',
+          port = config.port or tonumber(vim.g.dap_python_port) or 9000,
+        })
+      end
 
       return true
     end
@@ -92,7 +94,7 @@
     table.insert(dap.configurations.python, {
       type = 'python_direct',
       request = 'attach',
-      name = 'Direct Server Attach (9000)',
+      name = 'Attach to Debug Server',
       pathMappings = {
         {
           localRoot = vim.fn.getcwd(),
@@ -106,10 +108,10 @@
     table.insert(dap.configurations.python, {
       type = 'python',
       request = 'attach',
-      name = 'Standard Attach (9000)',
+      name = 'Standard Attach',
       connect = {
         host = '127.0.0.1',
-        port = 9000
+        port = tonumber(vim.g.dap_python_port) or 9000
       },
       pathMappings = {
         {
@@ -121,8 +123,8 @@
     })
 
     -- Add custom debug functions
-    local function test_debug_connection()
-      local handle = io.popen('timeout 5 nc -z localhost 9000 2>/dev/null && echo "CONNECTION_OK" || echo "CONNECTION_FAILED"')
+    local function test_debug_connection(port)
+      local handle = io.popen('timeout 5 nc -z localhost ' .. port .. ' 2>/dev/null && echo "CONNECTION_OK" || echo "CONNECTION_FAILED"')
       local result = handle:read("*a")
       handle:close()
       
@@ -130,35 +132,43 @@
     end
 
     local function attach_remote_debugger()
-      -- Check if DAP is available
       local ok, dap = pcall(require, 'dap')
       if not ok then
         vim.notify('DAP not available', vim.log.levels.ERROR)
         return
       end
 
-      -- Test connection first
-      vim.notify('Testing connection to port 9000...', vim.log.levels.INFO)
-      if not test_debug_connection() then
-        vim.notify('Cannot connect to port 9000. Make sure your Python script is running with debugpy.listen().', vim.log.levels.ERROR)
-        return
-      end
-      
-      vim.notify('Connection test successful. Starting DAP attach...', vim.log.levels.INFO)
-      
-      -- Use the direct server connection (no executable adapter)
-      dap.run({
-        type = 'python_direct',
-        request = 'attach',
-        name = 'Remote Attach (9000)',
-        pathMappings = {
-          {
-            localRoot = vim.fn.getcwd(),
-            remoteRoot = vim.fn.getcwd()
-          }
-        },
-        justMyCode = false,
-      })
+      local default_port = vim.g.dap_python_port or "9000"
+      vim.ui.input({ prompt = "Python debug port: ", default = default_port }, function(input)
+        if not input or input == "" then return end
+        local port = tonumber(input)
+        if not port then
+          vim.notify('Invalid port number', vim.log.levels.ERROR)
+          return
+        end
+        vim.g.dap_python_port = input
+
+        vim.notify('Testing connection to port ' .. port .. '...', vim.log.levels.INFO)
+        if not test_debug_connection(port) then
+          vim.notify('Cannot connect to port ' .. port .. '. Make sure your Python script is running with debugpy.listen().', vim.log.levels.ERROR)
+          return
+        end
+
+        vim.notify('Connection OK. Attaching...', vim.log.levels.INFO)
+        dap.run({
+          type = 'python_direct',
+          request = 'attach',
+          name = 'Remote Attach (' .. port .. ')',
+          port = port,
+          pathMappings = {
+            {
+              localRoot = vim.fn.getcwd(),
+              remoteRoot = vim.fn.getcwd()
+            }
+          },
+          justMyCode = false,
+        })
+      end)
     end
 
     local function start_local_debugging()
@@ -248,12 +258,13 @@
     -- Kill any hanging debug processes function
     local function kill_debug_processes()
       vim.fn.system('pkill -f "debugpy.adapter"')
-      vim.fn.system('pkill -f "debugpy.*9000"')
+      local port = vim.g.dap_python_port or "9000"
+      vim.fn.system('pkill -f "debugpy.*' .. port .. '"')
       vim.notify('Killed debug processes', vim.log.levels.INFO)
     end
 
     -- Register keymaps with which-key integration
-    vim.keymap.set('n', '<leader>da', attach_remote_debugger, { desc = 'Attach to remote Python (port 9000)' })
+    vim.keymap.set('n', '<leader>da', attach_remote_debugger, { desc = 'Attach to Python Debugger' })
     vim.keymap.set('n', '<leader>dl', start_local_debugging, { desc = 'Start/Continue local debugging' })
     vim.keymap.set('n', '<leader>ds', show_debug_status, { desc = 'Show debug status' })
     vim.keymap.set('n', '<leader>di', check_debugpy_installation, { desc = 'Check debugpy installation' })
@@ -290,15 +301,19 @@
     -- Go: override NVF's adapter to use a hardcoded port (Nix escaping breaks port substitution)
     local delve_cmd = vim.fn.exepath('dlv')
     if delve_cmd ~= "" then
-      dap.adapters.go = {
-        type = 'server',
-        port = 38697,
-        executable = {
-          command = delve_cmd,
-          args = { 'dap', '-l', '127.0.0.1:38697' },
-          detached = vim.fn.has("win32") == 0,
-        },
-      }
+      dap.adapters.go = function(cb, config)
+        local port = config.port or tonumber(vim.g.dap_go_port) or 38697
+        vim.g.dap_go_port = tostring(port)
+        cb({
+          type = 'server',
+          port = port,
+          executable = {
+            command = delve_cmd,
+            args = { 'dap', '-l', '127.0.0.1:' .. port },
+            detached = vim.fn.has("win32") == 0,
+          },
+        })
+      end
     end
   '';
 }
