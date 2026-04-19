@@ -102,15 +102,9 @@
                   local client_ok, copilot_client = pcall(require, 'copilot.client')
                   if client_ok and copilot_client then
                     if copilot_client.is_disabled() then
-                      return " Copilot OFF"
+                      return "●"
                     else
-                      -- Check if a suggestion is currently visible
-                      local suggestion_ok, copilot_suggestion = pcall(require, 'copilot.suggestion')
-                      if suggestion_ok and copilot_suggestion and copilot_suggestion.is_visible() then
-                        return " Ctrl-y accept"
-                      else
-                        return " Ctrl-y for hint"
-                      end
+                      return "● Ctl-Y"
                     end
                   end
                   return ""
@@ -118,15 +112,9 @@
                 color = function()
                   local client_ok, copilot_client = pcall(require, 'copilot.client')
                   if client_ok and copilot_client and not copilot_client.is_disabled() then
-                    -- Check if suggestion is visible for different color
-                    local suggestion_ok, copilot_suggestion = pcall(require, 'copilot.suggestion')
-                    if suggestion_ok and copilot_suggestion and copilot_suggestion.is_visible() then
-                      return { fg = colors.bg, bg = colors.yellow, gui = 'bold' }
-                    else
-                      return { fg = colors.bg, bg = colors.green, gui = 'bold' }
-                    end
+                    return { fg = '#8ad384' }
                   else
-                    return { fg = colors.fg, bg = colors.bg }
+                    return { fg = '#666666' }
                   end
                 end,
               },
