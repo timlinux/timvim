@@ -15,7 +15,11 @@ Complete and accurate reference for all keybindings in timvim.
   - [LSP (`<leader>l`)](#lsp-leaderl)
   - [Markdown (`<leader>m`)](#markdown-leaderm)
   - [Navigate (`<leader>n`)](#navigate-leadern)
+  - [Notifications (`<leader>N`)](#notifications-leaderN)
+  - [GitHub (`<leader>o`)](#github-leadero)
+  - [Refactor (`<leader>r`)](#refactor-leaderr)
   - [Session (`<leader>s`)](#session-leaders)
+  - [Test (`<leader>T`)](#test-leaderT)
   - [Toggles (`<leader>t`)](#toggles-leadert)
   - [Lists (`<leader>x`)](#lists-leaderx)
   - [Spell Check (`<leader>z`)](#spell-check-leaderz)
@@ -24,7 +28,6 @@ Complete and accurate reference for all keybindings in timvim.
 - [Yazi File Manager](#yazi-file-manager)
 - [Flash Navigation](#flash-navigation)
 - [Vim Surround](#vim-surround)
-- [Known Issues and Conflicts](#known-issues-and-conflicts)
 
 ---
 
@@ -87,8 +90,9 @@ Complete and accurate reference for all keybindings in timvim.
 | `<leader>cf` | n | Format buffer |
 | `<leader>cc` | n | Check available formatters |
 | `<leader>cr` | n | Rename symbol (LSP) |
+| `<leader>cp` | n | Pick color (MiniColors) |
 
-**Note:** LSP navigation (definitions, references, etc.) has been moved to the Navigate group (`<leader>n`)
+**Note:** LSP navigation (definitions, references, etc.) is under the Navigate group (`<leader>n`)
 
 ### Debug (`<leader>d`)
 
@@ -96,7 +100,7 @@ Complete and accurate reference for all keybindings in timvim.
 
 | Key | Mode | Description |
 |-----|------|-------------|
-| `<leader>da` | n | Attach to remote Python debugger (port 9000) |
+| `<leader>da` | n | Attach to Python Debugger |
 | `<leader>dl` | n | Start/continue local debugging |
 | `<leader>ds` | n | Show debug status |
 | `<leader>di` | n | Check debugpy installation |
@@ -114,6 +118,8 @@ Complete and accurate reference for all keybindings in timvim.
 | `<leader>dj` | n | Go down |
 | `<leader>du` | n | Toggle DAP UI (Shift+F9) |
 | `<leader>dr` | n | Toggle REPL |
+
+**Note:** `<leader>da` prompts for a port number at runtime (defaults to last used or 9000).
 
 ### Files (`<leader>f`)
 
@@ -133,7 +139,7 @@ Complete and accurate reference for all keybindings in timvim.
 
 ### Git (`<leader>g`)
 
-**Git operations (Gitsigns, Lazygit, conflict resolution)**
+**Git operations (Gitsigns, Lazygit, Diffview, conflict resolution)**
 
 | Key | Mode | Description |
 |-----|------|-------------|
@@ -149,6 +155,10 @@ Complete and accurate reference for all keybindings in timvim.
 | `<leader>gp` | n | Preview hunk |
 | `<leader>gd` | n | Diff this |
 | `<leader>gD` | n | Diff project (~) |
+| `<leader>gv` | n | Open Diff View |
+| `<leader>gV` | n | Close Diff View |
+| `<leader>gf` | n | File git history (Diffview) |
+| `<leader>gF` | n | Project git history (Diffview) |
 | `<leader>gn` | n | Git conflict: choose none |
 | `<leader>gt` | n | Git conflict: choose theirs |
 | `<leader>gc` | n | Git conflict: choose ours |
@@ -195,7 +205,61 @@ Complete and accurate reference for all keybindings in timvim.
 | `<leader>nh` | n | Hover documentation (LSP) |
 | `<leader>ns` | n | Find document symbols (Telescope) |
 
-**Note:** These keybindings were moved from the Code group for better organization.
+### Notifications (`<leader>N`)
+
+**Notification management**
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>Nd` | n | Dismiss all notifications |
+| `<leader>Nh` | n | Notification history (Telescope) |
+
+### GitHub (`<leader>o`)
+
+**GitHub integration via Octo (issues, PRs, reviews, comments, repos)**
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>oi` | n | List issues |
+| `<leader>oI` | n | Search issues |
+| `<leader>on` | n | New issue |
+| `<leader>oO` | n | Open issue in browser |
+| `<leader>op` | n | List PRs |
+| `<leader>oP` | n | Search PRs |
+| `<leader>oc` | n | Create PR |
+| `<leader>od` | n | View PR diff |
+| `<leader>of` | n | View changed files |
+| `<leader>om` | n | Merge PR |
+| `<leader>ok` | n | Checkout PR |
+| `<leader>ob` | n | Open PR in browser |
+| `<leader>os` | n | Start review |
+| `<leader>or` | n | Resume review |
+| `<leader>oa` | n | Approve review |
+| `<leader>ox` | n | Request changes |
+| `<leader>ou` | n | Submit comment |
+| `<leader>oX` | n | Discard review |
+| `<leader>oA` | n | Add comment |
+| `<leader>oD` | n | Delete comment |
+| `<leader>ol` | n | List repos |
+| `<leader>oe` | n | Open repo in browser |
+| `<leader>og` | n | List gists |
+
+### Refactor (`<leader>r`)
+
+**Code refactoring (ThePrimeagen's refactoring.nvim)**
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>re` | v | Extract function |
+| `<leader>rf` | v | Extract to file |
+| `<leader>rv` | v | Extract variable |
+| `<leader>ri` | n, v | Inline variable |
+| `<leader>rI` | n | Inline function |
+| `<leader>rb` | n | Extract block |
+| `<leader>rB` | n | Extract block to file |
+| `<leader>rr` | n, v | Select refactor (show all options) |
+
+**Supported languages:** Go, Python, JavaScript/TypeScript, Lua, C/C++, Java, Ruby, PHP
 
 ### Session (`<leader>s`)
 
@@ -204,6 +268,20 @@ Complete and accurate reference for all keybindings in timvim.
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>sm` | n | Open session manager |
+
+### Test (`<leader>T`)
+
+**Test runner (Neotest — Python, Go, Rust)**
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>Tr` | n | Run nearest test |
+| `<leader>Tf` | n | Run tests in file |
+| `<leader>Td` | n | Debug nearest test (via DAP) |
+| `<leader>Tx` | n | Stop test run |
+| `<leader>To` | n | Show test output |
+| `<leader>Tp` | n | Toggle test output panel |
+| `<leader>Ts` | n | Toggle test summary |
 
 ### Toggles (`<leader>t`)
 
@@ -222,10 +300,8 @@ Complete and accurate reference for all keybindings in timvim.
 | `<leader>tg` | n | Toggle Harper grammar checker |
 | `<leader>tz` | n | Toggle spell autopopup |
 | `<leader>tu` | n | Toggle undo tree |
-| `<leader>tD` | n | Toggle deleted lines [Git] ⚠️ **Not implemented** |
+| `<leader>tI` | n | Toggle image preview |
 | `<leader>tT` | n | Toggle typing tutor |
-
-**Note:** Total of 13 toggles (12 functional, 1 placeholder).
 
 ### Lists (`<leader>x`)
 
@@ -302,6 +378,8 @@ Complete and accurate reference for all keybindings in timvim.
 | `Ctrl+]` | i | Dismiss Copilot suggestion |
 | `Alt+\` | i | Toggle Copilot suggestions |
 | `Alt+Enter` | i | Open Copilot panel |
+
+**Statusline indicator:** Green circle + "Ctl-Y" when Copilot is enabled and active; gray circle when disabled.
 
 ---
 
@@ -392,50 +470,5 @@ Complete and accurate reference for all keybindings in timvim.
 
 ---
 
-## Notification Management
-
-**⚠️ WARNING: These keybindings have conflicts!**
-
-| Key | Mode | Description | Conflict |
-|-----|------|-------------|----------|
-| ⚠️ `<leader>nd` | n | Dismiss all notifications | **CONFLICTS** with Navigate→Go to Definition |
-| ⚠️ `<leader>nh` | n | Notification history (Telescope) | **CONFLICTS** with Navigate→Hover Documentation |
-
-**Recommended fix:** Move notification keybindings to a different group (e.g., `<leader>N` or under assistant group).
-
----
-
-## Known Issues and Conflicts
-
-### 1. Notification Keybinding Conflicts
-
-**Critical conflicts:**
-- `<leader>nd` used by both:
-  - Navigate: Go to Definition
-  - Notify: Dismiss All Notifications
-- `<leader>nh` used by both:
-  - Navigate: Hover Documentation
-  - Notify: Notification History
-
-**Impact:** Navigate keybindings take precedence since they're defined in keymaps.nix, so notification keybindings are effectively unusable.
-
-**Recommendation:** Move notification keybindings to `<leader>N` or add them to the Assistant group as `<leader>and` and `<leader>anh`.
-
-### 2. Non-functional Keybindings
-
-**`<leader>tD` - Toggle Deleted Lines [Git]:**
-- Initialized in whichKey.nix but no actual implementation exists
-- Appears in which-key menu but does nothing when pressed
-- Should either be implemented or removed from toggle list
-
-### 3. Removed Features
-
-The following file managers were removed and replaced with Yazi:
-- Neo-tree (disabled)
-- Oil.nvim (removed completely)
-- Telescope file-browser extension (removed)
-
----
-
-_Last Updated: 2026-02-28_
-_Reflects current state after keybinding reorganization, notification enhancement, and flash/surround documentation_
+_Last Updated: 2026-04-19_
+_Reflects current state after notification group reorganization (leader-N), Octo keybinding flattening, debug port prompting, and Copilot statusline simplification_
