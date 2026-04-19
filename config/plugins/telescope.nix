@@ -160,7 +160,7 @@
               hidden = true,
               find_command = { "fd", "--type", "f", "--type", "l", "--hidden", "--follow", "--exclude", ".git", "--exclude", "__pycache__", "--exclude", "node_modules", "--exclude", ".mypy_cache", "--exclude", ".pytest_cache" },
             })
-          end, { desc = 'Find Files (FZF)' })
+          end, { desc = '󰈞 Find Files (FZF)' })
 
           -- Live grep with proper configuration
           vim.keymap.set('n', '<leader>fg', function()

@@ -83,7 +83,7 @@
             _G.hide_image_preview()
             -- Also run normal Esc behavior (clear search highlight, etc.)
             vim.cmd('nohlsearch')
-          end, { buffer = true, desc = 'Clear images and search highlight' })
+          end, { buffer = true, desc = '󰹍 Clear images and search highlight' })
         end,
       })
 

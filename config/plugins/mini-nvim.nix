@@ -10,7 +10,7 @@
     pluginRC.mini-colors = ''
       require('mini.colors').setup()
       -- You can use :lua MiniColors.pick() to pick a color
-      vim.keymap.set("n", "<leader>cp", function() require('mini.colors').pick() end, { desc = "Pick Color (MiniColors)" })
+      vim.keymap.set("n", "<leader>cp", function() require('mini.colors').pick() end, { desc = "󰏘 Pick Color" })
     '';
   };
 }

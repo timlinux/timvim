@@ -59,7 +59,7 @@
         else
           suggestion.next()
         end
-      end, { desc = "Copilot: trigger or accept suggestion", silent = true })
+      end, { desc = "󰄛 Copilot: trigger or accept suggestion", silent = true })
     '';
   };
 }

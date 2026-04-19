@@ -41,59 +41,59 @@
           -- Manual format shortcut
           map('n', '<leader>mf', function()
             vim.cmd('Format')
-          end, { desc = 'Format Markdown', buffer = true })
+          end, { desc = '󰉿 Format Markdown', buffer = true })
           
           -- Toggle word wrap
           map('n', '<leader>mw', function()
             vim.wo.wrap = not vim.wo.wrap
             print('Word wrap: ' .. (vim.wo.wrap and 'enabled' or 'disabled'))
-          end, { desc = 'Toggle Word Wrap', buffer = true })
+          end, { desc = '󰖶 Toggle Word Wrap', buffer = true })
           
           -- Insert current date
           map('n', '<leader>md', function()
             local date = os.date('%Y-%m-%d')
             vim.api.nvim_put({date}, 'c', true, true)
-          end, { desc = 'Insert Date', buffer = true })
+          end, { desc = '󰃰 Insert Date', buffer = true })
           
           -- Insert markdown link template
           map('n', '<leader>ml', function()
             vim.api.nvim_put({'[text](url)'}, 'c', true, true)
-          end, { desc = 'Insert Link Template', buffer = true })
+          end, { desc = '󰌹 Insert Link Template', buffer = true })
           
           -- Insert markdown image template
           map('n', '<leader>mi', function()
             vim.api.nvim_put({'![alt text](image_path)'}, 'c', true, true)
-          end, { desc = 'Insert Image Template', buffer = true })
+          end, { desc = '󰋩 Insert Image Template', buffer = true })
 
           -- Toggle markdown preview
           map('n', '<leader>mp', function()
             vim.cmd('MarkdownPreviewToggle')
-          end, { desc = 'Toggle Markdown Preview', buffer = true })
+          end, { desc = '󰋽 Toggle Markdown Preview', buffer = true })
 
           -- Spell checking keybindings (markdown-specific overrides)
           map('n', '<leader>zs', function()
             -- Toggle spell checking on/off (buffer-local for markdown)
             vim.opt_local.spell = not vim.opt_local.spell:get()
             print('Markdown spell check: ' .. (vim.opt_local.spell:get() and 'enabled' or 'disabled'))
-          end, { desc = 'Toggle Markdown Spell Check', buffer = true })
+          end, { desc = '󰓆 Toggle Markdown Spell Check', buffer = true })
           
           -- Show spell suggestions for word under cursor
-          map('n', '<leader>z=', 'z=', { desc = 'Show Spell Suggestions', buffer = true })
+          map('n', '<leader>z=', 'z=', { desc = '󰁨 Show Spell Suggestions', buffer = true })
           
           -- Add word under cursor to spellfile (personal dictionary)
-          map('n', '<leader>za', 'zg', { desc = 'Add Word to Dictionary', buffer = true })
+          map('n', '<leader>za', 'zg', { desc = '󰐕 Add Word to Dictionary', buffer = true })
           
           -- Mark word under cursor as incorrect (add to bad words)
-          map('n', '<leader>zb', 'zw', { desc = 'Mark Word as Bad', buffer = true })
+          map('n', '<leader>zb', 'zw', { desc = '󰃤 Mark Word as Bad', buffer = true })
           
           -- Remove word from spellfile
-          map('n', '<leader>zr', 'zug', { desc = 'Remove Word from Dictionary', buffer = true })
+          map('n', '<leader>zr', 'zug', { desc = '󰐖 Remove Word from Dictionary', buffer = true })
           
           -- Navigate to next misspelled word
-          map('n', ']s', ']s', { desc = 'Next Misspelled Word', buffer = true })
+          map('n', ']s', ']s', { desc = '󰒕 Next Misspelled Word', buffer = true })
           
           -- Navigate to previous misspelled word
-          map('n', '[s', '[s', { desc = 'Previous Misspelled Word', buffer = true })
+          map('n', '[s', '[s', { desc = '󰒖 Previous Misspelled Word', buffer = true })
           
           -- Quick fix: replace with first suggestion
           map('n', '<leader>zf', function()
@@ -114,7 +114,7 @@
             else
               print("Word '" .. word .. "' is spelled correctly")
             end
-          end, { desc = 'Quick Fix with First Suggestion', buffer = true })
+          end, { desc = '󰁨 Quick Fix with First Suggestion', buffer = true })
         end,
         group = vim.api.nvim_create_augroup('MarkdownSettings', { clear = true }),
       })

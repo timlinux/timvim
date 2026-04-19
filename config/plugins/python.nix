@@ -39,25 +39,25 @@
             -- Toggle spell checking on/off (buffer-local for Python)
             vim.opt_local.spell = not vim.opt_local.spell:get()
             print('Python spell check: ' .. (vim.opt_local.spell:get() and 'enabled' or 'disabled'))
-          end, { desc = 'Toggle Python Spell Check', buffer = true })
+          end, { desc = '󰓆 Toggle Python Spell Check', buffer = true })
           
           -- Show spell suggestions for word under cursor
-          map('n', '<leader>z=', 'z=', { desc = 'Show Spell Suggestions', buffer = true })
+          map('n', '<leader>z=', 'z=', { desc = '󰁨 Show Spell Suggestions', buffer = true })
           
           -- Add word under cursor to spellfile (personal dictionary)
-          map('n', '<leader>za', 'zg', { desc = 'Add Word to Dictionary', buffer = true })
+          map('n', '<leader>za', 'zg', { desc = '󰐕 Add Word to Dictionary', buffer = true })
           
           -- Mark word under cursor as incorrect (add to bad words)
-          map('n', '<leader>zb', 'zw', { desc = 'Mark Word as Bad', buffer = true })
+          map('n', '<leader>zb', 'zw', { desc = '󰃤 Mark Word as Bad', buffer = true })
           
           -- Remove word from spellfile
-          map('n', '<leader>zr', 'zug', { desc = 'Remove Word from Dictionary', buffer = true })
+          map('n', '<leader>zr', 'zug', { desc = '󰐖 Remove Word from Dictionary', buffer = true })
           
           -- Navigate to next misspelled word
-          map('n', ']s', ']s', { desc = 'Next Misspelled Word', buffer = true })
+          map('n', ']s', ']s', { desc = '󰒕 Next Misspelled Word', buffer = true })
           
           -- Navigate to previous misspelled word
-          map('n', '[s', '[s', { desc = 'Previous Misspelled Word', buffer = true })
+          map('n', '[s', '[s', { desc = '󰒖 Previous Misspelled Word', buffer = true })
           
           -- Quick fix: replace with first suggestion
           map('n', '<leader>zf', function()
@@ -78,7 +78,7 @@
             else
               print("Word '" .. word .. "' is spelled correctly")
             end
-          end, { desc = 'Quick Fix with First Suggestion', buffer = true })
+          end, { desc = '󰁨 Quick Fix with First Suggestion', buffer = true })
           
           -- Python-specific: Toggle spell check only in strings and comments
           map('n', '<leader>zt', function()
@@ -94,7 +94,7 @@
               vim.opt_local.spell = true
               print('Python syntax spell check: enabled (strings/comments only)')
             end
-          end, { desc = 'Toggle Syntax-based Spell Check', buffer = true })
+          end, { desc = '󰗊 Toggle Syntax-based Spell Check', buffer = true })
           
         end,
         group = vim.api.nvim_create_augroup('PythonSpellSettings', { clear = true }),
