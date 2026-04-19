@@ -14,6 +14,7 @@
       "<leader>g" = "󰊢 Git";
       "<leader>l" = "󰌵 LSP";
       "<leader>n" = "󰑮 Navigate";
+      "<leader>N" = "󰈸 Notifications";
       "<leader>o" = " Octo/GitHub";
       "<leader>r" = "󰑕 Refactor";
       "<leader>oi" = " Issues";
@@ -128,22 +129,6 @@
         { "R", desc = "Treesitter search", icon = "󰈿", mode = { "o", "x" } },
       })
     end, 150)
-  '';
-
-  vim.luaConfigRC.whichkey_navigation_hint = ''
-    -- Add navigation hint to whichkey footer
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "WhichKeyShow",
-      callback = function()
-        vim.defer_fn(function()
-          local ok, wk = pcall(require, "which-key")
-          if ok then
-            -- The footer is automatically shown with modern preset
-            -- It displays navigation hints automatically
-          end
-        end, 10)
-      end,
-    })
   '';
 
   vim.luaConfigRC.whichkey_toggle_icons = ''
