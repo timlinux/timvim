@@ -24,28 +24,28 @@
         action = "<cmd>ClaudeCode<cr>";
         mode = "n";
         silent = true;
-        desc = "Toggle Claude Code";
+        desc = "󰚩 Toggle Claude Code";
       }
       {
         key = "<leader>af";
         action = "<cmd>ClaudeCodeFocus<cr>";
         mode = "n";
         silent = true;
-        desc = "Focus Claude Code";
+        desc = "󰚩 Focus Claude Code";
       }
       {
         key = "<leader>am";
         action = "<cmd>ClaudeCodeSelectModel<cr>";
         mode = "n";
         silent = true;
-        desc = "Select Claude Model";
+        desc = "󰚩 Select Claude Model";
       }
       {
         key = "<leader>as";
         action = "<cmd>ClaudeCodeSend<cr>";
         mode = "v";
         silent = true;
-        desc = "Send Selection to Claude";
+        desc = "󰚩 Send Selection to Claude";
       }
     ];
 
