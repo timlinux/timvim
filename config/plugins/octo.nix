@@ -24,175 +24,175 @@
     };
 
     keymaps = [
-      # GitHub Issues
+      # Issues
       {
-        key = "<leader>oil";
+        key = "<leader>oi";
         action = "<cmd>Octo issue list<cr>";
         mode = "n";
         silent = true;
-        desc = "List Issues";
+        desc = " List Issues";
       }
       {
-        key = "<leader>ois";
+        key = "<leader>oI";
         action = "<cmd>Octo issue search<cr>";
         mode = "n";
         silent = true;
-        desc = "Search Issues";
+        desc = " Search Issues";
       }
       {
-        key = "<leader>oic";
+        key = "<leader>on";
         action = "<cmd>Octo issue create<cr>";
         mode = "n";
         silent = true;
-        desc = "Create Issue";
+        desc = " New Issue";
       }
       {
-        key = "<leader>oio";
+        key = "<leader>oO";
         action = "<cmd>Octo issue browser<cr>";
         mode = "n";
         silent = true;
-        desc = "Open in Browser";
+        desc = " Open in Browser";
       }
 
-      # GitHub Pull Requests
+      # Pull Requests
       {
-        key = "<leader>opl";
+        key = "<leader>op";
         action = "<cmd>Octo pr list<cr>";
         mode = "n";
         silent = true;
-        desc = "List PRs";
+        desc = " List PRs";
       }
       {
-        key = "<leader>ops";
+        key = "<leader>oP";
         action = "<cmd>Octo pr search<cr>";
         mode = "n";
         silent = true;
-        desc = "Search PRs";
+        desc = " Search PRs";
       }
       {
-        key = "<leader>opc";
+        key = "<leader>oc";
         action = "<cmd>Octo pr create<cr>";
         mode = "n";
         silent = true;
-        desc = "Create PR";
+        desc = " Create PR";
       }
       {
-        key = "<leader>opo";
-        action = "<cmd>Octo pr browser<cr>";
-        mode = "n";
-        silent = true;
-        desc = "Open in Browser";
-      }
-      {
-        key = "<leader>opd";
+        key = "<leader>od";
         action = "<cmd>Octo pr diff<cr>";
         mode = "n";
         silent = true;
-        desc = "View Diff";
+        desc = " View Diff";
       }
       {
-        key = "<leader>opf";
+        key = "<leader>of";
         action = "<cmd>Octo pr changes<cr>";
         mode = "n";
         silent = true;
-        desc = "Changed Files";
+        desc = " Changed Files";
       }
       {
-        key = "<leader>opm";
+        key = "<leader>om";
         action = "<cmd>Octo pr merge<cr>";
         mode = "n";
         silent = true;
-        desc = "Merge PR";
+        desc = " Merge PR";
       }
       {
-        key = "<leader>opC";
+        key = "<leader>ok";
         action = "<cmd>Octo pr checkout<cr>";
         mode = "n";
         silent = true;
-        desc = "Checkout PR";
+        desc = " Checkout PR";
+      }
+      {
+        key = "<leader>ob";
+        action = "<cmd>Octo pr browser<cr>";
+        mode = "n";
+        silent = true;
+        desc = " Open PR in Browser";
       }
 
-      # PR Review
+      # Review
       {
-        key = "<leader>ors";
+        key = "<leader>os";
         action = "<cmd>Octo review start<cr>";
         mode = "n";
         silent = true;
-        desc = "Start Review";
+        desc = " Start Review";
       }
       {
-        key = "<leader>orr";
+        key = "<leader>or";
         action = "<cmd>Octo review resume<cr>";
         mode = "n";
         silent = true;
-        desc = "Resume Review";
+        desc = " Resume Review";
       }
       {
-        key = "<leader>ora";
+        key = "<leader>oa";
         action = "<cmd>Octo review submit approve<cr>";
         mode = "n";
         silent = true;
-        desc = "Approve";
+        desc = " Approve";
       }
       {
-        key = "<leader>orx";
+        key = "<leader>ox";
         action = "<cmd>Octo review submit request_changes<cr>";
         mode = "n";
         silent = true;
-        desc = "Request Changes";
+        desc = " Request Changes";
       }
       {
-        key = "<leader>orc";
+        key = "<leader>ou";
         action = "<cmd>Octo review submit comment<cr>";
         mode = "n";
         silent = true;
-        desc = "Submit Comment";
+        desc = " Submit Comment";
       }
       {
-        key = "<leader>ord";
+        key = "<leader>oX";
         action = "<cmd>Octo review discard<cr>";
         mode = "n";
         silent = true;
-        desc = "Discard Review";
+        desc = " Discard Review";
       }
 
       # Comments
       {
-        key = "<leader>oca";
+        key = "<leader>oA";
         action = "<cmd>Octo comment add<cr>";
         mode = "n";
         silent = true;
-        desc = "Add Comment";
+        desc = " Add Comment";
       }
       {
-        key = "<leader>ocd";
+        key = "<leader>oD";
         action = "<cmd>Octo comment delete<cr>";
         mode = "n";
         silent = true;
-        desc = "Delete Comment";
+        desc = " Delete Comment";
       }
 
       # Repo & Gist
       {
-        key = "<leader>oRl";
+        key = "<leader>ol";
         action = "<cmd>Octo repo list<cr>";
         mode = "n";
         silent = true;
-        desc = "List Repos";
+        desc = " List Repos";
       }
       {
-        key = "<leader>oRo";
+        key = "<leader>oe";
         action = "<cmd>Octo repo browser<cr>";
         mode = "n";
         silent = true;
-        desc = "Open Repo in Browser";
+        desc = " Open Repo in Browser";
       }
       {
-        key = "<leader>ogl";
+        key = "<leader>og";
         action = "<cmd>Octo gist list<cr>";
         mode = "n";
         silent = true;
-        desc = "List Gists";
+        desc = " List Gists";
       }
     ];
   };
