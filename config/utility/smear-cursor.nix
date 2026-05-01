@@ -28,6 +28,10 @@
           -- Distance threshold for smear effect
           distance_stop_animating = 0.5,
           hide_target_hack = false,
+
+          -- Kartoza orange cursor color
+          cursor_color = "#DF9E2F",
+          normal_bg = "#DF9E2F",
         })
       '';
     };

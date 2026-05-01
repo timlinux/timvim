@@ -16,15 +16,15 @@
         local colors = {
           bg       = "#1e2020",
           fg       = "#f1f1f1",
-          yellow   = "#ecb44b",
-          cyan     = "#85b0c8",
-          darkblue = "#57a0c7",
-          green    = "#8ad384",
-          orange   = "#eb8444",
-          violet   = "#56f341",
-          magenta  = "#57a0c7",
+          yellow   = "#DF9E2F",
+          cyan     = "#569FC6",
+          darkblue = "#569FC6",
+          green    = "#06969A",
+          orange   = "#DF9E2F",
+          violet   = "#06969A",
+          magenta  = "#569FC6",
           blue     = "#f8faf6",
-          red      = "#c13022"
+          red      = "#CC0403"
         }
         local kartoza = {
           normal = {
@@ -90,7 +90,12 @@
         })
 
         require('lualine').setup {
-          options = { theme = kartoza },
+          options = {
+            theme = kartoza,
+            section_separators = { left = "", right = "" },
+            component_separators = { left = "", right = "" },
+            globalstatus = true,
+          },
           sections = {
             lualine_a = {'mode'},
             lualine_b = {'branch', 'diff', 'diagnostics'},

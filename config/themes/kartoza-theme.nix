@@ -17,26 +17,26 @@
 
       -- Base colors from Kartoza palette
       local colors = {
-        kartozablue = "#57a0c7",    -- secondary dark background - also used as lualine background and popup
-        kartozaorange = "#eb8444",    -- kartoza-kartoza-orange
-        kartozagray = "#878B8D",    -- kartoza-gray
+        kartozablue = "#569FC6",    -- Kartoza blue (highlight2)
+        kartozaorange = "#DF9E2F",    -- Kartoza yellow/orange (highlight1)
+        kartozagray = "#8A8B8B",    -- Kartoza grey (highlight3)
         base03 = "#1e2020",    -- dark background
-        red = "#c13022",       -- orange-red tone
-        green = "#0e9002",     -- yellow-greenish
-        yellow = "#ecb44b",    -- yellow
-        blue = "#f8faf6",      -- blue
-        magenta = "#57a0c7",   -- magenta - writing on splash right and keyboard shortcut panel
-        cyan = "#85b0c8",      -- cyan
+        red = "#CC0403",       -- Kartoza alert red
+        green = "#06969A",     -- Kartoza teal (highlight4)
+        yellow = "#DF9E2F",    -- Kartoza yellow/orange (highlight1)
+        blue = "#f8faf6",      -- light foreground
+        magenta = "#569FC6",   -- Kartoza blue (highlight2)
+        cyan = "#569FC6",      -- Kartoza blue (highlight2)
         base2 = "#f1f1f1",     -- light foreground - text on lualine, vim editor main text and splash
         base02 = "#2b2e2e",    -- secondary dark background - also used as lualine background and popup
-        orange = "#eb8444",    -- orange
-        base01 = "#57a0c7",    -- base01 little arrows on popup panels for keymap
+        orange = "#DF9E2F",    -- Kartoza yellow/orange (highlight1)
+        base01 = "#569FC6",    -- Kartoza blue (highlight2) - popup panel arrows
         base00 = "#ff65ff",    -- base00
         base0 = "#00c8ad",     -- base0
         violet = "#56f341",    -- violet
         base1 = "#f23abb",     -- base1
         base3 = "#c8856e",      -- light background
-        darktext = "#57a0c7"  -- for line numbers (kartoza blue)
+        darktext = "#569FC6"  -- for line numbers (Kartoza blue)
       }
 
       -- Apply highlights using proper Lua syntax
@@ -60,7 +60,34 @@
         LineNr = { fg = colors.darktext, bg = colors.base03 },
         CursorLineNr = { fg = colors.yellow, bg = colors.base02, bold = true },
         StatusLine = { fg = colors.base2, bg = colors.base02 },
-        Visual = { fg = colors.violet, bg = colors.base03  }
+        Visual = { fg = colors.violet, bg = colors.base03 },
+
+        -- UI frames/borders in Kartoza orange
+        FloatBorder = { fg = colors.kartozaorange, bg = colors.base02 },
+        WinSeparator = { fg = colors.kartozaorange },
+        VertSplit = { fg = colors.kartozaorange },
+        TelescopeBorder = { fg = colors.kartozaorange },
+        TelescopePromptBorder = { fg = colors.kartozaorange },
+        TelescopeResultsBorder = { fg = colors.kartozaorange },
+        TelescopePreviewBorder = { fg = colors.kartozaorange },
+        FzfLuaBorder = { fg = colors.kartozaorange },
+        NotifyBorder = { fg = colors.kartozaorange },
+        WhichKeyBorder = { fg = colors.kartozaorange },
+        LspInfoBorder = { fg = colors.kartozaorange },
+        DiagnosticInfo = { fg = colors.kartozaorange },
+
+        -- Noice / cmdline borders
+        NoiceCmdlinePopupBorder = { fg = colors.kartozaorange },
+        NoiceCmdlinePopupBorderSearch = { fg = colors.kartozaorange },
+        NoicePopupBorder = { fg = colors.kartozaorange },
+        NoiceConfirmBorder = { fg = colors.kartozaorange },
+
+        -- Completion / misc popup borders
+        CmpBorder = { fg = colors.kartozaorange },
+        SagaBorder = { fg = colors.kartozaorange },
+        TroubleNormal = { fg = colors.base2, bg = colors.base03 },
+        LazyNormal = { fg = colors.base2, bg = colors.base03 },
+        MasonNormal = { fg = colors.base2, bg = colors.base03 },
       }
 
       -- Set all highlights
