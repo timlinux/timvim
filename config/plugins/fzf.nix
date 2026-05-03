@@ -7,6 +7,7 @@
         # Global ignore patterns for all fzf-lua commands
         file_ignore_patterns = [
           ".git/"
+          ".direnv/"
           "__pycache__/"
           "node_modules/"
           ".mypy_cache/"
@@ -15,10 +16,10 @@
         ];
         files = {
           # Explicitly use fd with exclusions
-          cmd = "fd --color=never --type f --type l --hidden --follow --exclude .git --exclude __pycache__ --exclude node_modules --exclude .mypy_cache --exclude .pytest_cache";
+          cmd = "fd --color=never --type f --type l --hidden --follow --exclude .git --exclude .direnv --exclude __pycache__ --exclude node_modules --exclude .mypy_cache --exclude .pytest_cache";
         };
         grep = {
-          rg_opts = "--color=never --hidden --no-heading --with-filename --line-number --column --smart-case --glob '!.git' --glob '!__pycache__'";
+          rg_opts = "--color=never --hidden --no-heading --with-filename --line-number --column --smart-case --glob '!.git' --glob '!.direnv' --glob '!__pycache__'";
         };
       };
     };

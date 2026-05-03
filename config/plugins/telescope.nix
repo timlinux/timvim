@@ -7,7 +7,10 @@
 
       setupOpts = {
         defaults = {
-          file_ignore_patterns = [ "__pycache__" ];
+          file_ignore_patterns = [
+            "__pycache__"
+            ".direnv"
+          ];
           preview = {
             # Enable chafa for image preview in telescope
             mime_hook = true;
@@ -158,7 +161,7 @@
             require('telescope.builtin').find_files({
               prompt_title = "Find Files (FZF)",
               hidden = true,
-              find_command = { "fd", "--type", "f", "--type", "l", "--hidden", "--follow", "--exclude", ".git", "--exclude", "__pycache__", "--exclude", "node_modules", "--exclude", ".mypy_cache", "--exclude", ".pytest_cache" },
+              find_command = { "fd", "--type", "f", "--type", "l", "--hidden", "--follow", "--exclude", ".git", "--exclude", ".direnv", "--exclude", "__pycache__", "--exclude", "node_modules", "--exclude", ".mypy_cache", "--exclude", ".pytest_cache" },
             })
           end, { desc = '󰈞 Find Files (FZF)' })
 
@@ -167,7 +170,7 @@
             require('telescope.builtin').live_grep({
               cwd = vim.fn.getcwd(),
               additional_args = function(opts)
-                return {"--hidden", "--glob", "!.git/*", "--fixed-strings"}
+                return {"--hidden", "--glob", "!.git/*", "--glob", "!.direnv/*", "--fixed-strings"}
               end,
             })
           end, { desc = '󰑑 Live Grep Files (Fixed Strings)' })
@@ -177,7 +180,7 @@
             require('telescope.builtin').live_grep({
               cwd = vim.fn.getcwd(),
               additional_args = function(opts)
-                return {"--hidden", "--glob", "!.git/*"}
+                return {"--hidden", "--glob", "!.git/*", "--glob", "!.direnv/*"}
               end,
             })
           end, { desc = '󰑑 Live Grep Files (Regex)' })

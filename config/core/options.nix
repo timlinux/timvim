@@ -15,7 +15,7 @@
       # Tab Settings
       tabstop = 2;
       softtabstop = 2;
-      showtabline = 2;
+      showtabline = 0;
       expandtab = true;
 
       # Indentation

@@ -12,7 +12,7 @@
     };
     luaConfigRC = {
       lualine_kartoza = ''
-        -- Kartoza lualine theme
+        -- Kartoza lualine theme with powerline bubbles and rounded caps
         local colors = {
           bg       = "#1e2020",
           fg       = "#f1f1f1",
@@ -24,31 +24,44 @@
           violet   = "#06969A",
           magenta  = "#569FC6",
           blue     = "#f8faf6",
-          red      = "#CC0403"
+          red      = "#CC0403",
+          gray     = "#8A8B8B",
         }
+
+        -- Mode color mapping for dynamic cap coloring
+        local mode_colors = {
+          n = colors.yellow, no = colors.yellow, nov = colors.yellow,
+          i = colors.green, ic = colors.green, ix = colors.green,
+          v = colors.cyan, V = colors.cyan, ['\22'] = colors.cyan,
+          s = colors.cyan, S = colors.cyan,
+          R = colors.red, Rv = colors.red,
+          c = colors.orange, cv = colors.orange,
+          t = colors.green,
+        }
+
         local kartoza = {
           normal = {
-            a = { fg = colors.bg, bg = colors.yellow, gui = 'bold' },
+            a = { fg = colors.fg, bg = colors.yellow, gui = 'bold' },
             b = { fg = colors.fg, bg = colors.darkblue },
             c = { fg = colors.fg, bg = colors.bg },
           },
           insert = {
-            a = { fg = colors.bg, bg = colors.green, gui = 'bold' },
+            a = { fg = colors.fg, bg = colors.green, gui = 'bold' },
             b = { fg = colors.fg, bg = colors.darkblue },
             c = { fg = colors.fg, bg = colors.bg },
           },
           visual = {
-            a = { fg = colors.bg, bg = colors.cyan, gui = 'bold' },
+            a = { fg = colors.fg, bg = colors.cyan, gui = 'bold' },
             b = { fg = colors.fg, bg = colors.darkblue },
             c = { fg = colors.fg, bg = colors.bg },
           },
           replace = {
-            a = { fg = colors.bg, bg = colors.red, gui = 'bold' },
+            a = { fg = colors.fg, bg = colors.red, gui = 'bold' },
             b = { fg = colors.fg, bg = colors.darkblue },
             c = { fg = colors.fg, bg = colors.bg },
           },
           command = {
-            a = { fg = colors.bg, bg = colors.orange, gui = 'bold' },
+            a = { fg = colors.fg, bg = colors.orange, gui = 'bold' },
             b = { fg = colors.fg, bg = colors.darkblue },
             c = { fg = colors.fg, bg = colors.bg },
           },
@@ -58,6 +71,7 @@
             c = { fg = colors.fg, bg = colors.bg },
           },
         }
+
         -- Global variable to track last yanked register
         vim.g.last_yanked_register = ""
         vim.g.yank_timer = nil
@@ -83,7 +97,6 @@
             if event.regname and event.regname ~= "" then
               show_yank_indicator(event.regname)
             else
-              -- Default register is "
               show_yank_indicator('"')
             end
           end,
@@ -92,37 +105,31 @@
         require('lualine').setup {
           options = {
             theme = kartoza,
-            section_separators = { left = "", right = "" },
-            component_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
+            component_separators = { left = "\u{e0b0}", right = "\u{e0b2}" },
             globalstatus = true,
           },
           sections = {
-            lualine_a = {'mode'},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename'},
-            lualine_x = {
-              -- Copilot status indicator
-              {
-                function()
-                  local client_ok, copilot_client = pcall(require, 'copilot.client')
-                  if client_ok and copilot_client then
-                    if copilot_client.is_disabled() then
-                      return "●"
-                    else
-                      return "● Ctl-Y"
-                    end
-                  end
-                  return ""
-                end,
-                color = function()
-                  local client_ok, copilot_client = pcall(require, 'copilot.client')
-                  if client_ok and copilot_client and not copilot_client.is_disabled() then
-                    return { fg = '#8ad384' }
-                  else
-                    return { fg = '#666666' }
-                  end
-                end,
-              },
+            -- All left content in section a for unified bubble bar
+            lualine_a = {
+              -- Mode - orange (theme-controlled, changes with mode)
+              { 'mode' },
+              -- Filename - blue
+              { 'filename', color = { fg = colors.fg, bg = colors.darkblue } },
+              -- Branch - gray
+              { 'branch', color = { fg = colors.fg, bg = colors.gray }, separator = "" },
+              -- Diff - gray (same bubble, no separator)
+              { 'diff', color = { bg = colors.gray }, separator = "" },
+              -- Diagnostics - gray (same bubble, no separator)
+              { 'diagnostics', color = { bg = colors.gray }, separator = "" },
+              -- Rounded right cap (gray to match branch/diff/diagnostics bubble)
+              { function() return "\u{e0b4}" end,
+                color = { fg = colors.gray, bg = colors.bg },
+                padding = 0 },
+            },
+            lualine_b = {},
+            -- Transient indicators float in the gap
+            lualine_c = {
               -- Macro recording indicator
               {
                 function()
@@ -133,8 +140,9 @@
                     return "Recording @" .. recording_register
                   end
                 end,
-                color = { fg = colors.bg, bg = colors.red, gui = 'bold' },
+                color = { fg = colors.fg, bg = colors.red, gui = 'bold' },
               },
+              -- Yank indicator
               {
                 function()
                   if vim.g.last_yanked_register and vim.g.last_yanked_register ~= "" then
@@ -143,12 +151,77 @@
                     return ""
                   end
                 end,
-                color = { fg = colors.bg, bg = colors.green, gui = 'bold' },
+                color = { fg = colors.fg, bg = colors.green, gui = 'bold' },
               },
-              'encoding', 'fileformat', 'filetype'
             },
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
+            lualine_x = {},
+            lualine_y = {},
+            -- All right content in section z for unified bubble bar (mirrored: gray -> blue -> orange)
+            lualine_z = {
+              -- Rounded left cap
+              { function() return "\u{e0b6}" end,
+                color = { fg = colors.gray, bg = colors.bg },
+                padding = 0 },
+              -- Copilot dot indicator (red = active, gray = disabled)
+              {
+                function()
+                  local ok, cc = pcall(require, 'copilot.client')
+                  if ok and cc then return "\u{25cf}" end
+                  return ""
+                end,
+                color = function()
+                  local ok, cc = pcall(require, 'copilot.client')
+                  if ok and cc and not cc.is_disabled() then
+                    return { fg = colors.red, bg = colors.gray }
+                  else
+                    return { fg = '#666666', bg = colors.gray }
+                  end
+                end,
+                on_click = function()
+                  local cmd = require('copilot.command')
+                  local client = require('copilot.client')
+                  if client.is_disabled() then
+                    cmd.enable()
+                  else
+                    cmd.disable()
+                  end
+                end,
+                padding = { left = 1, right = 0 },
+                separator = "",
+              },
+              -- Copilot text (white, only shown when active)
+              {
+                function()
+                  local ok, cc = pcall(require, 'copilot.client')
+                  if ok and cc and not cc.is_disabled() then
+                    return "Ctrl-y"
+                  end
+                  return ""
+                end,
+                color = { fg = colors.fg, bg = colors.gray },
+                on_click = function()
+                  local cmd = require('copilot.command')
+                  local client = require('copilot.client')
+                  if client.is_disabled() then
+                    cmd.enable()
+                  else
+                    cmd.disable()
+                  end
+                end,
+                padding = { left = 1, right = 1 },
+                separator = "",
+              },
+              -- Encoding - gray (same bubble)
+              { 'encoding', color = { fg = colors.fg, bg = colors.gray }, separator = "" },
+              -- Fileformat - gray (last in gray bubble, default separator creates triangle to blue)
+              { 'fileformat', color = { fg = colors.fg, bg = colors.gray } },
+              -- Filetype - blue
+              { 'filetype', color = { fg = colors.fg, bg = colors.darkblue } },
+              -- Progress - orange
+              { 'progress', color = { fg = colors.fg, bg = colors.yellow }, separator = "" },
+              -- Location - orange (same bubble)
+              { 'location', color = { fg = colors.fg, bg = colors.yellow } },
+            },
           }
         }
       '';
